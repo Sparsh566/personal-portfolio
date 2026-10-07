@@ -1,0 +1,95 @@
+import { SkillCategory } from "@/types";
+
+export const skillCategories: SkillCategory[] = [
+  {
+    cluster: "LANGUAGES",
+    subsystem: "CHASSIS / CORE",
+    items: ["Python", "C", "JavaScript", "TypeScript", "HTML5", "CSS3", "SQL"],
+  },
+  {
+    cluster: "AI & MACHINE LEARNING",
+    subsystem: "POWERTRAIN / INTELLIGENCE",
+    items: [
+      "Machine Learning",
+      "Generative AI",
+      "RAG Architecture",
+      "AI Agents",
+      "Vector Embeddings",
+      "Semantic Search",
+      "Computer Vision",
+      "YOLOv8",
+      "Prompt Engineering",
+    ],
+  },
+  {
+    cluster: "DEVELOPMENT & APIS",
+    subsystem: "AERODYNAMICS / INTERFACES",
+    items: [
+      "React",
+      "Next.js",
+      "FastAPI",
+      "Node.js",
+      "REST APIs",
+      "Tailwind CSS",
+      "Streamlit",
+      "WebSockets",
+    ],
+  },
+  {
+    cluster: "DATA & SIMULATION",
+    subsystem: "TELEMETRY / ANALYTICS",
+    items: [
+      "NumPy",
+      "Pandas",
+      "Scikit-learn",
+      "FAISS",
+      "FastF1",
+      "Data Visualization",
+      "OpenCV",
+    ],
+  },
+  {
+    cluster: "DATABASES & STORAGE",
+    subsystem: "FUEL SYSTEM / PERSISTENCE",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "SQLAlchemy", "IPFS"],
+  },
+  {
+    cluster: "EMBEDDED & HARDWARE",
+    subsystem: "ELECTRONICS / SENSORS",
+    items: [
+      "ESP32",
+      "Embedded C",
+      "C++",
+      "Gas Sensors",
+      "Flame Sensors",
+      "Robotic Platforms",
+      "Circuit Isolation",
+    ],
+  },
+  {
+    cluster: "TOOLS & INFRASTRUCTURE",
+    subsystem: "PIT WALL / WORKFLOW",
+    items: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Vercel",
+      "Linux",
+      "Red Hat Enterprise Linux",
+      "Postman",
+    ],
+  },
+  {
+    cluster: "SPECIALIZED & WEB3",
+    subsystem: "HYBRID SYSTEM / PROTOCOLS",
+    items: [
+      "Groq API",
+      "Tavily Search",
+      "OpenAI API",
+      "Amazon Bedrock",
+      "Flow Blockchain",
+      "Smart Contracts",
+      "Cadence",
+    ],
+  },
+];

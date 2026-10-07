@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --color-carbon-950: #070809;
+  --color-carbon-900: #0b0c0e;
+  --color-carbon-850: #0f1013;
+  --color-carbon-800: #14161b;
+  --color-carbon-700: #1b1e25;
+  --color-border-subtle: #232730;
+  --color-border-active: #373e4d;
+  --color-racing-red: #e10600;
+  --color-racing-amber: #e5a93c;
+  --color-timing-green: #10b981;
+  --color-sector-purple: #8b5cf6;
+  --color-telemetry-gray: #8f94a0;
+  --color-telemetry-light: #f3f4f6;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+:root {
+  --bg-primary: #070809;
+  --bg-surface: #0b0c0e;
+  --bg-card: #121418;
+  --border-subtle: #232730;
+  --border-strong: #373e4d;
+  --accent-red: #e10600;
+  --accent-amber: #e5a93c;
+  --status-green: #10b981;
+  --status-purple: #8b5cf6;
+  --text-primary: #f3f4f6;
+  --text-muted: #8f94a0;
+}
+
+html {
+  background-color: #070809;
+  color: #f3f4f6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: #070809;
+  color: #f3f4f6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* F1 Engineering Grid Background */
+.f1-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(35, 39, 48, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(35, 39, 48, 0.4) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.f1-grid-fine {
+  background-image: 
+    linear-gradient(to right, rgba(35, 39, 48, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(35, 39, 48, 0.25) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Technical Corner Markings */
+.telemetry-bracket {
+  position: relative;
+}
+
+.telemetry-bracket::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #e10600;
+  border-left: 2px solid #e10600;
+  pointer-events: none;
+}
+
+.telemetry-bracket::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #373e4d;
+  border-right: 2px solid #373e4d;
+  pointer-events: none;
+}
+
+/* Subtle Horizontal Sector Line */
+.sector-divider {
+  height: 1px;
+  background: linear-gradient(90deg, #e10600 0%, #232730 40%, rgba(35, 39, 48, 0) 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070809;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232730;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e10600;
+}
+
+/* Pulsing Status Dot */
+@keyframes f1-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+}
+
+.animate-f1-pulse {
+  animation: f1-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Telemetry Line Draw In */
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-telemetry-draw {
+  animation: dash 2.4s ease-out forwards;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
