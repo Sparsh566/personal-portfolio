@@ -40,14 +40,14 @@ export function GarageSection() {
             <div className="flex items-center space-x-3 mb-2">
               <span className="w-2 h-6 bg-[#e10600]" />
               <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase font-bold">
-                THE GARAGE // REPOSITORY
+                OTHER PROJECTS & PROTOTYPES
               </span>
               <span className="font-mono text-xs text-[#8f94a0] uppercase">
-                [ SECONDARY PROJECTS & HARDWARE ]
+                HARDWARE & SOFTWARE REPOSITORY
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#f3f4f6]">
-              Autonomous Systems & Applied Software
+              Hardware Systems & Applied Software
             </h2>
           </div>
 

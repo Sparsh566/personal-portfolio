@@ -3,12 +3,12 @@ import { SkillCategory } from "@/types";
 export const skillCategories: SkillCategory[] = [
   {
     cluster: "LANGUAGES",
-    subsystem: "CHASSIS / CORE",
+    subsystem: "PROGRAMMING LANGUAGES",
     items: ["Python", "C", "JavaScript", "TypeScript", "HTML5", "CSS3", "SQL"],
   },
   {
     cluster: "AI & MACHINE LEARNING",
-    subsystem: "POWERTRAIN / INTELLIGENCE",
+    subsystem: "AI & MACHINE LEARNING",
     items: [
       "Machine Learning",
       "Generative AI",
@@ -23,7 +23,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     cluster: "DEVELOPMENT & APIS",
-    subsystem: "AERODYNAMICS / INTERFACES",
+    subsystem: "WEB & FRAMEWORKS",
     items: [
       "React",
       "Next.js",
@@ -37,7 +37,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     cluster: "DATA & SIMULATION",
-    subsystem: "TELEMETRY / ANALYTICS",
+    subsystem: "DATA SCIENCE & SIMULATION",
     items: [
       "NumPy",
       "Pandas",
@@ -50,12 +50,12 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     cluster: "DATABASES & STORAGE",
-    subsystem: "FUEL SYSTEM / PERSISTENCE",
+    subsystem: "DATABASES & STORAGE",
     items: ["PostgreSQL", "MySQL", "MongoDB", "SQLAlchemy", "IPFS"],
   },
   {
     cluster: "EMBEDDED & HARDWARE",
-    subsystem: "ELECTRONICS / SENSORS",
+    subsystem: "HARDWARE & EMBEDDED",
     items: [
       "ESP32",
       "Embedded C",
@@ -68,7 +68,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     cluster: "TOOLS & INFRASTRUCTURE",
-    subsystem: "PIT WALL / WORKFLOW",
+    subsystem: "DEVOPS & WORKFLOW",
     items: [
       "Git",
       "GitHub",
@@ -81,7 +81,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     cluster: "SPECIALIZED & WEB3",
-    subsystem: "HYBRID SYSTEM / PROTOCOLS",
+    subsystem: "CLOUD & WEB3",
     items: [
       "Groq API",
       "Tavily Search",

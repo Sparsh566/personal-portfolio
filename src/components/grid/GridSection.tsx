@@ -1,9 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { patentCatalog, certificationCatalog } from "@/data/certifications";
 import { siteConfig } from "@/data/site";
+import { CertificationItem } from "@/types";
+import { CertificateModal } from "./CertificateModal";
 
 export function GridSection() {
+  const [selectedCert, setSelectedCert] = useState<CertificationItem | null>(null);
+
   return (
     <section
       id="grid"
@@ -16,10 +21,10 @@ export function GridSection() {
             <div className="flex items-center space-x-3 mb-2">
               <span className="w-2 h-6 bg-[#e10600]" />
               <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase font-bold">
-                STARTING GRID // CREDENTIALS
+                EDUCATION & CREDENTIALS
               </span>
               <span className="font-mono text-xs text-[#8f94a0] uppercase">
-                [ EDUCATION, PATENTS & CERTIFICATIONS ]
+                ACADEMICS, PATENTS & CERTIFICATIONS
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#f3f4f6]">
@@ -179,29 +184,33 @@ export function GridSection() {
 
                 <div className="pt-4 mt-4 border-t border-[#232730] flex items-center justify-between text-[11px]">
                   {cert.credentialId ? (
-                    <span className="text-[#8f94a0] text-[9px] truncate max-w-[150px]">
+                    <span className="text-[#8f94a0] text-[9px] truncate max-w-[120px]">
                       ID: {cert.credentialId}
                     </span>
                   ) : (
-                    <span className="text-[#8f94a0] text-[9px]">COMPLETED</span>
+                    <span className="text-[#8f94a0] text-[9px]">VERIFIED</span>
                   )}
 
-                  {cert.verifyUrl && (
-                    <a
-                      href={cert.verifyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#e10600] hover:underline font-bold text-[10px]"
-                    >
-                      VERIFY &rarr;
-                    </a>
-                  )}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCert(cert)}
+                    className="px-2.5 py-1 bg-[#e10600]/10 hover:bg-[#e10600] text-[#e10600] hover:text-white border border-[#e10600]/40 hover:border-[#e10600] transition-colors font-bold text-[10px] inline-flex items-center space-x-1"
+                  >
+                    <span>VIEW CERTIFICATE</span>
+                    <span>&rarr;</span>
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Direct Certificate Modal Preview */}
+      <CertificateModal
+        certificate={selectedCert}
+        onClose={() => setSelectedCert(null)}
+      />
     </section>
   );
 }

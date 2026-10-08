@@ -35,14 +35,14 @@ export function RaceEngineeringSection() {
             <div className="flex items-center space-x-3 mb-2">
               <span className="w-2 h-6 bg-[#e10600]" />
               <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase font-bold">
-                RACE ENGINEERING // CASE STUDIES
+                FEATURED PROJECTS
               </span>
               <span className="font-mono text-xs text-[#8f94a0] uppercase">
-                [ FEATURED SYSTEMS ]
+                ARCHITECTURE & SYSTEMS
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#f3f4f6]">
-              Production Systems & Architectures
+              Featured Production Systems
             </h2>
           </div>
 

@@ -9,14 +9,14 @@ export function DriverProfile() {
       className="py-24 bg-[#070809] border-b border-[#232730] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Telemetry Identifier */}
+        {/* Section Identifier */}
         <div className="flex items-center space-x-3 mb-8">
           <span className="w-2 h-6 bg-[#e10600]" />
           <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase font-bold">
-            DRIVER PROFILE // SECTOR 00
+            ABOUT ME
           </span>
           <span className="font-mono text-xs text-[#8f94a0] uppercase">
-            [ ABOUT THE ENGINEER ]
+            ENGINEERING PROFILE
           </span>
         </div>
 
@@ -68,8 +68,8 @@ export function DriverProfile() {
           <div className="lg:col-span-5 space-y-4">
             <div className="border border-[#232730] bg-[#0b0c0e] p-6 telemetry-bracket">
               <div className="flex items-center justify-between border-b border-[#232730] pb-3 mb-6 font-mono text-xs text-[#8f94a0]">
-                <span className="text-[#e10600] font-bold">TELEMETRY BENCHMARK</span>
-                <span>ENGINEER STATUS: ACTIVE</span>
+                <span className="text-[#e10600] font-bold">HIGHLIGHTS & METRICS</span>
+                <span>STATUS: ACTIVE</span>
               </div>
 
               <div className="grid grid-cols-2 gap-4">

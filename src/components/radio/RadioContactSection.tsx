@@ -23,10 +23,10 @@ export function RadioContactSection() {
         <div className="flex items-center space-x-3 mb-8">
           <span className="w-2 h-6 bg-[#e10600]" />
           <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase font-bold">
-            TEAM RADIO // DISPATCH
+            CONTACT
           </span>
           <span className="font-mono text-xs text-[#8f94a0] uppercase">
-            [ CONTACT THE ENGINEER ]
+            GET IN TOUCH
           </span>
         </div>
 
@@ -39,7 +39,7 @@ export function RadioContactSection() {
               </h2>
               <p className="text-base sm:text-lg text-[#8f94a0] leading-relaxed max-w-xl">
                 Have an idea, opportunity, collaboration, or interesting problem?
-                Reach out directly via radio dispatch. I am available for software engineering
+                Reach out directly via email. I am available for software engineering
                 internships, AI research roles, and technical collaborations.
               </p>
 
@@ -47,7 +47,7 @@ export function RadioContactSection() {
               <div className="p-4 bg-[#14161b] border border-[#232730] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono">
                 <div>
                   <span className="text-[10px] text-[#8f94a0] uppercase block">
-                    RADIO FREQUENCY // DIRECT INBOX
+                    DIRECT EMAIL INBOX
                   </span>
                   <span className="text-base font-bold text-[#f3f4f6]">
                     {siteConfig.email}

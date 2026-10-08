@@ -10,7 +10,6 @@ import { GarageSection } from "@/components/garage/GarageSection";
 import { TelemetrySection } from "@/components/telemetry/TelemetrySection";
 import { RaceLogSection } from "@/components/race-log/RaceLogSection";
 import { GridSection } from "@/components/grid/GridSection";
-import { PitWallActivity } from "@/components/activity/PitWallActivity";
 import { RadioContactSection } from "@/components/radio/RadioContactSection";
 import { Footer } from "@/components/common/Footer";
 
@@ -30,7 +29,6 @@ export default function Home() {
       "telemetry",
       "race-log",
       "grid",
-      "pit-wall",
       "radio",
     ];
 
@@ -70,7 +68,6 @@ export default function Home() {
         <TelemetrySection />
         <RaceLogSection />
         <GridSection />
-        <PitWallActivity />
         <RadioContactSection />
       </main>
 

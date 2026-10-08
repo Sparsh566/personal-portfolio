@@ -23,19 +23,19 @@ export function TelemetrySection() {
             <div className="flex items-center space-x-3 mb-2">
               <span className="w-2 h-6 bg-[#e10600]" />
               <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase font-bold">
-                TELEMETRY // SIGNALS
+                SKILLS & TECHNOLOGIES
               </span>
               <span className="font-mono text-xs text-[#8f94a0] uppercase">
-                [ SKILLS & CAPABILITIES ]
+                TECHNICAL CAPABILITIES
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#f3f4f6]">
-              Technical Subsystems & Tooling
+              Core Competencies & Tooling
             </h2>
           </div>
 
           <div className="font-mono text-xs text-[#8f94a0]">
-            STATUS: ACTIVE SUBSYSTEMS
+            STATUS: ACTIVE COMPETENCIES
           </div>
         </div>
 
@@ -50,7 +50,7 @@ export function TelemetrySection() {
                 : "border-[#232730] text-[#8f94a0] hover:text-[#f3f4f6] hover:border-[#373e4d] bg-[#0b0c0e]"
             }`}
           >
-            ALL SUBSYSTEMS
+            ALL SKILLS
           </button>
           {skillCategories.map((cat) => {
             const isSelected = selectedCluster === cat.cluster;

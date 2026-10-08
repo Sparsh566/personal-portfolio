@@ -87,7 +87,7 @@ export function Navigation({ activeSection }: NavigationProps) {
                 href="#radio"
                 className="font-mono text-xs tracking-wider uppercase px-4 py-1.5 bg-[#e10600] text-[#f3f4f6] font-semibold hover:bg-[#b80500] transition-colors flex items-center space-x-1.5"
               >
-                <span>RADIO</span>
+                <span>CONTACT</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
               </a>
             </div>
@@ -133,7 +133,7 @@ export function Navigation({ activeSection }: NavigationProps) {
           <div className="space-y-6">
             <div className="border-b border-[#232730] pb-4 flex items-center justify-between">
               <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase">
-                RACE CONTROL MENU
+                NAVIGATION MENU
               </span>
               <div className="flex items-center space-x-1.5">
                 <span className="w-2 h-2 rounded-full bg-[#10b981] animate-f1-pulse" />
@@ -170,7 +170,7 @@ export function Navigation({ activeSection }: NavigationProps) {
               onClick={() => setMobileMenuOpen(false)}
               className="w-full block text-center font-mono text-xs tracking-wider uppercase py-3 bg-[#e10600] text-white font-semibold"
             >
-              CONTACT RADIO
+              GET IN TOUCH
             </a>
           </div>
         </div>
