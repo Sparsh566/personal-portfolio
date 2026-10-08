@@ -77,6 +77,20 @@ export const leadershipData: ExperienceItem[] = [
     ],
     tags: ["Discipline", "Leadership", "Team Operations"],
   },
+  {
+    id: "hack4brahma-volunteer",
+    role: "PR Volunteer",
+    organization: "Hack4Brahma Hackathon",
+    period: "Completed",
+    type: "VOLUNTEER & OUTREACH",
+    location: "SIT Nagpur",
+    summary: "Managed public relations, outreach, and participant support for hackathon teams.",
+    bullets: [
+      "Coordinated with student developers and technical mentors during hackathon sprints.",
+      "Facilitated communication channels, event outreach, and team onboarding.",
+    ],
+    tags: ["Public Relations", "Hackathons", "Event Operations"],
+  },
 ];
 
 export const achievementsData: ExperienceItem[] = [
@@ -107,6 +121,20 @@ export const achievementsData: ExperienceItem[] = [
       "Patent App 202621072831 A: Blockchain-Based Tender Management System with Smart Contracts.",
     ],
     tags: ["Autonomous Robotics", "Smart Contracts", "Flow Blockchain", "Government Patent"],
+  },
+  {
+    id: "hackathons-participant",
+    role: "Hackathon Competitor",
+    organization: "CodeHunt & HackAShastra",
+    period: "2025 - 2026",
+    type: "HACKATHONS",
+    location: "National",
+    summary: "Built algorithmic simulation and software prototypes under time-constrained hackathon sprints.",
+    bullets: [
+      "Built deterministic decision logic and interactive simulation scenarios in CodeHunt.",
+      "Competed across engineering domains in HackAShastra solving algorithmic problems.",
+    ],
+    tags: ["Algorithms", "Problem Solving", "Rapid Prototyping"],
   },
 ];
 
