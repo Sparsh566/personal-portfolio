@@ -30,25 +30,58 @@ export function RadioContactSection() {
     setResponseMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+      let delivered = false;
 
-      const data = await response.json();
+      // 1. Submit directly via Web3Forms API if access key is available in environment
+      if (accessKey) {
+        try {
+          const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              access_key: accessKey,
+              name: formData.name,
+              email: formData.email,
+              subject: formData.subject || `Portfolio Inquiry from ${formData.name}`,
+              message: formData.message,
+              from_name: `${formData.name} (Portfolio Inquiry)`,
+            }),
+          });
 
-      if (response.ok && data.success) {
+          const data = await response.json();
+          if (response.ok && data.success) {
+            delivered = true;
+          }
+        } catch (web3Err) {
+          console.warn("Direct Web3Forms submission failed, using server fallback:", web3Err);
+        }
+      }
+
+      // 2. Fallback to internal API route if direct transmission did not succeed
+      if (!delivered) {
+        const fallbackRes = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        const fallbackData = await fallbackRes.json();
+        if (fallbackRes.ok && fallbackData.success) {
+          delivered = true;
+        } else {
+          throw new Error(fallbackData.error || "Failed to deliver message");
+        }
+      }
+
+      if (delivered) {
         setStatus("success");
         setResponseMessage(
           "Your message has been sent directly to Sparsh's inbox (1774.sparsh@gmail.com). Thank you for reaching out!"
         );
         setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setStatus("error");
-        setResponseMessage(data.error || "Failed to send message. Please try again.");
       }
     } catch (err) {
       console.error("Form submission error:", err);
