@@ -12,8 +12,8 @@ export function RadioContactSection() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [copiedMessage, setCopiedMessage] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [responseMessage, setResponseMessage] = useState("");
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(siteConfig.email);
@@ -21,46 +21,66 @@ export function RadioContactSection() {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
-  const handleCopyMessageDraft = () => {
-    const draftText = `From: ${formData.name} (${formData.email})\nSubject: ${formData.subject || "Portfolio Inquiry"}\n\n${formData.message}`;
-    navigator.clipboard.writeText(draftText);
-    setCopiedMessage(true);
-    setTimeout(() => setCopiedMessage(false), 2500);
-  };
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
+    setStatus("idle");
+    setResponseMessage("");
 
     try {
-      // 1. Post to internal Next.js API endpoint
-      await fetch("/api/contact", {
+      const response = await fetch("https://formsubmit.co/ajax/1774.sparsh@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: formData.subject || `Portfolio Inquiry from ${formData.name}`,
+          message: formData.message,
+          _captcha: "false",
+          _template: "table",
+        }),
       });
 
-      // 2. Prepare mailto URL with formatted body
-      const mailtoSubject = encodeURIComponent(
-        formData.subject ? `[Portfolio] ${formData.subject}` : `[Portfolio Inquiry] From ${formData.name}`
-      );
-      const mailtoBody = encodeURIComponent(
-        `Hi Sparsh,\n\n${formData.message}\n\n---\nBest regards,\n${formData.name}\nEmail: ${formData.email}`
-      );
-      const mailtoUrl = `mailto:${siteConfig.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+      const data = await response.json();
 
-      // Open user's email client
-      window.location.href = mailtoUrl;
-
-      setIsSubmitted(true);
+      if (response.ok || data.success === "true" || (data.message && data.message.includes("Activation"))) {
+        setStatus("success");
+        setResponseMessage(
+          data.message && data.message.includes("Activation")
+            ? "Your message has been dispatched! (If this is your first submission, an activation email has been sent to your inbox to confirm)."
+            : "Your message has been sent directly to Sparsh's inbox. Thank you for reaching out!"
+        );
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+        setResponseMessage(data.message || "Failed to send message. Please try again.");
+      }
     } catch (err) {
-      console.error("Submission error:", err);
-      // Fallback direct mailto trigger
-      const fallbackUrl = `mailto:${siteConfig.email}?subject=Portfolio Inquiry from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}`;
-      window.location.href = fallbackUrl;
-      setIsSubmitted(true);
+      console.error("Form submission error:", err);
+      // Fallback via our Next.js API route
+      try {
+        const fallbackRes = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        if (fallbackRes.ok) {
+          setStatus("success");
+          setResponseMessage("Your message has been received and logged directly.");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        } else {
+          setStatus("error");
+          setResponseMessage("Network error while transmitting. Please try again or copy email directly.");
+        }
+      } catch {
+        setStatus("error");
+        setResponseMessage("Network connection error. Please try again.");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -79,56 +99,65 @@ export function RadioContactSection() {
             CONTACT
           </span>
           <span className="font-mono text-xs text-[#8f94a0] uppercase">
-            DIRECT MAIL SERVICE
+            DIRECT INBOX DISPATCH
           </span>
         </div>
 
         <div className="border border-[#232730] bg-[#0b0c0e] p-6 sm:p-10 telemetry-bracket">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            {/* Left Column: Direct Message Form */}
+            {/* Left Column: Direct Message Web Form */}
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#f3f4f6] tracking-tight">
-                  Send a Direct Message
+                  Get in Touch
                 </h2>
                 <p className="text-sm sm:text-base text-[#8f94a0] leading-relaxed mt-2">
-                  Have an opportunity, internship inquiry, or technical collaboration?
-                  Fill out the form below to send an email directly to my inbox.
+                  Send a message directly to my email inbox. Whether it is an internship
+                  opportunity, technical collaboration, or project inquiry, I will get back to you promptly.
                 </p>
               </div>
 
-              {isSubmitted ? (
-                <div className="p-6 bg-[#14161b] border border-[#10b981] space-y-4">
+              {/* Success Notification Banner */}
+              {status === "success" && (
+                <div className="p-5 bg-[#14161b] border border-[#10b981] space-y-3">
                   <div className="flex items-center space-x-2 text-[#10b981] font-mono text-xs font-bold">
                     <span className="w-2 h-2 rounded-full bg-[#10b981]" />
-                    <span>STATUS: EMAIL CLIENT OPENED & READY TO TRANSMIT</span>
+                    <span>STATUS: MESSAGE DELIVERED TO INBOX</span>
                   </div>
-                  <p className="text-sm text-[#f3f4f6]">
-                    Your message has been prepared for <span className="text-[#10b981] font-mono">{siteConfig.email}</span>. If your mail client didn&apos;t open automatically, you can copy the formatted draft below.
+                  <p className="text-sm text-[#f3f4f6] leading-relaxed">
+                    {responseMessage}
                   </p>
-                  <div className="flex flex-wrap gap-3 pt-2">
-                    <button
-                      type="button"
-                      onClick={handleCopyMessageDraft}
-                      className="px-4 py-2 border border-[#373e4d] hover:border-[#e10600] text-xs font-mono text-[#f3f4f6] uppercase tracking-wider bg-[#0b0c0e] transition-colors"
-                    >
-                      {copiedMessage ? "DRAFT COPIED" : "COPY MESSAGE DRAFT"}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setIsSubmitted(false)}
-                      className="px-4 py-2 border border-[#373e4d] hover:border-[#8f94a0] text-xs font-mono text-[#8f94a0] hover:text-white uppercase tracking-wider bg-[#0b0c0e] transition-colors"
-                    >
-                      WRITE ANOTHER MESSAGE
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("idle")}
+                    className="px-4 py-2 border border-[#373e4d] hover:border-[#10b981] text-xs font-mono text-[#f3f4f6] uppercase tracking-wider bg-[#0b0c0e] transition-colors"
+                  >
+                    SEND ANOTHER MESSAGE
+                  </button>
                 </div>
-              ) : (
+              )}
+
+              {/* Error Notification Banner */}
+              {status === "error" && (
+                <div className="p-4 bg-[#1e1012] border border-[#e10600] text-xs font-mono text-[#f3f4f6] flex items-center justify-between">
+                  <span>{responseMessage}</span>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("idle")}
+                    className="underline text-[#e10600] ml-2"
+                  >
+                    DISMISS
+                  </button>
+                </div>
+              )}
+
+              {/* The Web Form */}
+              {status !== "success" && (
                 <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name Input */}
                     <div>
-                      <label htmlFor="contact-name" className="text-[#8f94a0] uppercase block mb-1.5">
+                      <label htmlFor="contact-name" className="text-[#8f94a0] uppercase block mb-1.5 font-bold">
                         YOUR NAME <span className="text-[#e10600]">*</span>
                       </label>
                       <input
@@ -144,7 +173,7 @@ export function RadioContactSection() {
 
                     {/* Email Input */}
                     <div>
-                      <label htmlFor="contact-email" className="text-[#8f94a0] uppercase block mb-1.5">
+                      <label htmlFor="contact-email" className="text-[#8f94a0] uppercase block mb-1.5 font-bold">
                         YOUR EMAIL <span className="text-[#e10600]">*</span>
                       </label>
                       <input
@@ -161,7 +190,7 @@ export function RadioContactSection() {
 
                   {/* Subject Input */}
                   <div>
-                    <label htmlFor="contact-subject" className="text-[#8f94a0] uppercase block mb-1.5">
+                    <label htmlFor="contact-subject" className="text-[#8f94a0] uppercase block mb-1.5 font-bold">
                       SUBJECT / TOPIC
                     </label>
                     <input
@@ -176,7 +205,7 @@ export function RadioContactSection() {
 
                   {/* Message Textarea */}
                   <div>
-                    <label htmlFor="contact-message" className="text-[#8f94a0] uppercase block mb-1.5">
+                    <label htmlFor="contact-message" className="text-[#8f94a0] uppercase block mb-1.5 font-bold">
                       MESSAGE <span className="text-[#e10600]">*</span>
                     </label>
                     <textarea
@@ -185,7 +214,7 @@ export function RadioContactSection() {
                       rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Hi Sparsh, I came across your portfolio and wanted to reach out regarding..."
+                      placeholder="Hi Sparsh, I came across your portfolio and would love to connect regarding..."
                       className="w-full px-3.5 py-2.5 bg-[#121418] border border-[#232730] text-[#f3f4f6] placeholder-[#4a5568] focus:border-[#e10600] focus:outline-none transition-colors font-sans text-sm resize-none"
                     />
                   </div>
@@ -195,22 +224,31 @@ export function RadioContactSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-7 py-3 bg-[#e10600] hover:bg-[#b80500] disabled:bg-[#551010] text-white font-mono text-xs uppercase tracking-wider font-bold transition-colors inline-flex items-center space-x-2 border border-[#e10600]"
+                      className="px-8 py-3.5 bg-[#e10600] hover:bg-[#b80500] disabled:bg-[#551010] text-white font-mono text-xs uppercase tracking-wider font-bold transition-all inline-flex items-center space-x-2 border border-[#e10600] shadow-lg shadow-[#e10600]/20 cursor-pointer"
                     >
-                      <span>{isSubmitting ? "PREPARING DISPATCH..." : "TRANSMIT MESSAGE"}</span>
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="square"
-                          strokeLinejoin="miter"
-                          strokeWidth={2}
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
+                      {isSubmitting ? (
+                        <>
+                          <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          <span>SENDING TO INBOX...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>SEND MESSAGE</span>
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="square"
+                              strokeLinejoin="miter"
+                              strokeWidth={2}
+                              d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            />
+                          </svg>
+                        </>
+                      )}
                     </button>
                   </div>
                 </form>
@@ -221,7 +259,7 @@ export function RadioContactSection() {
             <div className="lg:col-span-5 space-y-6">
               {/* Direct Email Quick Box */}
               <div className="p-5 bg-[#14161b] border border-[#232730] space-y-3 font-mono">
-                <span className="text-[10px] text-[#8f94a0] uppercase block tracking-wider">
+                <span className="text-[10px] text-[#8f94a0] uppercase block tracking-wider font-bold">
                   DIRECT EMAIL INBOX
                 </span>
                 <div className="text-base font-bold text-[#f3f4f6] break-all">
@@ -230,7 +268,7 @@ export function RadioContactSection() {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="w-full py-2 border border-[#373e4d] hover:border-[#e10600] text-xs text-[#f3f4f6] uppercase tracking-wider transition-colors bg-[#0b0c0e]"
+                  className="w-full py-2.5 border border-[#373e4d] hover:border-[#e10600] text-xs text-[#f3f4f6] uppercase tracking-wider transition-colors bg-[#0b0c0e] font-bold"
                 >
                   {copiedEmail ? "COPIED TO CLIPBOARD" : "COPY EMAIL ADDRESS"}
                 </button>
@@ -243,7 +281,7 @@ export function RadioContactSection() {
                     <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
                     <span className="text-[#f3f4f6] font-semibold">INBOX STATUS</span>
                   </div>
-                  <span className="text-[#10b981]">ACTIVE</span>
+                  <span className="text-[#10b981]">ACCEPTING MESSAGES</span>
                 </div>
 
                 <div className="space-y-2 text-[#8f94a0]">
@@ -256,12 +294,12 @@ export function RadioContactSection() {
                     <span className="text-[#f3f4f6]">NAGPUR, INDIA</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>RESPONSE:</span>
+                    <span>RESPONSE TIME:</span>
                     <span className="text-[#10b981]">WITHIN 24 HOURS</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>OPPORTUNITIES:</span>
-                    <span className="text-[#f3f4f6]">INTERNSHIPS & RESEARCH</span>
+                    <span>STATUS:</span>
+                    <span className="text-[#f3f4f6]">OPEN TO OPPORTUNITIES</span>
                   </div>
                 </div>
 
@@ -291,3 +329,6 @@ export function RadioContactSection() {
     </section>
   );
 }
+
+// Named export for compatibility
+export { RadioContactSection as ContactSection };
