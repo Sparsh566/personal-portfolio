@@ -136,31 +136,27 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: 3D Telemetry Simulation or SVG Fallback */}
+          {/* Right Column: Vehicle Dynamics & Engineering Display */}
           <div className="lg:col-span-5 relative">
             <div className="relative border border-[#232730] bg-[#0b0c0e]/80 p-2 telemetry-bracket">
               {/* Header Strip */}
               <div className="flex items-center justify-between px-3 py-2 border-b border-[#232730] font-mono text-[10px] tracking-wider text-[#8f94a0]">
                 <div className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 bg-[#e10600]" />
-                  <span>3D VEHICLE DYNAMICS</span>
+                  <span>VEHICLE TELEMETRY & AERO DYNAMICS</span>
                 </div>
-                <span className="text-[#10b981]">F1 AERODYNAMICS</span>
+                <span className="text-[#10b981]">SYSTEM ACTIVE</span>
               </div>
 
               {/* Canvas Container */}
-              <div className="relative h-[360px] sm:h-[420px] w-full flex items-center justify-center">
-                {isMobile || prefersReducedMotion ? (
-                  <HeroFallback />
-                ) : (
-                  <HeroCanvas isVisible={isVisible} />
-                )}
+              <div className="relative w-full flex items-center justify-center">
+                <HeroCanvas isVisible={isVisible} />
               </div>
 
               {/* Footer Readout */}
               <div className="flex items-center justify-between px-3 py-2 border-t border-[#232730] font-mono text-[10px] text-[#8f94a0]">
-                <span>DRAG COEFFICIENT & DOWNFORCE</span>
-                <span className="text-[#10b981]">SYSTEM ACTIVE</span>
+                <span>DOWNFORCE: 1450 KG // DRAG: 0.72</span>
+                <span className="text-[#10b981]">REAL-TIME SCAN</span>
               </div>
             </div>
           </div>
