@@ -152,15 +152,41 @@ export function GridSection() {
             {certificationCatalog.map((cert) => (
               <div
                 key={cert.id}
-                className="bg-[#0b0c0e] border border-[#232730] hover:border-[#373e4d] transition-colors p-5 flex flex-col justify-between font-mono"
+                onClick={() => setSelectedCert(cert)}
+                className="bg-[#0b0c0e] border border-[#232730] hover:border-[#e10600]/60 transition-all duration-200 p-5 flex flex-col justify-between font-mono telemetry-bracket cursor-pointer group"
               >
                 <div>
+                  {/* Certificate Document Header Banner */}
+                  <div className="relative mb-3 p-2.5 bg-[#14161b] border border-[#232730] group-hover:border-[#e10600]/50 transition-colors flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <svg
+                        className="w-4 h-4 text-[#e10600]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="square"
+                          strokeLinejoin="miter"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                        />
+                      </svg>
+                      <span className="text-[10px] text-[#f3f4f6] font-bold uppercase tracking-wider">
+                        CERTIFICATE PREVIEW
+                      </span>
+                    </div>
+                    <span className="text-[9px] text-[#10b981] font-bold uppercase">
+                      VIEW IMAGE
+                    </span>
+                  </div>
+
                   <div className="flex items-center justify-between text-[10px] text-[#8f94a0] pb-2 border-b border-[#232730]">
                     <span>{cert.issuer}</span>
                     <span>{cert.issueDate}</span>
                   </div>
 
-                  <h4 className="text-sm font-bold text-[#f3f4f6] font-sans mt-3">
+                  <h4 className="text-sm font-bold text-[#f3f4f6] font-sans mt-3 group-hover:text-white transition-colors">
                     {cert.title}
                   </h4>
 
@@ -193,7 +219,10 @@ export function GridSection() {
 
                   <button
                     type="button"
-                    onClick={() => setSelectedCert(cert)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedCert(cert);
+                    }}
                     className="px-2.5 py-1 bg-[#e10600]/10 hover:bg-[#e10600] text-[#e10600] hover:text-white border border-[#e10600]/40 hover:border-[#e10600] transition-colors font-bold text-[10px] inline-flex items-center space-x-1"
                   >
                     <span>VIEW CERTIFICATE</span>
