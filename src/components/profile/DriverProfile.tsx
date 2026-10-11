@@ -56,9 +56,9 @@ export function DriverProfile() {
                 </span>
               </div>
               <div>
-                <span className="text-[#8f94a0] block uppercase">DEGREE & SPECIALIZATION</span>
+                <span className="text-[#8f94a0] block uppercase">DEGREE & STATUS</span>
                 <span className="text-[#f3f4f6] font-semibold block mt-0.5">
-                  {siteConfig.degree}
+                  {siteConfig.degree} ({siteConfig.academicYear})
                 </span>
               </div>
             </div>

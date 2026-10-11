@@ -49,8 +49,8 @@ export function GridSection() {
               </h3>
             </div>
             <div className="font-mono text-xs text-right">
-              <span className="text-[#f3f4f6] font-semibold block">2024 - PRESENT</span>
-              <span className="text-[#10b981] block">CURRENT: 2ND YEAR</span>
+              <span className="text-[#f3f4f6] font-semibold block">B.TECH PROGRAM</span>
+              <span className="text-[#10b981] block">CURRENT: 3RD YEAR</span>
             </div>
           </div>
 
@@ -58,7 +58,7 @@ export function GridSection() {
             <div>
               <span className="text-[#8f94a0] uppercase block">DEGREE PROGRAM</span>
               <span className="text-sm text-[#f3f4f6] font-semibold mt-1 block">
-                {siteConfig.degree}
+                {siteConfig.degree} ({siteConfig.academicYear})
               </span>
               <p className="text-xs text-[#8f94a0] mt-2 font-sans leading-relaxed">
                 Focused coursework in Data Structures, Object-Oriented Programming,

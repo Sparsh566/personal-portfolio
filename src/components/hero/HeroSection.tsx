@@ -50,7 +50,7 @@ export function HeroSection() {
             {/* Main Headline */}
             <div>
               <p className="font-mono text-xs sm:text-sm tracking-widest text-[#e10600] uppercase font-bold mb-2">
-                COMPUTER SCIENCE ENGINEERING (AI & ML)
+                3RD YEAR B.TECH // COMPUTER SCIENCE (AI & ML)
               </p>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#f3f4f6] uppercase leading-none">
                 SPARSH <br />
@@ -65,7 +65,7 @@ export function HeroSection() {
 
             {/* Student Engineer Bio */}
             <p className="text-base sm:text-lg text-[#8f94a0] max-w-xl leading-relaxed">
-              Computer Science student building intelligent software, AI-powered systems,
+              3rd Year Computer Science student building intelligent software, AI-powered systems,
               and experimental technology. Working across full stack web development,
               applied machine learning, hardware telemetry, and distributed architectures.
             </p>
