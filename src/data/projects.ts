@@ -3,10 +3,10 @@ import { FeaturedProject, GarageProject } from "@/types";
 export const featuredProjects: FeaturedProject[] = [
   {
     id: "nivaas",
-    callsign: "CAR-01",
+    callsign: "PROJECT 01",
     title: "NIVAAS",
     category: "AGENTIC AI / PROPERTY RECOMMENDATION",
-    sector: "SECTOR 1",
+    sector: "PROJECT 01",
     tagline: "A conversational property recommendation system that understands natural-language requirements and turns them into ranked property recommendations.",
     summary: "Built an agentic architecture using FastAPI and Groq to parse ambiguous user constraints into structured SQL filters and vector queries. Incorporates Tavily web search, RapidFuzz for locality matching, and NumPy/Pandas pipelines for multi-criteria property ranking and EMI calculations.",
     techStack: [
@@ -38,10 +38,10 @@ export const featuredProjects: FeaturedProject[] = [
   },
   {
     id: "taskflow",
-    callsign: "CAR-02",
+    callsign: "PROJECT 02",
     title: "TASKFLOW",
     category: "ENGINEERING INTELLIGENCE / FULL STACK",
-    sector: "SECTOR 2",
+    sector: "PROJECT 02",
     tagline: "An AI-assisted work verification system designed to evaluate whether reported development work represents meaningful progress.",
     summary: "Engineered an automated verification system that inspects Git commits, parse diff hunks, and contrasts them against issue acceptance criteria. Utilizes SQLAlchemy for persistent state and an evaluation pipeline to eliminate rubber-stamped pull requests and unverified status updates.",
     techStack: [
@@ -70,10 +70,10 @@ export const featuredProjects: FeaturedProject[] = [
   },
   {
     id: "customerpulse",
-    callsign: "CAR-03",
+    callsign: "PROJECT 03",
     title: "CUSTOMERPULSE",
     category: "ENTERPRISE AI / RAG",
-    sector: "SECTOR 3",
+    sector: "PROJECT 03",
     tagline: "An AI-powered complaint intelligence platform that transforms customer complaints collected from multiple sources into structured, actionable intelligence.",
     summary: "Architected an enterprise complaint intake and triage system with Amazon Bedrock and RAG retrieval. Classifies incoming support issues across departments, surfaces historical precedent cases via vector search, monitors SLA timers, and generates compliant resolution drafts.",
     techStack: [

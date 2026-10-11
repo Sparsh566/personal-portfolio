@@ -35,18 +35,18 @@ export function RaceEngineeringSection() {
             <div className="flex items-center space-x-3 mb-2">
               <span className="w-2 h-6 bg-[#e10600]" />
               <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase font-bold">
-                FEATURED PROJECTS
+                TOP 3 PROJECTS
               </span>
               <span className="font-mono text-xs text-[#8f94a0] uppercase">
-                ARCHITECTURE & SYSTEMS
+                FEATURED PRODUCTION SYSTEMS
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#f3f4f6]">
-              Featured Production Systems
+              Featured Projects
             </h2>
           </div>
 
-          {/* Desktop Sector Selector Switches */}
+          {/* Desktop Project Selector Switches */}
           <div className="hidden lg:flex items-center space-x-2 bg-[#0b0c0e] border border-[#232730] p-1 font-mono text-xs">
             {featuredProjects.map((p, index) => {
               const isActive = activeSectorIndex === index;
@@ -63,7 +63,7 @@ export function RaceEngineeringSection() {
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-current" />
                   <span>
-                    {p.sector} : {p.title}
+                    TOP {index + 1} : {p.title}
                   </span>
                 </button>
               );
@@ -71,17 +71,17 @@ export function RaceEngineeringSection() {
           </div>
         </div>
 
-        {/* Desktop Presentation View (Horizontal Sector Switching) */}
+        {/* Desktop Presentation View */}
         <div className="hidden lg:block border border-[#232730] bg-[#0b0c0e] p-8 telemetry-bracket">
           <div className="grid grid-cols-12 gap-8 items-start">
             {/* Left: Project Specifications */}
             <div className="col-span-6 space-y-6">
-              {/* Category & Callsign Strip */}
+              {/* Category Strip */}
               <div className="flex items-center justify-between border-b border-[#232730] pb-3 font-mono text-xs">
                 <span className="text-[#e10600] font-bold tracking-wider">
-                  {activeProject.callsign} // {activeProject.category}
+                  TOP 0{activeSectorIndex + 1} // {activeProject.category}
                 </span>
-                <span className="text-[#8f94a0]">{activeProject.sector}</span>
+                <span className="text-[#8f94a0]">PROJECT 0{activeSectorIndex + 1} OF 03</span>
               </div>
 
               {/* Title & Tagline */}
@@ -186,16 +186,16 @@ export function RaceEngineeringSection() {
 
         {/* Mobile / Tablet Presentation View (Vertical Stack) */}
         <div className="lg:hidden space-y-12">
-          {featuredProjects.map((project) => (
+          {featuredProjects.map((project, idx) => (
             <div
               key={project.id}
               className="border border-[#232730] bg-[#0b0c0e] p-6 telemetry-bracket space-y-6"
             >
               <div className="flex items-center justify-between border-b border-[#232730] pb-3 font-mono text-xs">
                 <span className="text-[#e10600] font-bold">
-                  {project.callsign} // {project.category}
+                  TOP 0{idx + 1} // {project.category}
                 </span>
-                <span className="text-[#8f94a0]">{project.sector}</span>
+                <span className="text-[#8f94a0]">PROJECT 0{idx + 1} OF 03</span>
               </div>
 
               <div>
