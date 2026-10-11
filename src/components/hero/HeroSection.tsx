@@ -143,9 +143,9 @@ export function HeroSection() {
               <div className="flex items-center justify-between px-3 py-2 border-b border-[#232730] font-mono text-[10px] tracking-wider text-[#8f94a0]">
                 <div className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 bg-[#e10600]" />
-                  <span>VEHICLE TELEMETRY & AERO DYNAMICS</span>
+                  <span>3D VEHICLE DYNAMICS</span>
                 </div>
-                <span className="text-[#10b981]">SYSTEM ACTIVE</span>
+                <span className="text-[#10b981]">F1 AERODYNAMICS</span>
               </div>
 
               {/* Canvas Container */}
@@ -155,8 +155,8 @@ export function HeroSection() {
 
               {/* Footer Readout */}
               <div className="flex items-center justify-between px-3 py-2 border-t border-[#232730] font-mono text-[10px] text-[#8f94a0]">
-                <span>DOWNFORCE: 1450 KG // DRAG: 0.72</span>
-                <span className="text-[#10b981]">REAL-TIME SCAN</span>
+                <span>DRAG COEFFICIENT & DOWNFORCE</span>
+                <span className="text-[#10b981]">SYSTEM ACTIVE</span>
               </div>
             </div>
           </div>
