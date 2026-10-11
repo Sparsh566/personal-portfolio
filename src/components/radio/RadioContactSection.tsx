@@ -30,57 +30,30 @@ export function RadioContactSection() {
     setResponseMessage("");
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/1774.sparsh@gmail.com", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          _subject: formData.subject || `Portfolio Inquiry from ${formData.name}`,
-          message: formData.message,
-          _captcha: "false",
-          _template: "table",
-        }),
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
 
-      if (response.ok || data.success === "true" || (data.message && data.message.includes("Activation"))) {
+      if (response.ok && data.success) {
         setStatus("success");
         setResponseMessage(
-          data.message && data.message.includes("Activation")
-            ? "Your message has been dispatched! (If this is your first submission, an activation email has been sent to your inbox to confirm)."
-            : "Your message has been sent directly to Sparsh's inbox. Thank you for reaching out!"
+          "Your message has been sent directly to Sparsh's inbox (1774.sparsh@gmail.com). Thank you for reaching out!"
         );
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         setStatus("error");
-        setResponseMessage(data.message || "Failed to send message. Please try again.");
+        setResponseMessage(data.error || "Failed to send message. Please try again.");
       }
     } catch (err) {
       console.error("Form submission error:", err);
-      // Fallback via our Next.js API route
-      try {
-        const fallbackRes = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-        if (fallbackRes.ok) {
-          setStatus("success");
-          setResponseMessage("Your message has been received and logged directly.");
-          setFormData({ name: "", email: "", subject: "", message: "" });
-        } else {
-          setStatus("error");
-          setResponseMessage("Network error while transmitting. Please try again or copy email directly.");
-        }
-      } catch {
-        setStatus("error");
-        setResponseMessage("Network connection error. Please try again.");
-      }
+      setStatus("error");
+      setResponseMessage("Network connection error. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
