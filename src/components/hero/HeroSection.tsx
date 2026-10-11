@@ -1,33 +1,12 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import dynamic from "next/dynamic";
+import { useRef } from "react";
 import { siteConfig } from "@/data/site";
 import { externalLinks } from "@/data/links";
-import { HeroFallback } from "./HeroFallback";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-
-// Dynamically import Three.js canvas with ssr: false
-const HeroCanvas = dynamic(() => import("./HeroCanvas"), {
-  ssr: false,
-  loading: () => <HeroFallback />,
-});
+import RaceControlHub from "./RaceControlHub";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
-  const prefersReducedMotion = useReducedMotion();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile, { passive: true });
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   return (
     <section
@@ -136,29 +115,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Vehicle Dynamics & Engineering Display */}
+          {/* Right Column: Race Control Telemetry & AI Pipeline Hub */}
           <div className="lg:col-span-5 relative">
-            <div className="relative border border-[#232730] bg-[#0b0c0e]/80 p-2 telemetry-bracket">
-              {/* Header Strip */}
-              <div className="flex items-center justify-between px-3 py-2 border-b border-[#232730] font-mono text-[10px] tracking-wider text-[#8f94a0]">
-                <div className="flex items-center space-x-2">
-                  <span className="w-1.5 h-1.5 bg-[#e10600]" />
-                  <span>3D VEHICLE DYNAMICS</span>
-                </div>
-                <span className="text-[#10b981]">F1 AERODYNAMICS</span>
-              </div>
-
-              {/* Canvas Container */}
-              <div className="relative w-full flex items-center justify-center">
-                <HeroCanvas isVisible={isVisible} />
-              </div>
-
-              {/* Footer Readout */}
-              <div className="flex items-center justify-between px-3 py-2 border-t border-[#232730] font-mono text-[10px] text-[#8f94a0]">
-                <span>DRAG COEFFICIENT & DOWNFORCE</span>
-                <span className="text-[#10b981]">SYSTEM ACTIVE</span>
-              </div>
-            </div>
+            <RaceControlHub />
           </div>
         </div>
       </div>
