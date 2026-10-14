@@ -1,6 +1,5 @@
 "use client";
 
-import { siteConfig } from "@/data/site";
 import { externalLinks } from "@/data/links";
 
 export function Footer() {

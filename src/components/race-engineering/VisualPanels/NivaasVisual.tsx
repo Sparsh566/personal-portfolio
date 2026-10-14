@@ -7,7 +7,7 @@ export function NivaasVisual() {
           <span className="w-2 h-2 rounded-full bg-[#10b981]" />
           <span className="text-[#f3f4f6] font-semibold">AGENT REASONING PIPELINE</span>
         </div>
-        <span>QUERY: "3BHK near IT park under 85L"</span>
+        <span>QUERY: &quot;3BHK near IT park under 85L&quot;</span>
       </div>
 
       {/* Interactive Step Decomposition */}
@@ -19,7 +19,7 @@ export function NivaasVisual() {
             <span>GROQ LLM</span>
           </div>
           <div className="text-[11px] text-[#f3f4f6] mt-1">
-            Bedrooms: 3 | MaxPrice: 8,500,000 INR | Anchor: "IT Park" | Radius: 5km
+            Bedrooms: 3 | MaxPrice: 8,500,000 INR | Anchor: &quot;IT Park&quot; | Radius: 5km
           </div>
         </div>
 

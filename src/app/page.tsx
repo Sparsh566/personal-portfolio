@@ -12,12 +12,14 @@ import { RaceLogSection } from "@/components/race-log/RaceLogSection";
 import { GridSection } from "@/components/grid/GridSection";
 import { RadioContactSection } from "@/components/radio/RadioContactSection";
 import { Footer } from "@/components/common/Footer";
+import { ResumeModal } from "@/components/common/ResumeModal";
 
 export default function Home() {
   // Initialize Lenis smooth scroll once
   useLenis();
 
   const [activeSection, setActiveSection] = useState("hero");
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   // Track active section for top navigation
   useEffect(() => {
@@ -57,11 +59,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#070809] text-[#f3f4f6]">
       {/* Pit Wall Top Navigation */}
-      <Navigation activeSection={activeSection} />
+      <Navigation
+        activeSection={activeSection}
+        onOpenResume={() => setIsResumeOpen(true)}
+      />
 
       {/* Main Control Room Layout */}
       <main>
-        <HeroSection />
+        <HeroSection onOpenResume={() => setIsResumeOpen(true)} />
         <DriverProfile />
         <RaceEngineeringSection />
         <GarageSection />
@@ -73,6 +78,12 @@ export default function Home() {
 
       {/* Engineering Footer */}
       <Footer />
+
+      {/* Interactive Resume Preview & Download Modal */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+      />
     </div>
   );
 }

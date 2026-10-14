@@ -6,9 +6,10 @@ import { externalLinks } from "@/data/links";
 
 interface NavigationProps {
   activeSection: string;
+  onOpenResume?: () => void;
 }
 
-export function Navigation({ activeSection }: NavigationProps) {
+export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -75,14 +76,19 @@ export function Navigation({ activeSection }: NavigationProps) {
 
             {/* Right: Quick Telemetry Actions */}
             <div className="hidden sm:flex items-center space-x-3">
-              <a
-                href={externalLinks.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs tracking-wider uppercase px-3 py-1.5 border border-[#373e4d] text-[#8f94a0] hover:text-[#f3f4f6] hover:border-[#e10600] transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  if (onOpenResume) {
+                    onOpenResume();
+                  } else {
+                    window.open(externalLinks.resume, "_blank");
+                  }
+                }}
+                className="font-mono text-xs tracking-wider uppercase px-3 py-1.5 border border-[#373e4d] text-[#8f94a0] hover:text-[#f3f4f6] hover:border-[#e10600] transition-colors cursor-pointer"
               >
                 RESUME
-              </a>
+              </button>
               <a
                 href="#radio"
                 className="font-mono text-xs tracking-wider uppercase px-4 py-1.5 bg-[#e10600] text-[#f3f4f6] font-semibold hover:bg-[#b80500] transition-colors flex items-center space-x-1.5"
@@ -157,14 +163,20 @@ export function Navigation({ activeSection }: NavigationProps) {
           </div>
 
           <div className="pt-8 border-t border-[#232730] space-y-3">
-            <a
-              href={externalLinks.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full block text-center font-mono text-xs tracking-wider uppercase py-3 border border-[#373e4d] text-[#f3f4f6]"
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenResume) {
+                  onOpenResume();
+                } else {
+                  window.open(externalLinks.resume, "_blank");
+                }
+              }}
+              className="w-full block text-center font-mono text-xs tracking-wider uppercase py-3 border border-[#e10600]/80 bg-[#e10600]/10 text-white font-bold cursor-pointer"
             >
-              DOWNLOAD RESUME (PDF)
-            </a>
+              VIEW RESUME (PDF)
+            </button>
             <a
               href="#radio"
               onClick={() => setMobileMenuOpen(false)}

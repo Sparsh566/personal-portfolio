@@ -76,8 +76,17 @@ export interface CertificationItem {
   title: string;
   issuer: string;
   issueDate: string;
+  issuedOnDetailed?: string;
   credentialId?: string;
   verifyUrl?: string;
   hours?: string;
+  instructor?: string;
+  institution?: string;
+  signatory?: {
+    name: string;
+    title: string;
+    organization: string;
+  };
   topics: string[];
+  type?: "udemy" | "infosys" | "redhat";
 }

@@ -148,7 +148,7 @@ export function GridSection() {
             <span className="text-[#8f94a0]">CREDENTIAL VERIFICATION</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {certificationCatalog.map((cert) => (
               <div
                 key={cert.id}
@@ -237,6 +237,7 @@ export function GridSection() {
 
       {/* Direct Certificate Modal Preview */}
       <CertificateModal
+        key={selectedCert?.id}
         certificate={selectedCert}
         onClose={() => setSelectedCert(null)}
       />

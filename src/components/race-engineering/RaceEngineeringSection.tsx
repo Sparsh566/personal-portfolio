@@ -79,7 +79,7 @@ export function RaceEngineeringSection() {
               {/* Category Strip */}
               <div className="flex items-center justify-between border-b border-[#232730] pb-3 font-mono text-xs">
                 <span className="text-[#e10600] font-bold tracking-wider">
-                  TOP 0{activeSectorIndex + 1} // {activeProject.category}
+                  TOP 0{activeSectorIndex + 1} {"//"} {activeProject.category}
                 </span>
                 <span className="text-[#8f94a0]">PROJECT 0{activeSectorIndex + 1} OF 03</span>
               </div>
@@ -193,7 +193,7 @@ export function RaceEngineeringSection() {
             >
               <div className="flex items-center justify-between border-b border-[#232730] pb-3 font-mono text-xs">
                 <span className="text-[#e10600] font-bold">
-                  TOP 0{idx + 1} // {project.category}
+                  TOP 0{idx + 1} {"//"} {project.category}
                 </span>
                 <span className="text-[#8f94a0]">PROJECT 0{idx + 1} OF 03</span>
               </div>

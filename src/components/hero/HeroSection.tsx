@@ -4,7 +4,11 @@ import { useRef } from "react";
 import { siteConfig } from "@/data/site";
 import { externalLinks } from "@/data/links";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onOpenResume?: () => void;
+}
+
+export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
 
   return (
@@ -65,11 +69,16 @@ export function HeroSection() {
               </svg>
             </a>
 
-            <a
-              href={externalLinks.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-7 py-3.5 border border-[#e10600]/80 bg-[#e10600]/10 hover:bg-[#e10600] text-[#f3f4f6] hover:text-white font-mono text-xs tracking-wider uppercase font-bold transition-all duration-200 inline-flex items-center space-x-2 group"
+            <button
+              type="button"
+              onClick={() => {
+                if (onOpenResume) {
+                  onOpenResume();
+                } else {
+                  window.open(externalLinks.resume, "_blank");
+                }
+              }}
+              className="px-7 py-3.5 border border-[#e10600]/80 bg-[#e10600]/10 hover:bg-[#e10600] text-[#f3f4f6] hover:text-white font-mono text-xs tracking-wider uppercase font-bold transition-all duration-200 inline-flex items-center space-x-2 group cursor-pointer"
             >
               <svg
                 className="w-4 h-4 text-[#e10600] group-hover:text-white transition-colors"
@@ -85,7 +94,7 @@ export function HeroSection() {
                 />
               </svg>
               <span>VIEW RESUME</span>
-            </a>
+            </button>
 
             <a
               href={siteConfig.github}

@@ -5,6 +5,7 @@ import { siteConfig } from "@/data/site";
 
 export function RadioContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedMessage, setCopiedMessage] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,6 +22,25 @@ export function RadioContactSection() {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
+  const mailtoSubject = encodeURIComponent(
+    formData.subject
+      ? `[Portfolio] ${formData.subject}`
+      : `[Portfolio] Message from ${formData.name || "Visitor"}`
+  );
+  const mailtoBody = encodeURIComponent(
+    `Name: ${formData.name || "N/A"}\nEmail: ${formData.email || "N/A"}\n\nMessage:\n${formData.message || "(No message entered)"}`
+  );
+
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${siteConfig.email}&su=${mailtoSubject}&body=${mailtoBody}`;
+  const mailtoUrl = `mailto:${siteConfig.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+  const handleCopyFormattedMessage = () => {
+    const text = `To: ${siteConfig.email}\nSubject: ${formData.subject || "Portfolio Inquiry"}\nFrom: ${formData.name} (${formData.email})\n\n${formData.message}`;
+    navigator.clipboard.writeText(text);
+    setCopiedMessage(true);
+    setTimeout(() => setCopiedMessage(false), 2500);
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
@@ -30,63 +50,34 @@ export function RadioContactSection() {
     setResponseMessage("");
 
     try {
-      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-      let delivered = false;
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      // 1. Submit directly via Web3Forms API if access key is available in environment
-      if (accessKey) {
-        try {
-          const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              access_key: accessKey,
-              name: formData.name,
-              email: formData.email,
-              subject: formData.subject || `Portfolio Inquiry from ${formData.name}`,
-              message: formData.message,
-              from_name: `${formData.name} (Portfolio Inquiry)`,
-            }),
-          });
+      const data = await res.json().catch(() => null);
 
-          const data = await response.json();
-          if (response.ok && data.success) {
-            delivered = true;
-          }
-        } catch (web3Err) {
-          console.warn("Direct Web3Forms submission failed, using server fallback:", web3Err);
-        }
-      }
-
-      // 2. Fallback to internal API route if direct transmission did not succeed
-      if (!delivered) {
-        const fallbackRes = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-        const fallbackData = await fallbackRes.json();
-        if (fallbackRes.ok && fallbackData.success) {
-          delivered = true;
-        } else {
-          throw new Error(fallbackData.error || "Failed to deliver message");
-        }
-      }
-
-      if (delivered) {
+      if (res.ok && data?.success) {
         setStatus("success");
         setResponseMessage(
-          "Your message has been sent directly to Sparsh's inbox (1774.sparsh@gmail.com). Thank you for reaching out!"
+          data.message ||
+            `Your message has been dispatched directly to Sparsh's inbox (${siteConfig.email}). Thank you for reaching out!`
         );
         setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+        setResponseMessage(
+          data?.error ||
+            "Direct automated dispatch service is currently unavailable. Use the instant 1-click Gmail or Mail App fallback below to send without retyping."
+        );
       }
     } catch (err) {
       console.error("Form submission error:", err);
       setStatus("error");
-      setResponseMessage("Network connection error. Please try again.");
+      setResponseMessage(
+        "Network connection interrupted. Your message is preserved below — click Open in Gmail or Mail App to transmit directly."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -105,7 +96,7 @@ export function RadioContactSection() {
             CONTACT
           </span>
           <span className="font-mono text-xs text-[#8f94a0] uppercase">
-            DIRECT INBOX DISPATCH
+            DIRECT INBOX DISPATCH // SPARSH GOSWAMI
           </span>
         </div>
 
@@ -118,16 +109,16 @@ export function RadioContactSection() {
                   Get in Touch
                 </h2>
                 <p className="text-sm sm:text-base text-[#8f94a0] leading-relaxed mt-2">
-                  Send a message directly to my email inbox. Whether it is an internship
+                  Send a message directly to my email inbox (<span className="text-[#f3f4f6] font-mono">{siteConfig.email}</span>). Whether it is an internship
                   opportunity, technical collaboration, or project inquiry, I will get back to you promptly.
                 </p>
               </div>
 
               {/* Success Notification Banner */}
               {status === "success" && (
-                <div className="p-5 bg-[#14161b] border border-[#10b981] space-y-3">
+                <div className="p-5 bg-[#14161b] border border-[#10b981] space-y-3 animate-in fade-in duration-200">
                   <div className="flex items-center space-x-2 text-[#10b981] font-mono text-xs font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#10b981]" />
+                    <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
                     <span>STATUS: MESSAGE DELIVERED TO INBOX</span>
                   </div>
                   <p className="text-sm text-[#f3f4f6] leading-relaxed">
@@ -136,24 +127,52 @@ export function RadioContactSection() {
                   <button
                     type="button"
                     onClick={() => setStatus("idle")}
-                    className="px-4 py-2 border border-[#373e4d] hover:border-[#10b981] text-xs font-mono text-[#f3f4f6] uppercase tracking-wider bg-[#0b0c0e] transition-colors"
+                    className="px-4 py-2 border border-[#373e4d] hover:border-[#10b981] text-xs font-mono text-[#f3f4f6] uppercase tracking-wider bg-[#0b0c0e] transition-colors cursor-pointer"
                   >
                     SEND ANOTHER MESSAGE
                   </button>
                 </div>
               )}
 
-              {/* Error Notification Banner */}
+              {/* Smart Fallback & Error Banner */}
               {status === "error" && (
-                <div className="p-4 bg-[#1e1012] border border-[#e10600] text-xs font-mono text-[#f3f4f6] flex items-center justify-between">
-                  <span>{responseMessage}</span>
-                  <button
-                    type="button"
-                    onClick={() => setStatus("idle")}
-                    className="underline text-[#e10600] ml-2"
-                  >
-                    DISMISS
-                  </button>
+                <div className="p-5 bg-[#1e1012] border-2 border-[#e10600] space-y-4 animate-in fade-in duration-200">
+                  <div className="flex items-center space-x-2 text-[#e10600] font-mono text-xs font-bold">
+                    <span className="w-2 h-2 rounded-full bg-[#e10600]" />
+                    <span>DIRECT RELAY BACKUP TRIGGERED</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#f3f4f6] leading-relaxed font-sans">
+                    {responseMessage}
+                  </p>
+
+                  <div className="pt-2 border-t border-[#371518] flex flex-wrap gap-2 font-mono text-xs">
+                    <a
+                      href={gmailComposeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-[#e10600] hover:bg-[#b80500] text-white font-bold uppercase transition-colors inline-flex items-center space-x-1.5"
+                    >
+                      <span>OPEN IN GMAIL [1-CLICK]</span>
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+
+                    <a
+                      href={mailtoUrl}
+                      className="px-4 py-2 border border-[#373e4d] hover:border-white text-[#f3f4f6] font-bold uppercase transition-colors bg-[#0b0c0e]"
+                    >
+                      OPEN MAIL APP (MAILTO)
+                    </a>
+
+                    <button
+                      type="button"
+                      onClick={handleCopyFormattedMessage}
+                      className="px-3.5 py-2 border border-[#373e4d] hover:border-[#8f94a0] text-[#8f94a0] hover:text-white uppercase transition-colors bg-[#0b0c0e]"
+                    >
+                      {copiedMessage ? "MESSAGE COPIED!" : "COPY MESSAGE"}
+                    </button>
+                  </div>
                 </div>
               )}
 
@@ -225,8 +244,8 @@ export function RadioContactSection() {
                     />
                   </div>
 
-                  {/* Submit Button */}
-                  <div className="pt-2">
+                  {/* Submit & 1-Click Action Row */}
+                  <div className="pt-2 flex flex-wrap items-center gap-3">
                     <button
                       type="submit"
                       disabled={isSubmitting}
@@ -256,6 +275,20 @@ export function RadioContactSection() {
                         </>
                       )}
                     </button>
+
+                    {/* Pre-filled 1-Click Gmail Action */}
+                    <a
+                      href={gmailComposeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-3.5 border border-[#373e4d] hover:border-white text-[#f3f4f6] font-mono text-xs uppercase tracking-wider font-bold transition-colors inline-flex items-center space-x-2 bg-[#121418]"
+                      title="Open message in Gmail compose window directly"
+                    >
+                      <span>SEND VIA GMAIL</span>
+                      <svg className="w-3.5 h-3.5 text-[#8f94a0]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
                   </div>
                 </form>
               )}
@@ -271,13 +304,28 @@ export function RadioContactSection() {
                 <div className="text-base font-bold text-[#f3f4f6] break-all">
                   {siteConfig.email}
                 </div>
-                <button
-                  type="button"
-                  onClick={handleCopyEmail}
-                  className="w-full py-2.5 border border-[#373e4d] hover:border-[#e10600] text-xs text-[#f3f4f6] uppercase tracking-wider transition-colors bg-[#0b0c0e] font-bold"
-                >
-                  {copiedEmail ? "COPIED TO CLIPBOARD" : "COPY EMAIL ADDRESS"}
-                </button>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className="w-full py-2.5 border border-[#373e4d] hover:border-[#e10600] text-xs text-[#f3f4f6] uppercase tracking-wider transition-colors bg-[#0b0c0e] font-bold cursor-pointer"
+                  >
+                    {copiedEmail ? "COPIED TO CLIPBOARD" : "COPY EMAIL"}
+                  </button>
+
+                  <a
+                    href={gmailComposeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 border border-[#e10600]/80 bg-[#e10600]/10 hover:bg-[#e10600] text-xs text-center text-white uppercase tracking-wider transition-colors font-bold inline-flex items-center justify-center space-x-1"
+                  >
+                    <span>OPEN GMAIL</span>
+                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
               </div>
 
               {/* Status / Communication Specs */}
@@ -287,12 +335,12 @@ export function RadioContactSection() {
                     <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
                     <span className="text-[#f3f4f6] font-semibold">INBOX STATUS</span>
                   </div>
-                  <span className="text-[#10b981]">ACCEPTING MESSAGES</span>
+                  <span className="text-[#10b981]">ACCEPTING INQUIRIES</span>
                 </div>
 
                 <div className="space-y-2 text-[#8f94a0]">
                   <div className="flex justify-between">
-                    <span>NAME:</span>
+                    <span>RECIPIENT:</span>
                     <span className="text-[#f3f4f6] font-bold">SPARSH GOSWAMI</span>
                   </div>
                   <div className="flex justify-between">
@@ -304,7 +352,7 @@ export function RadioContactSection() {
                     <span className="text-[#10b981]">WITHIN 24 HOURS</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>STATUS:</span>
+                    <span>AVAILABILITY:</span>
                     <span className="text-[#f3f4f6]">OPEN TO OPPORTUNITIES</span>
                   </div>
                 </div>
@@ -336,5 +384,4 @@ export function RadioContactSection() {
   );
 }
 
-// Named export for compatibility
 export { RadioContactSection as ContactSection };
