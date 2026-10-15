@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/data/site";
 import { externalLinks } from "@/data/links";
+import { trackEvent } from "@/components/telemetry/VisitorTracker";
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -22,6 +23,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
     if (isOpen) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
+      trackEvent("resume_view");
     }
     return () => {
       document.body.style.overflow = "";
