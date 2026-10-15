@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CertificationItem } from "@/types";
+import { trackEvent } from "@/components/telemetry/VisitorTracker";
 
 interface CertificateModalProps {
   certificate: CertificationItem | null;
@@ -20,6 +21,7 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
     if (certificate) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
+      trackEvent("cert_view", `${certificate.issuer}: ${certificate.title}`);
     }
     return () => {
       document.body.style.overflow = "";
