@@ -47,12 +47,12 @@ export function RadioContactSection() {
 
     setIsSubmitting(true);
     setStatus("idle");
-    setResponseMessage("");
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData),
       });
 
@@ -68,7 +68,8 @@ export function RadioContactSection() {
       } else {
         setStatus("error");
         setResponseMessage(
-          data?.error ||
+          data?.message ||
+            data?.error ||
             "Direct automated dispatch service is currently unavailable. Use the instant 1-click Gmail or Mail App fallback below to send without retyping."
         );
       }

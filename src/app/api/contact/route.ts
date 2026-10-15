@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
@@ -12,91 +13,79 @@ export async function POST(request: Request) {
       );
     }
 
-    const accessKey =
-      process.env.WEB3FORMS_ACCESS_KEY ||
-      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    const gmailUser = process.env.GMAIL_USER || "1774.sparsh@gmail.com";
+    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
 
     let delivered = false;
     let providerError = "";
 
-    // 1. Submit via Web3Forms if a valid access key is configured
-    if (accessKey && accessKey !== "YOUR_ACCESS_KEY_HERE") {
+    // 1. Send via Gmail SMTP if GMAIL_APP_PASSWORD is set in server environment
+    if (gmailAppPassword) {
       try {
-        const web3Res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: gmailUser,
+            pass: gmailAppPassword,
           },
-          body: JSON.stringify({
-            access_key: accessKey,
-            name,
-            email,
-            subject: subject ? `[Portfolio] ${subject}` : `[Portfolio] Message from ${name}`,
-            message,
-            from_name: `${name} (Portfolio Inquiry)`,
-          }),
-          signal: AbortSignal.timeout(7000),
         });
 
-        const contentType = web3Res.headers.get("content-type") || "";
-        if (contentType.includes("application/json")) {
-          const resData = await web3Res.json();
-          if (web3Res.ok && resData.success) {
-            delivered = true;
-          } else {
-            providerError = resData.message || "Web3Forms submission failed";
-          }
-        }
-      } catch (deliverErr: unknown) {
-        const errMessage = deliverErr instanceof Error ? deliverErr.message : String(deliverErr);
-        console.warn("Web3Forms delivery attempt warning:", errMessage);
-        providerError = errMessage;
+        await transporter.sendMail({
+          from: `"${name} (Portfolio Inquiry)" <${gmailUser}>`,
+          to: gmailUser,
+          replyTo: email,
+          subject: subject ? `[Portfolio] ${subject}` : `[Portfolio] Message from ${name}`,
+          text: `New portfolio contact message\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject || "General Inquiry"}\n\nMessage:\n${message}`,
+          html: `
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #232730; border-radius: 8px; background-color: #0b0c0e; color: #f3f4f6;">
+              <div style="border-bottom: 2px solid #e10600; padding-bottom: 12px; margin-bottom: 20px;">
+                <h2 style="color: #f3f4f6; margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.025em;">PORTFOLIO DIRECT INBOX DISPATCH</h2>
+                <p style="color: #8f94a0; margin: 4px 0 0 0; font-size: 12px; font-family: monospace;">RECEIVED VIA SPARSHGOSWAMI.DEV</p>
+              </div>
+              
+              <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 20px; font-family: monospace;">
+                <tr>
+                  <td style="padding: 6px 0; color: #8f94a0; width: 90px; text-transform: uppercase;">Sender:</td>
+                  <td style="padding: 6px 0; font-weight: bold; color: #f3f4f6;">${name}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #8f94a0; text-transform: uppercase;">Email:</td>
+                  <td style="padding: 6px 0;"><a href="mailto:${email}" style="color: #e10600; text-decoration: none; font-weight: bold;">${email}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #8f94a0; text-transform: uppercase;">Topic:</td>
+                  <td style="padding: 6px 0; color: #f3f4f6;">${subject || "General Inquiry"}</td>
+                </tr>
+              </table>
+
+              <div style="background-color: #121418; border-left: 4px solid #e10600; padding: 16px; border-radius: 4px; margin-bottom: 20px;">
+                <p style="margin: 0; color: #f3f4f6; white-space: pre-wrap; font-size: 14px; line-height: 1.6;">${message}</p>
+              </div>
+
+              <div style="padding-top: 16px; border-top: 1px solid #232730; font-size: 12px; color: #8f94a0; text-align: center; font-family: monospace;">
+                Hit Reply in your email client to directly email ${name} (${email}).
+              </div>
+            </div>
+          `,
+        });
+
+        delivered = true;
+      } catch (smtpErr: unknown) {
+        const errMessage = smtpErr instanceof Error ? smtpErr.message : String(smtpErr);
+        console.error("Gmail SMTP error:", errMessage);
+        providerError = "Gmail delivery failed. Check GMAIL_APP_PASSWORD in environment settings.";
       }
     }
 
-    // 2. Direct FormSubmit endpoint fallback with timeout
-    if (!delivered) {
-      try {
-        const fsRes = await fetch("https://formsubmit.co/ajax/1774.sparsh@gmail.com", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            email,
-            _subject: subject ? `[Portfolio] ${subject}` : `[Portfolio] Message from ${name}`,
-            message,
-            _captcha: "false",
-            _template: "table",
-          }),
-          signal: AbortSignal.timeout(6000),
-        });
-
-        const contentType = fsRes.headers.get("content-type") || "";
-        if (contentType.includes("application/json")) {
-          const fsData = await fsRes.json();
-          if (fsRes.ok && (fsData.success === "true" || fsData.success === true)) {
-            delivered = true;
-          }
-        }
-      } catch (formSubmitErr: unknown) {
-        const errMessage = formSubmitErr instanceof Error ? formSubmitErr.message : String(formSubmitErr);
-        console.warn("FormSubmit delivery attempt warning:", errMessage);
-      }
-    }
-
-    // Pre-calculate instant fallback links
+    // Pre-calculate instant 1-click fallback links
     const mailtoSubject = encodeURIComponent(
       subject ? `[Portfolio] ${subject}` : `[Portfolio] Message from ${name}`
     );
     const mailtoBody = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     );
-    const mailtoUrl = `mailto:1774.sparsh@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=1774.sparsh@gmail.com&su=${mailtoSubject}&body=${mailtoBody}`;
+    const mailtoUrl = `mailto:${gmailUser}?subject=${mailtoSubject}&body=${mailtoBody}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${gmailUser}&su=${mailtoSubject}&body=${mailtoBody}`;
 
     if (!delivered) {
       return NextResponse.json(
@@ -104,7 +93,7 @@ export async function POST(request: Request) {
           success: false,
           error:
             providerError ||
-            "Direct automated relay unavailable. Use 1-Click Gmail or Mail app below.",
+            "Direct automated relay pending server configuration. Use 1-Click Gmail or Mail app below.",
           mailtoUrl,
           gmailUrl,
         },
@@ -114,7 +103,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Your message has been dispatched directly to Sparsh's inbox (1774.sparsh@gmail.com).",
+      message: `Your message has been dispatched directly to Sparsh's inbox (${gmailUser}).`,
     });
   } catch (error) {
     console.error("Contact API Error:", error);
