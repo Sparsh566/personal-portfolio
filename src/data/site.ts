@@ -26,7 +26,7 @@ export const siteConfig = {
     { label: "ABOUT", href: "#profile", hint: "About" },
     { label: "FEATURED", href: "#race-engineering", hint: "Featured Projects" },
     { label: "PROJECTS", href: "#garage", hint: "Other Projects" },
-    { label: "SKILLS", href: "#telemetry", hint: "Skills & Technologies" },
+    { label: "TELEMETRY", href: "#telemetry", hint: "Skills & Live Viewers" },
     { label: "EXPERIENCE", href: "#race-log", hint: "Experience & Leadership" },
     { label: "CREDENTIALS", href: "#grid", hint: "Education & Certifications" },
     { label: "CONTACT", href: "#radio", hint: "Get In Touch" },

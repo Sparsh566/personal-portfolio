@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/data/site";
 import { VisitorTracker } from "@/components/telemetry/VisitorTracker";
+import { LivePitWallRadar } from "@/components/telemetry/LivePitWallRadar";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="bg-[#070809] text-[#f3f4f6] antialiased selection:bg-[#e10600] selection:text-white">
         <VisitorTracker />
+        <LivePitWallRadar />
         {children}
       </body>
     </html>
