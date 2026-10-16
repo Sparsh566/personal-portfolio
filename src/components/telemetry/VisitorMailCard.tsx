@@ -89,8 +89,8 @@ export function VisitorMailCard({ entry, isCurrentUser = false }: VisitorMailCar
               rel="noopener noreferrer"
               className="hover:underline flex items-center space-x-1"
             >
-              <span>📍 {entry.location}</span>
-              <span className="text-[10px] opacity-80">↗</span>
+              <span>{entry.location}</span>
+              <span className="text-[10px] opacity-80">(MAP)</span>
             </a>
           </span>
         </div>
@@ -101,7 +101,7 @@ export function VisitorMailCard({ entry, isCurrentUser = false }: VisitorMailCar
             NETWORK / ORG:
           </span>
           <span className="font-bold text-[#f3f4f6] mt-0.5 sm:mt-0">
-            🏢 {entry.org || "Public Telemetry Node"}
+            {entry.org || "Public Telemetry Node"}
           </span>
         </div>
 

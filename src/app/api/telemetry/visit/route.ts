@@ -336,16 +336,16 @@ export async function POST(request: Request) {
 
     if (isResume) {
       subjectBadge = "[RESUME ALERT]";
-      subject = `🔥 Someone from ${locationString} is viewing your Resume!`;
+      subject = `Someone from ${locationString} is viewing your Resume!`;
       themeColor = "#10b981";
       actionHeading = "Candidate Resume Accessed";
     } else if (isCert) {
       subjectBadge = "[CREDENTIAL AUDIT]";
-      subject = `📜 Visitor from ${locationString} checked: ${detail || "Certificate"}`;
+      subject = `Visitor from ${locationString} checked: ${detail || "Certificate"}`;
       themeColor = "#3b82f6";
       actionHeading = `Certificate Inspected: ${detail || "Credential"}`;
     } else {
-      subject = `🏎️ Visitor from ${locationString} (${org || isp || sourceCategory})`;
+      subject = `Visitor from ${locationString} (${org || isp || sourceCategory})`;
     }
 
     const fullSubject = `${subjectBadge} ${subject}`;
@@ -395,14 +395,14 @@ export async function POST(request: Request) {
                 <tr style="border-bottom: 1px solid #1a1d24;">
                   <td style="padding: 10px 0; color: #8f94a0; width: 140px; text-transform: uppercase;">Location:</td>
                   <td style="padding: 10px 0; font-weight: bold; color: #10b981; font-size: 15px;">
-                    <a href="${mapsLink}" target="_blank" style="color: #10b981; text-decoration: none;">📍 ${locationString} ↗</a>
+                    <a href="${mapsLink}" target="_blank" style="color: #10b981; text-decoration: none;">${locationString} (MAP)</a>
                   </td>
                 </tr>
                 ${
                   org || isp
                     ? `<tr style="border-bottom: 1px solid #1a1d24;">
                         <td style="padding: 10px 0; color: #8f94a0; text-transform: uppercase;">Network / Org:</td>
-                        <td style="padding: 10px 0; color: #f3f4f6; font-weight: bold;">🏢 ${org || isp}</td>
+                        <td style="padding: 10px 0; color: #f3f4f6; font-weight: bold;">${org || isp}</td>
                       </tr>`
                     : ""
                 }

@@ -174,7 +174,7 @@ export function LivePitWallRadar() {
                       YOUR LIVE NODE:
                     </span>{" "}
                     <span className="text-[#f3f4f6] font-bold">
-                      📍 {currentVisitor.location}
+                      {currentVisitor.location}
                     </span>
                   </div>
                 </div>
