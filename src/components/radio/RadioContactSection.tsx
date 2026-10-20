@@ -250,7 +250,7 @@ export function RadioContactSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-8 py-3.5 bg-[#ff003f] hover:bg-[#ff2a5b] disabled:bg-[#4a0815] text-white font-mono text-xs uppercase tracking-wider font-bold transition-all inline-flex items-center space-x-2 border border-[#ff003f] shadow-lg shadow-[#ff003f]/25 cursor-pointer"
+                      className="px-8 py-3.5 bg-[#6366f1] hover:bg-[#4f46e5] disabled:bg-[#312e81] text-white font-mono text-xs uppercase tracking-wider font-bold transition-all inline-flex items-center space-x-2 border border-[#6366f1] shadow-lg shadow-[#6366f1]/25 cursor-pointer hover:-translate-y-0.5"
                     >
                       {isSubmitting ? (
                         <>
@@ -282,7 +282,7 @@ export function RadioContactSection() {
                       href={gmailComposeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-3.5 border border-[#2b2e4a] hover:border-[#6366f1] text-[#f8fafc] font-mono text-xs uppercase tracking-wider font-bold transition-colors inline-flex items-center space-x-2 bg-[#0a0b12]"
+                      className="px-5 py-3.5 border border-[#1a1c2e] hover:border-[#6366f1] text-[#f8fafc] font-mono text-xs uppercase tracking-wider font-bold transition-colors inline-flex items-center space-x-2 bg-[#0a0b12]"
                       title="Open message in Gmail compose window directly"
                     >
                       <span>SEND VIA GMAIL</span>
@@ -310,7 +310,7 @@ export function RadioContactSection() {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="w-full py-2.5 border border-[#2b2e4a] hover:border-[#6366f1] text-xs text-[#f8fafc] uppercase tracking-wider transition-colors bg-[#050508] font-bold cursor-pointer"
+                    className="w-full py-2.5 border border-[#1a1c2e] hover:border-[#6366f1] text-xs text-[#f8fafc] uppercase tracking-wider transition-colors bg-[#050508] font-bold cursor-pointer"
                   >
                     {copiedEmail ? "COPIED TO CLIPBOARD" : "COPY EMAIL"}
                   </button>
@@ -319,7 +319,7 @@ export function RadioContactSection() {
                     href={gmailComposeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 border border-[#ff003f]/80 bg-[#ff003f]/10 hover:bg-[#ff003f] text-xs text-center text-white uppercase tracking-wider transition-colors font-bold inline-flex items-center justify-center space-x-1 shadow-sm shadow-[#ff003f]/20"
+                    className="w-full py-2.5 border border-[#6366f1]/60 bg-[#6366f1]/15 hover:bg-[#6366f1] text-xs text-center text-white uppercase tracking-wider transition-colors font-bold inline-flex items-center justify-center space-x-1 shadow-sm shadow-[#6366f1]/20"
                   >
                     <span>OPEN GMAIL</span>
                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">

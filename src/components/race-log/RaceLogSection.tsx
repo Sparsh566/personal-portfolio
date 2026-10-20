@@ -71,7 +71,7 @@ export function RaceLogSection() {
                 onClick={() => setSelectedFilter(opt.id)}
                 className={`px-3 py-1.5 border transition-colors ${
                   isSelected
-                    ? "border-[#ff003f] bg-[#ff003f] text-white font-bold shadow-md shadow-[#ff003f]/25"
+                    ? "border-[#6366f1] bg-[#6366f1] text-white font-bold shadow-md shadow-[#6366f1]/25"
                     : "border-[#1a1c2e] text-[#9496a8] hover:text-[#f8fafc] hover:border-[#6366f1]/60 bg-[#050508]"
                 }`}
               >

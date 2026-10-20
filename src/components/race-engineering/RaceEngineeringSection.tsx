@@ -57,7 +57,7 @@ export function RaceEngineeringSection() {
                   onClick={() => setActiveSectorIndex(index)}
                   className={`px-4 py-2 uppercase tracking-wider transition-colors flex items-center space-x-2 ${
                     isActive
-                      ? "bg-[#ff003f] text-white font-bold shadow-md shadow-[#ff003f]/25"
+                      ? "bg-[#6366f1] text-white font-bold shadow-md shadow-[#6366f1]/25"
                       : "text-[#9496a8] hover:text-[#f8fafc] hover:bg-[#0f101a]"
                   }`}
                 >
@@ -78,7 +78,7 @@ export function RaceEngineeringSection() {
             <div className="col-span-6 space-y-6">
               {/* Category Strip */}
               <div className="flex items-center justify-between border-b border-[#1a1c2e] pb-3 font-mono text-xs">
-                <span className="text-[#ff003f] font-bold tracking-wider">
+                <span className="text-[#818cf8] font-bold tracking-wider">
                   TOP 0{activeSectorIndex + 1} {"//"} {activeProject.category}
                 </span>
                 <span className="text-[#9496a8]">PROJECT 0{activeSectorIndex + 1} OF 03</span>
@@ -110,7 +110,7 @@ export function RaceEngineeringSection() {
                       key={feat}
                       className="text-xs text-[#f8fafc] flex items-start space-x-2"
                     >
-                      <span className="text-[#ff003f] font-mono mt-0.5">/</span>
+                      <span className="text-[#6366f1] font-mono mt-0.5">/</span>
                       <span>{feat}</span>
                     </li>
                   ))}
@@ -141,7 +141,7 @@ export function RaceEngineeringSection() {
                     href={activeProject.links.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 bg-[#ff003f] text-white font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#ff2a5b] transition-all shadow-md shadow-[#ff003f]/25 border border-[#ff003f]"
+                    className="px-5 py-2.5 bg-[#6366f1] text-white font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#4f46e5] transition-all shadow-md shadow-[#6366f1]/25 border border-[#6366f1]"
                   >
                     LIVE DEMO
                   </a>
@@ -151,7 +151,7 @@ export function RaceEngineeringSection() {
                     href={activeProject.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 border border-[#2b2e4a] text-[#f8fafc] font-mono text-xs uppercase tracking-wider hover:border-[#6366f1] hover:text-[#818cf8] transition-colors bg-[#0a0b12]"
+                    className="px-5 py-2.5 border border-[#1a1c2e] text-[#f8fafc] font-mono text-xs uppercase tracking-wider hover:border-[#6366f1] hover:text-[#818cf8] transition-colors bg-[#0a0b12]"
                   >
                     VIEW CODE
                   </a>
@@ -247,7 +247,7 @@ export function RaceEngineeringSection() {
                     href={project.links.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-[#ff003f] text-white font-mono text-xs uppercase tracking-wider font-bold shadow-md shadow-[#ff003f]/25"
+                    className="px-4 py-2 bg-[#6366f1] hover:bg-[#4f46e5] text-white font-mono text-xs uppercase tracking-wider font-bold shadow-md shadow-[#6366f1]/25 border border-[#6366f1]"
                   >
                     LIVE DEMO
                   </a>
@@ -257,7 +257,7 @@ export function RaceEngineeringSection() {
                     href={project.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 border border-[#2b2e4a] text-[#f8fafc] font-mono text-xs uppercase tracking-wider bg-[#0a0b12] hover:border-[#6366f1] hover:text-[#818cf8] transition-colors"
+                    className="px-4 py-2 border border-[#1a1c2e] text-[#f8fafc] font-mono text-xs uppercase tracking-wider bg-[#0a0b12] hover:border-[#6366f1] hover:text-[#818cf8] transition-colors"
                   >
                     VIEW CODE
                   </a>

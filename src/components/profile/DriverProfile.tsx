@@ -68,17 +68,17 @@ export function DriverProfile() {
           <div className="lg:col-span-5 space-y-4">
             <div className="border border-[#1a1c2e] bg-[#050508] p-6 telemetry-bracket">
               <div className="flex items-center justify-between border-b border-[#1a1c2e] pb-3 mb-6 font-mono text-xs text-[#9496a8]">
-                <span className="text-[#ff003f] font-bold">HIGHLIGHTS & METRICS</span>
+                <span className="text-[#818cf8] font-bold">HIGHLIGHTS & METRICS</span>
                 <span>STATUS: ACTIVE</span>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 {/* Metric 1 */}
-                <div className="p-4 bg-[#0a0b12] border border-[#1a1c2e] hover:border-[#ff003f]/50 transition-colors">
+                <div className="p-4 bg-[#0a0b12] border border-[#1a1c2e] hover:border-[#6366f1] transition-colors">
                   <span className="font-mono text-3xl sm:text-4xl font-extrabold text-[#f8fafc] block">
                     {siteConfig.stats.projectsCount}
                   </span>
-                  <span className="font-mono text-[11px] tracking-wider text-[#ff003f] uppercase font-bold mt-1 block">
+                  <span className="font-mono text-[11px] tracking-wider text-[#818cf8] uppercase font-bold mt-1 block">
                     PROJECTS & SYSTEMS
                   </span>
                   <span className="text-[11px] text-[#9496a8] block mt-1">

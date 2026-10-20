@@ -47,7 +47,7 @@ export function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="px-3 py-1.5 border border-[#1a1c2e] hover:border-[#ff003f] hover:text-[#ff003f] text-[#f8fafc] text-[10px] uppercase tracking-wider transition-colors flex items-center space-x-1 cursor-pointer bg-[#050508]"
+            className="px-3 py-1.5 border border-[#1a1c2e] hover:border-[#6366f1] hover:text-[#818cf8] text-[#f8fafc] text-[10px] uppercase tracking-wider transition-colors flex items-center space-x-1 cursor-pointer bg-[#050508]"
           >
             <span>PIT WALL TOP</span>
             <span aria-hidden="true">&uarr;</span>

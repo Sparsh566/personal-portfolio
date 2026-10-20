@@ -222,7 +222,7 @@ export function LivePitWallRadar() {
                 onClick={() => setFilter("ALL")}
                 className={`px-3 py-1 transition-colors ${
                   filter === "ALL"
-                    ? "bg-[#ff003f] text-white font-bold shadow-sm shadow-[#ff003f]/25"
+                    ? "bg-[#6366f1] text-white font-bold shadow-sm shadow-[#6366f1]/25"
                     : "text-[#9496a8] hover:text-white"
                 }`}
               >

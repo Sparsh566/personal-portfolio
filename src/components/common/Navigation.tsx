@@ -39,7 +39,7 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
             >
               <div className="w-2.5 h-7 bg-[#ff003f] transition-transform duration-200 group-hover:scale-y-110 shadow-[0_0_8px_rgba(255,0,63,0.5)]" />
               <div>
-                <span className="font-mono text-xs tracking-widest text-[#ff003f] font-bold block uppercase">
+                <span className="font-mono text-xs tracking-widest text-[#818cf8] font-bold block uppercase">
                   SG // DEV CONTROL
                 </span>
                 <span className="font-mono text-sm tracking-tight text-[#f8fafc] font-semibold block">
@@ -47,8 +47,8 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
                 </span>
               </div>
               <div className="hidden md:flex items-center space-x-1.5 ml-4 pl-4 border-l border-[#1a1c2e]">
-                <span className="w-2 h-2 rounded-full bg-[#10b981] animate-f1-pulse inline-block" />
-                <span className="font-mono text-[10px] tracking-wider text-[#9496a8] uppercase">
+                <span className="w-2 h-2 rounded-full bg-[#ff003f] animate-pulse inline-block" />
+                <span className="font-mono text-[10px] tracking-wider text-[#9496a8] uppercase font-semibold">
                   SYS: ONLINE
                 </span>
               </div>
@@ -64,7 +64,7 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
                     href={item.href}
                     className={`px-3 py-1.5 transition-colors duration-150 border-b-2 ${
                       isActive
-                        ? "border-[#ff003f] text-[#f8fafc] bg-[#0f101a] shadow-[0_2px_8px_rgba(255,0,63,0.25)]"
+                        ? "border-[#6366f1] text-[#f8fafc] bg-[#0f101a] shadow-[0_2px_10px_rgba(99,102,241,0.2)]"
                         : "border-transparent text-[#9496a8] hover:text-[#f8fafc] hover:border-[#6366f1]/60"
                     }`}
                   >
@@ -85,16 +85,16 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
                     window.open(externalLinks.resume, "_blank");
                   }
                 }}
-                className="font-mono text-xs tracking-wider uppercase px-3 py-1.5 border border-[#2b2e4a] text-[#9496a8] hover:text-[#818cf8] hover:border-[#6366f1] transition-colors cursor-pointer bg-[#050508]"
+                className="font-mono text-xs tracking-wider uppercase px-3 py-1.5 border border-[#1a1c2e] text-[#9496a8] hover:text-[#f8fafc] hover:border-[#6366f1] transition-colors cursor-pointer bg-[#050508]"
               >
                 RESUME
               </button>
               <a
                 href="#radio"
-                className="font-mono text-xs tracking-wider uppercase px-4 py-1.5 bg-[#ff003f] text-white font-semibold hover:bg-[#ff2a5b] transition-colors flex items-center space-x-1.5 shadow-md shadow-[#ff003f]/25 border border-[#ff003f]"
+                className="font-mono text-xs tracking-wider uppercase px-4 py-1.5 bg-[#6366f1] text-white font-bold hover:bg-[#4f46e5] transition-all flex items-center space-x-1.5 shadow-md shadow-[#6366f1]/25 border border-[#6366f1]"
               >
                 <span>CONTACT</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff003f] animate-pulse" />
               </a>
             </div>
 
