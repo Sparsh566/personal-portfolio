@@ -26,8 +26,8 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#000000]/95 backdrop-blur-md border-b border-[#1a1c2e] py-3 shadow-[0_4px_20px_rgba(0,0,0,0.8)]"
-            : "bg-[#000000]/85 backdrop-blur-md border-b border-[#1a1c2e]/60 py-3.5"
+            ? "bg-black/30 backdrop-blur-md border-b border-[#1a1c2e]/50 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
+            : "bg-transparent border-b border-transparent py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +46,7 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
                   SPARSH GOSWAMI
                 </span>
               </div>
-              <div className="hidden md:flex items-center space-x-1.5 ml-4 pl-4 border-l border-[#1a1c2e]">
+              <div className="hidden md:flex items-center space-x-1.5 ml-4 pl-4 border-l border-white/10">
                 <span className="w-2 h-2 rounded-full bg-[#ff003f] animate-pulse inline-block" />
                 <span className="font-mono text-[10px] tracking-wider text-[#cbd5e1] uppercase font-semibold">
                   SYS: ONLINE
@@ -64,8 +64,8 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
                     href={item.href}
                     className={`px-3 py-1.5 transition-colors duration-150 border-b-2 font-medium ${
                       isActive
-                        ? "border-[#ff003f] text-[#ffffff] bg-[#0f101a] shadow-[0_2px_10px_rgba(255,0,63,0.25)]"
-                        : "border-transparent text-[#cbd5e1] hover:text-[#ffffff] hover:border-[#818cf8]"
+                        ? "border-[#ff003f] text-[#ffffff] bg-white/5 shadow-[0_2px_10px_rgba(255,0,63,0.25)]"
+                        : "border-transparent text-[#cbd5e1] hover:text-[#ffffff] hover:border-[#818cf8] hover:bg-white/[0.03]"
                     }`}
                   >
                     <span>{item.label}</span>
@@ -85,7 +85,7 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
                     window.open(externalLinks.resume, "_blank");
                   }
                 }}
-                className="font-mono text-xs tracking-wider uppercase px-3 py-1.5 border border-[#1a1c2e] text-[#9496a8] hover:text-[#f8fafc] hover:border-[#6366f1] transition-colors cursor-pointer bg-[#050508]"
+                className="font-mono text-xs tracking-wider uppercase px-3 py-1.5 border border-[#1a1c2e] hover:border-[#6366f1] text-[#cbd5e1] hover:text-[#f8fafc] transition-colors cursor-pointer bg-transparent hover:bg-white/5"
               >
                 RESUME
               </button>
@@ -102,7 +102,7 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[#9496a8] hover:text-[#f8fafc] border border-[#1a1c2e] focus:outline-none focus:ring-1 focus:ring-[#ff003f]"
+              className="lg:hidden p-2 text-[#cbd5e1] hover:text-[#ffffff] border border-white/10 hover:border-white/25 bg-transparent focus:outline-none focus:ring-1 focus:ring-[#ff003f]"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -135,7 +135,7 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#000000] pt-20 px-6 pb-8 lg:hidden flex flex-col justify-between overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-[#000000]/95 backdrop-blur-xl pt-20 px-6 pb-8 lg:hidden flex flex-col justify-between overflow-y-auto">
           <div className="space-y-6">
             <div className="border-b border-[#1a1c2e] pb-4 flex items-center justify-between">
               <span className="font-mono text-xs tracking-widest text-[#ff003f] uppercase font-bold">
