@@ -15,58 +15,58 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[90vh] pt-32 pb-20 flex items-center justify-center f1-grid-bg border-b border-[#1a1c2e] overflow-hidden bg-[#000000]"
+      className="relative min-h-[92vh] pt-32 pb-20 flex items-center justify-center border-b border-[#1a1c2e] overflow-hidden bg-[#000000]"
     >
+      {/* Nocturne-Inspired Bioluminescent Electric Indigo Atmospheric Depth */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
+        {/* Primary Bioluminescent Indigo Vapor Nebula */}
+        <div className="absolute top-1/4 -right-20 sm:right-10 w-[550px] sm:w-[750px] h-[550px] sm:h-[750px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#4338ca]/35 via-[#312e81]/20 to-transparent blur-[100px]" />
+        
+        {/* Secondary Cobalt Blue Mist Core */}
+        <div className="absolute top-1/3 right-1/4 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#6366f1]/25 via-[#2e1065]/20 to-transparent blur-[80px]" />
+
+        {/* Ambient Dark Undercurrent */}
+        <div className="absolute -bottom-10 left-10 w-[450px] h-[350px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1e1b4b]/40 via-transparent to-transparent blur-[90px]" />
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="space-y-10">
-          {/* 1. Status Pill */}
-          <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 bg-[#0a0b12] border border-[#1a1c2e]">
-            <span className="w-2 h-2 rounded-full bg-[#ff003f] animate-pulse" />
-            <span className="font-mono text-xs tracking-wider text-[#9496a8] uppercase font-semibold">
-              3RD YEAR B.TECH // COMPUTER SCIENCE (AI & ML) // SIT NAGPUR
+        <div className="space-y-8">
+          {/* Top Editorial Bar (like Nocturne top micro-labels) */}
+          <div className="flex items-center justify-between font-mono text-[11px] tracking-widest text-[#ff2238]/90 uppercase border-b border-[#ff2238]/20 pb-3">
+            <div className="flex items-center space-x-2">
+              <span className="w-2 h-2 rounded-full bg-[#ff2238] animate-pulse inline-block" />
+              <span className="font-bold">ISSUE 03 // CLASS OF 2026</span>
+              <span className="text-[#818cf8] hidden sm:inline">• SYMBIOSIS NAGPUR</span>
+            </div>
+            <span className="text-[#818cf8] tracking-widest font-semibold">
+              THE NIGHT EDITION
             </span>
           </div>
 
-          {/* 2. Main Title & Heading */}
-          <div className="space-y-3">
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#f8fafc] uppercase leading-[0.92]">
-              SPARSH{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#818cf8]">
-                GOSWAMI
-              </span>
+          {/* Main Nocturne Bold Headline */}
+          <div className="space-y-3 pt-2">
+            <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter text-[#ff2238] uppercase leading-[0.88] drop-shadow-[0_4px_30px_rgba(255,34,56,0.35)] select-none">
+              SPARSH<br className="hidden sm:inline" /> GOSWAMI
             </h1>
-            <p className="font-mono text-sm sm:text-base tracking-widest uppercase font-bold pt-1 text-[#818cf8]">
-              AI // SOFTWARE // SYSTEMS ENGINEERING
-            </p>
+            <div className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#ff2238] uppercase leading-tight font-sans">
+              AFTER DARK / <span className="text-[#818cf8]">CODE IN MOTION</span>
+            </div>
           </div>
 
-          {/* 3. Student Engineer Bio */}
-          <p className="text-lg sm:text-xl text-[#9496a8] max-w-3xl leading-relaxed font-sans font-normal">
+          {/* Student Engineer Bio */}
+          <p className="text-base sm:text-lg text-[#9496a8] max-w-2xl leading-relaxed font-sans font-normal pt-1">
             3rd Year Computer Science student building intelligent software, AI-powered systems,
             and experimental technology. Working across full stack web development,
             applied machine learning, hardware telemetry, and distributed architectures.
           </p>
 
-          {/* 4. Action Buttons */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-4 pt-3">
             <a
               href="#race-engineering"
-              className="px-7 py-3.5 bg-[#6366f1] hover:bg-[#4f46e5] text-white font-mono text-xs tracking-wider uppercase font-bold transition-all inline-flex items-center space-x-2 border border-[#6366f1] shadow-lg shadow-[#6366f1]/25 hover:-translate-y-0.5"
+              className="px-7 py-3.5 bg-[#ff2238] hover:bg-[#ff3d52] text-white font-mono text-xs tracking-wider uppercase font-extrabold transition-all inline-flex items-center space-x-2 border border-[#ff2238] shadow-[0_0_24px_rgba(255,34,56,0.4)] hover:-translate-y-0.5"
             >
-              <span>VIEW PROJECTS</span>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="square"
-                  strokeLinejoin="miter"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
+              <span>ENTER THE ARCHITECTURE &rarr;</span>
             </a>
 
             <button
@@ -78,7 +78,7 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
                   window.open(externalLinks.resume, "_blank");
                 }
               }}
-              className="px-7 py-3.5 border border-[#1a1c2e] hover:border-[#6366f1] text-[#f8fafc] hover:text-white font-mono text-xs tracking-wider uppercase font-bold transition-all duration-200 inline-flex items-center space-x-2 group cursor-pointer bg-[#080910] hover:bg-[#0d0f1a] shadow-sm hover:-translate-y-0.5"
+              className="px-7 py-3.5 border border-[#4338ca] hover:border-[#6366f1] text-[#f8fafc] hover:text-white font-mono text-xs tracking-wider uppercase font-bold transition-all duration-200 inline-flex items-center space-x-2 group cursor-pointer bg-[#0a0b18]/80 hover:bg-[#4338ca] shadow-md shadow-[#4338ca]/20 hover:-translate-y-0.5"
             >
               <svg
                 className="w-4 h-4 text-[#818cf8] group-hover:text-white transition-colors"

@@ -91,10 +91,10 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
               </button>
               <a
                 href="#radio"
-                className="font-mono text-xs tracking-wider uppercase px-4 py-1.5 bg-[#6366f1] text-white font-bold hover:bg-[#4f46e5] transition-all flex items-center space-x-1.5 shadow-md shadow-[#6366f1]/25 border border-[#6366f1]"
+                className="font-mono text-xs tracking-wider uppercase px-4 py-1.5 bg-[#ff2238] text-white font-bold hover:bg-[#ff3d52] transition-all flex items-center space-x-1.5 shadow-[0_0_16px_rgba(255,34,56,0.35)] border border-[#ff2238]"
               >
                 <span>CONTACT</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ff003f] animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#818cf8] animate-pulse" />
               </a>
             </div>
 
