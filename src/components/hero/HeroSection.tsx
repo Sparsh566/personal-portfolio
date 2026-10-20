@@ -31,25 +31,44 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="space-y-8">
-          {/* Top Editorial Bar (like Nocturne top micro-labels) */}
+          {/* Top Editorial Bar */}
           <div className="flex items-center justify-between font-mono text-[11px] tracking-widest text-[#ff2238]/90 uppercase border-b border-[#ff2238]/20 pb-3">
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 rounded-full bg-[#ff2238] animate-pulse inline-block" />
               <span className="font-bold">ISSUE 03 // CLASS OF 2026</span>
-              <span className="text-[#818cf8] hidden sm:inline">• SYMBIOSIS NAGPUR</span>
+              <span className="text-[#818cf8] hidden sm:inline">• SYMBIOSIS INSTITUTE OF TECHNOLOGY</span>
             </div>
-            <span className="text-[#818cf8] tracking-widest font-semibold">
-              THE NIGHT EDITION
+            <span className="text-[#9496a8] tracking-widest font-mono text-[10px]">
+              21.1458° N, 79.0882° E
             </span>
           </div>
 
-          {/* Main Nocturne Bold Headline */}
-          <div className="space-y-3 pt-2">
-            <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter text-[#ff2238] uppercase leading-[0.88] drop-shadow-[0_4px_30px_rgba(255,34,56,0.35)] select-none">
-              SPARSH<br className="hidden sm:inline" /> GOSWAMI
-            </h1>
-            <div className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#ff2238] uppercase leading-tight font-sans">
-              AFTER DARK / <span className="text-[#818cf8]">CODE IN MOTION</span>
+          {/* Main Nocturne Bold Headline & Intertwined Centerpiece */}
+          <div className="relative pt-2">
+            <div className="relative z-10 space-y-3 max-w-3xl">
+              <h1 className="text-6xl sm:text-8xl lg:text-[8.2rem] font-black tracking-tighter text-[#ff2238] uppercase leading-[0.85] drop-shadow-[0_6px_35px_rgba(255,34,56,0.4)] select-none">
+                SPARSH<br />
+                <span className="relative">
+                  GOSWAMI
+                  <span className="hidden sm:inline-block ml-4 text-[10px] font-mono tracking-widest text-[#818cf8] border border-[#6366f1]/40 px-2 py-0.5 bg-[#000000]/80 align-middle">
+                    SYS.26
+                  </span>
+                </span>
+              </h1>
+              <p className="font-mono text-sm sm:text-base tracking-widest text-[#818cf8] uppercase font-bold pt-2 flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 bg-[#818cf8]" />
+                <span>AI // SOFTWARE // SYSTEMS ENGINEERING</span>
+              </p>
+            </div>
+
+            {/* Intertwined Bioluminescent Indigo Organic Sculpture with Feathered Radial Mask */}
+            <div className="absolute -top-14 sm:-top-20 -right-8 sm:right-0 lg:-right-4 w-[300px] sm:w-[460px] lg:w-[560px] pointer-events-none select-none z-20 mix-blend-screen opacity-95 [mask-image:radial-gradient(circle_at_center,black_60%,transparent_95%)] [-webkit-mask-image:radial-gradient(circle_at_center,black_60%,transparent_95%)]">
+              <img
+                src="/nocturne-centerpiece.jpg"
+                alt="Bioluminescent Sculpture"
+                className="w-full h-auto object-contain filter contrast-125 brightness-110 animate-float-subtle drop-shadow-[0_0_60px_rgba(99,102,241,0.5)]"
+                loading="eager"
+              />
             </div>
           </div>
 

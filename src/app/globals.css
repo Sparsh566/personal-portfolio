@@ -146,6 +146,20 @@ body {
   animation: dash 2.4s ease-out forwards;
 }
 
+/* Subtle Organic Sculpture Breathing & Floating */
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 8s ease-in-out infinite;
+}
+
 /* Accessibility: Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
