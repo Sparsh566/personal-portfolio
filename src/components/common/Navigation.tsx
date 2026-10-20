@@ -26,8 +26,8 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#000000]/90 backdrop-blur-md border-b border-[#1a1c2e] py-3"
-            : "bg-transparent py-5"
+            ? "bg-[#000000]/95 backdrop-blur-md border-b border-[#1a1c2e] py-3 shadow-[0_4px_20px_rgba(0,0,0,0.8)]"
+            : "bg-[#000000]/85 backdrop-blur-md border-b border-[#1a1c2e]/60 py-3.5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +48,7 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
               </div>
               <div className="hidden md:flex items-center space-x-1.5 ml-4 pl-4 border-l border-[#1a1c2e]">
                 <span className="w-2 h-2 rounded-full bg-[#ff003f] animate-pulse inline-block" />
-                <span className="font-mono text-[10px] tracking-wider text-[#9496a8] uppercase font-semibold">
+                <span className="font-mono text-[10px] tracking-wider text-[#cbd5e1] uppercase font-semibold">
                   SYS: ONLINE
                 </span>
               </div>
@@ -62,10 +62,10 @@ export function Navigation({ activeSection, onOpenResume }: NavigationProps) {
                   <a
                     key={item.href}
                     href={item.href}
-                    className={`px-3 py-1.5 transition-colors duration-150 border-b-2 ${
+                    className={`px-3 py-1.5 transition-colors duration-150 border-b-2 font-medium ${
                       isActive
-                        ? "border-[#6366f1] text-[#f8fafc] bg-[#0f101a] shadow-[0_2px_10px_rgba(99,102,241,0.2)]"
-                        : "border-transparent text-[#9496a8] hover:text-[#f8fafc] hover:border-[#6366f1]/60"
+                        ? "border-[#ff003f] text-[#ffffff] bg-[#0f101a] shadow-[0_2px_10px_rgba(255,0,63,0.25)]"
+                        : "border-transparent text-[#cbd5e1] hover:text-[#ffffff] hover:border-[#818cf8]"
                     }`}
                   >
                     <span>{item.label}</span>

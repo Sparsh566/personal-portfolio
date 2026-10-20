@@ -87,7 +87,7 @@ export function RadioContactSection() {
   return (
     <section
       id="radio"
-      className="py-24 bg-[#000000] border-b border-[#1a1c2e] relative overflow-hidden"
+      className="py-24 bg-transparent border-b border-[#1a1c2e] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

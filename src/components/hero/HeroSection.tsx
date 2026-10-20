@@ -15,63 +15,64 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[94vh] pt-24 pb-8 flex flex-col justify-between border-b border-[#1a1c2e] overflow-hidden bg-[#000000]"
+      className="relative min-h-[92vh] pt-32 pb-14 flex flex-col justify-between border-b border-[#1a1c2e] overflow-hidden bg-[#000000]"
     >
-      {/* Background Ambient Depth */}
+      {/* Background Ambient Depth & Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-        {/* Bioluminescent Indigo Aura behind the plant */}
-        <div className="absolute top-1/4 right-[10%] w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#4338ca]/30 via-[#312e81]/15 to-transparent blur-[120px]" />
-        {/* Subtle Crimson Core Glow */}
-        <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ff2238]/15 via-transparent to-transparent blur-[100px]" />
+        {/* Bioluminescent Indigo Aura concentrated behind the right flank plant */}
+        <div className="absolute top-1/4 right-[2%] w-[550px] sm:w-[750px] h-[550px] sm:h-[750px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#4338ca]/30 via-[#312e81]/15 to-transparent blur-[120px]" />
+        {/* Subtle Crimson Ambient Core */}
+        <div className="absolute top-1/3 left-10 w-[450px] h-[450px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ff2238]/15 via-transparent to-transparent blur-[110px]" />
       </div>
 
       {/* Main Editorial Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full relative z-10 flex-1 flex flex-col justify-between">
         
-        {/* Top Editorial Issue Bar */}
-        <div className="flex items-center justify-between font-mono text-[11px] sm:text-xs tracking-[0.25em] text-[#ff2238] uppercase border-b border-[#ff2238]/25 pb-2.5 pt-1 select-none">
+        {/* Clean Editorial Status Bar */}
+        <div className="flex items-center justify-between font-mono text-[11px] tracking-widest text-[#ff2238]/90 uppercase border-b border-[#ff2238]/20 pb-3 select-none">
           <div className="flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-[#ff2238] animate-pulse inline-block" />
-            <span className="font-bold">ISSUE 08 — OCTOBER 2026</span>
+            <span className="font-bold">CLASS OF 2026</span>
+            <span className="text-[#818cf8] hidden sm:inline">• SYMBIOSIS INSTITUTE OF TECHNOLOGY</span>
           </div>
-          <span className="font-bold tracking-[0.25em]">
-            THE NIGHT EDITION
+          <span className="text-[#9496a8] tracking-widest font-mono text-[10px]">
+            21.1458° N, 79.0882° E
           </span>
         </div>
 
         {/* Hero Body Composition */}
-        <div className="relative my-auto py-3 sm:py-6">
+        <div className="relative my-auto py-6 sm:py-10">
           
-          {/* Giant Nocturne-Style Title */}
-          <div className="relative z-10">
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[8.8rem] font-black tracking-tighter text-[#ff2238] uppercase leading-[0.85] select-none drop-shadow-[0_4px_35px_rgba(255,34,56,0.35)]">
+          {/* Giant Display Title */}
+          <div className="relative z-10 max-w-4xl">
+            <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[7.8rem] xl:text-[9.5rem] font-black tracking-tighter text-[#ff2238] uppercase leading-[0.84] select-none drop-shadow-[0_4px_35px_rgba(255,34,56,0.35)]">
               SPARSH<br className="sm:hidden" /> GOSWAMI
             </h1>
+            
+            {/* Direct Engineering Domain Subtitle */}
+            <div className="pt-3 flex items-center space-x-2 font-mono text-xs sm:text-sm tracking-widest text-[#818cf8] uppercase font-bold">
+              <span className="w-2 h-2 bg-[#ff2238] inline-block" />
+              <span>AI // SOFTWARE // SYSTEMS ENGINEERING</span>
+            </div>
           </div>
 
-          {/* Lower Left Content & Subhead */}
-          <div className="relative z-30 pt-4 sm:pt-8 max-w-xl space-y-3.5">
-            {/* Display Subheading */}
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#ff2238] leading-[0.92] select-none">
-              AFTER DARK /<br />
-              CODE IN MOTION
-            </h2>
-
-            {/* Description in Nocturne Coral Tone */}
-            <p className="text-xs sm:text-sm text-[#ff6b7e] max-w-md leading-relaxed font-sans">
+          {/* Lower Left Content & Actions */}
+          <div className="relative z-30 pt-6 sm:pt-8 max-w-xl space-y-4">
+            {/* Student Engineer Bio */}
+            <p className="text-sm sm:text-base text-[#cbd5e1] max-w-lg leading-relaxed font-sans font-normal">
               3rd Year Computer Science student building intelligent software, AI-powered systems,
               and experimental technology. Working across full stack web development,
               applied machine learning, hardware telemetry, and distributed architectures.
             </p>
 
-            {/* Action Links */}
-            <div className="pt-2 flex flex-wrap items-center gap-6 font-mono text-xs tracking-wider">
+            {/* Action Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-4 font-mono text-xs tracking-wider">
               <a
                 href="#race-engineering"
-                className="text-[#ff2238] hover:text-white uppercase font-bold inline-flex items-center space-x-2 border-b border-[#ff2238] pb-1 transition-all group shadow-[0_4px_12px_rgba(255,34,56,0.2)]"
+                className="px-6 py-3 bg-[#ff2238] hover:bg-[#ff3d52] text-white font-mono text-xs tracking-wider uppercase font-extrabold transition-all inline-flex items-center space-x-2 border border-[#ff2238] shadow-[0_0_24px_rgba(255,34,56,0.4)] hover:-translate-y-0.5"
               >
-                <span>ENTER THE ARCHITECTURE</span>
-                <span className="transition-transform group-hover:translate-x-1.5">&rarr;</span>
+                <span>ENTER ARCHITECTURE</span>
+                <span>&rarr;</span>
               </a>
 
               <button
@@ -83,8 +84,21 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
                     window.open(externalLinks.resume, "_blank");
                   }
                 }}
-                className="text-[#818cf8] hover:text-white uppercase font-semibold inline-flex items-center space-x-1 border-b border-[#818cf8]/50 pb-1 transition-all hover:border-white cursor-pointer"
+                className="px-6 py-3 border border-[#4338ca] hover:border-[#6366f1] text-[#f8fafc] hover:text-white font-mono text-xs tracking-wider uppercase font-bold transition-all duration-200 inline-flex items-center space-x-2 group cursor-pointer bg-[#0a0b18]/80 hover:bg-[#4338ca] shadow-md shadow-[#4338ca]/20 hover:-translate-y-0.5"
               >
+                <svg
+                  className="w-4 h-4 text-[#818cf8] group-hover:text-white transition-colors"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="square"
+                    strokeLinejoin="miter"
+                    strokeWidth={2}
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
                 <span>VIEW RESUME</span>
               </button>
 
@@ -92,60 +106,47 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#9496a8] hover:text-white uppercase font-medium inline-flex items-center space-x-1 border-b border-[#9496a8]/30 pb-1 transition-all"
+                className="px-5 py-3 border border-[#1a1c2e] hover:border-[#6366f1] text-[#9496a8] hover:text-white font-mono text-xs tracking-wider uppercase transition-all inline-flex items-center space-x-2 bg-[#080910] hover:bg-[#0d0f1a] hover:-translate-y-0.5"
               >
-                <span>GITHUB &rarr;</span>
+                <span>GITHUB</span>
+                <span>&rarr;</span>
               </a>
             </div>
           </div>
 
-          {/* Exact Nocturne Vertical Plant Intertwined */}
-          <div className="absolute -bottom-4 right-[2%] sm:right-[8%] lg:right-[12%] w-[320px] sm:w-[460px] lg:w-[580px] xl:w-[660px] pointer-events-none select-none z-20 mix-blend-screen opacity-95 [mask-image:linear-gradient(to_top,black_85%,transparent_100%)]">
+          {/* Plant Shifted to Right Flank (Clean, Uncluttered, Non-overlapping) */}
+          <div className="absolute -bottom-6 -right-6 sm:right-0 lg:right-4 xl:right-10 w-[280px] sm:w-[420px] lg:w-[540px] xl:w-[620px] pointer-events-none select-none z-10 mix-blend-screen opacity-90 [mask-image:radial-gradient(circle_at_center,black_65%,transparent_96%)] [-webkit-mask-image:radial-gradient(circle_at_center,black_65%,transparent_96%)]">
             <img
               src="/nocturne-plant.jpg"
               alt="Nocturne Bioluminescent Plant"
-              className="w-full h-auto object-contain filter contrast-125 brightness-110 animate-float-subtle drop-shadow-[0_0_60px_rgba(99,102,241,0.55)]"
+              className="w-full h-auto object-contain filter contrast-125 brightness-110 animate-float-subtle drop-shadow-[0_0_60px_rgba(99,102,241,0.5)]"
               loading="eager"
             />
           </div>
 
         </div>
 
-        {/* Footer Strip / Technical Credentials Bar */}
+        {/* Footer Technical Credentials Strip */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-[#1a1c2e] relative z-30">
-          <div className="flex items-center space-x-3">
-            <span className="text-[#ff2238] font-mono text-xs font-bold">01/</span>
-            <div>
-              <span className="font-mono text-[10px] text-[#ff2238] uppercase tracking-wider block font-semibold">PATENTS</span>
-              <span className="text-xs text-[#f8fafc] font-sans font-medium">02 Published Patents (Hardware Interlock & Vision)</span>
-            </div>
+          <div className="p-3.5 bg-[#050508]/80 border border-[#1a1c2e] telemetry-bracket">
+            <span className="font-mono text-[10px] text-[#ff2238] uppercase tracking-wider block font-bold">INTELLECTUAL PROPERTY</span>
+            <div className="text-xl font-bold font-mono text-white mt-1">02 PATENTS PUBLISHED</div>
+            <p className="text-xs text-[#9496a8] mt-1 font-sans">Hardware safety interlock & spatial vision analytics.</p>
           </div>
 
-          <div className="flex items-center space-x-3">
-            <span className="text-[#818cf8] font-mono text-xs font-bold">02/</span>
-            <div>
-              <span className="font-mono text-[10px] text-[#818cf8] uppercase tracking-wider block font-semibold">RECOGNITION</span>
-              <span className="text-xs text-[#f8fafc] font-sans font-medium">Top 30 National Finalist — UBI IDEA 2.0</span>
-            </div>
+          <div className="p-3.5 bg-[#050508]/80 border border-[#1a1c2e] telemetry-bracket">
+            <span className="font-mono text-[10px] text-[#818cf8] uppercase tracking-wider block font-bold">NATIONAL RECOGNITION</span>
+            <div className="text-xl font-bold font-mono text-white mt-1">TOP 30 FINALIST</div>
+            <p className="text-xs text-[#9496a8] mt-1 font-sans">Union Bank of India IDEA 2.0 National Hackathon.</p>
           </div>
 
-          <div className="flex items-center space-x-3">
-            <span className="text-[#818cf8] font-mono text-xs font-bold">03/</span>
-            <div>
-              <span className="font-mono text-[10px] text-[#818cf8] uppercase tracking-wider block font-semibold">EDUCATION</span>
-              <span className="text-xs text-[#f8fafc] font-sans font-medium">3rd Year B.Tech CSE (AI & ML) — SIT Nagpur</span>
-            </div>
+          <div className="p-3.5 bg-[#050508]/80 border border-[#1a1c2e] telemetry-bracket">
+            <span className="font-mono text-[10px] text-[#818cf8] uppercase tracking-wider block font-bold">ACADEMIC STANDING</span>
+            <div className="text-xl font-bold font-mono text-white mt-1">3RD YEAR B.TECH</div>
+            <p className="text-xs text-[#9496a8] mt-1 font-sans">CSE (AI & ML) — Symbiosis Institute of Technology.</p>
           </div>
         </div>
 
-      </div>
-
-      {/* Far Right Vertical Margin Editorial Stamp */}
-      <div className="hidden lg:flex absolute right-6 bottom-32 flex-col items-center select-none pointer-events-none z-30">
-        <div className="w-[1px] h-20 bg-[#ff2238]/30 mb-5" />
-        <span className="font-mono text-[10px] tracking-[0.35em] text-[#ff2238]/80 uppercase rotate-90 origin-center whitespace-nowrap">
-          INDEPENDENT SYSTEMS JOURNAL
-        </span>
       </div>
     </section>
   );
