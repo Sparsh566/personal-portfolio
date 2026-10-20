@@ -15,33 +15,33 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[90vh] pt-32 pb-20 flex items-center justify-center f1-grid-bg border-b border-[#232730] overflow-hidden"
+      className="relative min-h-[90vh] pt-32 pb-20 flex items-center justify-center f1-grid-bg border-b border-[#1a1c2e] overflow-hidden bg-[#000000]"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="space-y-10">
           {/* 1. Status Pill */}
-          <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 bg-[#14161b] border border-[#232730]">
+          <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 bg-[#0f101a] border border-[#1a1c2e]">
             <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
-            <span className="font-mono text-xs tracking-wider text-[#8f94a0] uppercase">
+            <span className="font-mono text-xs tracking-wider text-[#9496a8] uppercase">
               3RD YEAR B.TECH // COMPUTER SCIENCE (AI & ML) // SIT NAGPUR
             </span>
           </div>
 
           {/* 2. Main Title & Heading */}
           <div className="space-y-3">
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#f3f4f6] uppercase leading-[0.95]">
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#f8fafc] uppercase leading-[0.95]">
               SPARSH{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-indigo-300">
                 GOSWAMI
               </span>
             </h1>
-            <p className="font-mono text-sm sm:text-base tracking-widest text-[#e10600] uppercase font-bold pt-1">
+            <p className="font-mono text-sm sm:text-base tracking-widest uppercase font-bold pt-1 bg-gradient-to-r from-[#ff003f] via-[#a855f7] to-[#6366f1] bg-clip-text text-transparent">
               AI / SOFTWARE / SYSTEMS ENGINEERING
             </p>
           </div>
 
           {/* 3. Student Engineer Bio */}
-          <p className="text-lg sm:text-xl text-[#8f94a0] max-w-3xl leading-relaxed font-sans">
+          <p className="text-lg sm:text-xl text-[#9496a8] max-w-3xl leading-relaxed font-sans">
             3rd Year Computer Science student building intelligent software, AI-powered systems,
             and experimental technology. Working across full stack web development,
             applied machine learning, hardware telemetry, and distributed architectures.
@@ -51,7 +51,7 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <a
               href="#race-engineering"
-              className="px-7 py-3.5 bg-[#e10600] hover:bg-[#b80500] text-white font-mono text-xs tracking-wider uppercase font-bold transition-colors inline-flex items-center space-x-2 border border-[#e10600]"
+              className="px-7 py-3.5 bg-[#ff003f] hover:bg-[#ff2a5b] text-white font-mono text-xs tracking-wider uppercase font-bold transition-all inline-flex items-center space-x-2 border border-[#ff003f] shadow-lg shadow-[#ff003f]/25"
             >
               <span>VIEW PROJECTS</span>
               <svg
@@ -78,10 +78,10 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
                   window.open(externalLinks.resume, "_blank");
                 }
               }}
-              className="px-7 py-3.5 border border-[#e10600]/80 bg-[#e10600]/10 hover:bg-[#e10600] text-[#f3f4f6] hover:text-white font-mono text-xs tracking-wider uppercase font-bold transition-all duration-200 inline-flex items-center space-x-2 group cursor-pointer"
+              className="px-7 py-3.5 border border-[#6366f1]/80 bg-[#6366f1]/10 hover:bg-[#6366f1] text-[#f8fafc] hover:text-white font-mono text-xs tracking-wider uppercase font-bold transition-all duration-200 inline-flex items-center space-x-2 group cursor-pointer shadow-lg shadow-[#6366f1]/15"
             >
               <svg
-                className="w-4 h-4 text-[#e10600] group-hover:text-white transition-colors"
+                className="w-4 h-4 text-[#818cf8] group-hover:text-white transition-colors"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -100,11 +100,11 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
               href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 border border-[#373e4d] hover:border-[#8f94a0] text-[#f3f4f6] hover:text-white font-mono text-xs tracking-wider uppercase transition-colors inline-flex items-center space-x-2 bg-[#121418]"
+              className="px-7 py-3.5 border border-[#2b2e4a] hover:border-[#6366f1] text-[#f8fafc] hover:text-[#818cf8] font-mono text-xs tracking-wider uppercase transition-colors inline-flex items-center space-x-2 bg-[#0a0b12]"
             >
               <span>VIEW GITHUB</span>
               <svg
-                className="w-4 h-4 text-[#8f94a0]"
+                className="w-4 h-4 text-[#9496a8]"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -118,51 +118,51 @@ export function HeroSection({ onOpenResume }: HeroSectionProps = {}) {
           </div>
 
           {/* 5. Clean Key Credentials & Metrics Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-8 border-t border-[#232730]/80">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-8 border-t border-[#1a1c2e]">
             {/* Card 1: Patents */}
-            <div className="p-5 bg-[#0b0c0e] border border-[#232730] telemetry-bracket hover:border-[#e10600]/40 transition-colors">
-              <span className="font-mono text-[10px] tracking-wider text-[#e10600] font-bold uppercase block">
+            <div className="p-5 bg-[#050508] border border-[#1a1c2e] telemetry-bracket hover:border-[#ff003f]/50 transition-colors">
+              <span className="font-mono text-[10px] tracking-wider text-[#ff003f] font-bold uppercase block">
                 INTELLECTUAL PROPERTY
               </span>
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#f3f4f6] font-mono mt-2">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#f8fafc] font-mono mt-2">
                 02
               </div>
-              <div className="text-xs font-bold font-mono text-[#f3f4f6] uppercase mt-1">
+              <div className="text-xs font-bold font-mono text-[#f8fafc] uppercase mt-1">
                 PATENTS PUBLISHED
               </div>
-              <p className="text-xs text-[#8f94a0] mt-2 font-sans leading-relaxed">
+              <p className="text-xs text-[#9496a8] mt-2 font-sans leading-relaxed">
                 Officially registered hardware safety interlock and spatial vision analytics.
               </p>
             </div>
 
             {/* Card 2: Hackathon Finalist */}
-            <div className="p-5 bg-[#0b0c0e] border border-[#232730] telemetry-bracket hover:border-[#e10600]/40 transition-colors">
+            <div className="p-5 bg-[#050508] border border-[#1a1c2e] telemetry-bracket hover:border-[#10b981]/50 transition-colors">
               <span className="font-mono text-[10px] tracking-wider text-[#10b981] font-bold uppercase block">
                 NATIONAL RECOGNITION
               </span>
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#f3f4f6] font-mono mt-2">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#f8fafc] font-mono mt-2">
                 TOP 30
               </div>
-              <div className="text-xs font-bold font-mono text-[#f3f4f6] uppercase mt-1">
+              <div className="text-xs font-bold font-mono text-[#f8fafc] uppercase mt-1">
                 NATIONAL FINALIST
               </div>
-              <p className="text-xs text-[#8f94a0] mt-2 font-sans leading-relaxed">
+              <p className="text-xs text-[#9496a8] mt-2 font-sans leading-relaxed">
                 Union Bank of India IDEA 2.0 National Hackathon finalist team.
               </p>
             </div>
 
             {/* Card 3: Academic Standing */}
-            <div className="p-5 bg-[#0b0c0e] border border-[#232730] telemetry-bracket hover:border-[#e10600]/40 transition-colors">
-              <span className="font-mono text-[10px] tracking-wider text-[#8f94a0] font-bold uppercase block">
+            <div className="p-5 bg-[#050508] border border-[#1a1c2e] telemetry-bracket hover:border-[#6366f1]/50 transition-colors">
+              <span className="font-mono text-[10px] tracking-wider text-[#818cf8] font-bold uppercase block">
                 ACADEMIC STANDING
               </span>
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#f3f4f6] font-mono mt-2">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#6366f1] font-mono mt-2">
                 3RD YEAR
               </div>
-              <div className="text-xs font-bold font-mono text-[#f3f4f6] uppercase mt-1">
+              <div className="text-xs font-bold font-mono text-[#f8fafc] uppercase mt-1">
                 B.TECH CSE (AI & ML)
               </div>
-              <p className="text-xs text-[#8f94a0] mt-2 font-sans leading-relaxed">
+              <p className="text-xs text-[#9496a8] mt-2 font-sans leading-relaxed">
                 Symbiosis Institute of Technology, Nagpur.
               </p>
             </div>

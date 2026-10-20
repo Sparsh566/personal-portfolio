@@ -37,7 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-[#070809] text-[#f3f4f6] antialiased selection:bg-[#e10600] selection:text-white">
+      <body className="bg-[#000000] text-[#f8fafc] antialiased selection:bg-[#ff003f] selection:text-white">
         <VisitorTracker />
         <LivePitWallRadar />
         {children}

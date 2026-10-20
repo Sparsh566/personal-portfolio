@@ -10,17 +10,17 @@ export function F1TelemetryViewer() {
   return (
     <div
       ref={containerRef}
-      className="p-4 bg-[#070809] border border-[#232730] font-mono text-xs space-y-4"
+      className="p-4 bg-[#000000] border border-[#1a1c2e] font-mono text-xs space-y-4"
     >
       {/* Telemetry Header */}
-      <div className="flex flex-wrap items-center justify-between pb-3 border-b border-[#232730] gap-2">
+      <div className="flex flex-wrap items-center justify-between pb-3 border-b border-[#1a1c2e] gap-2">
         <div className="flex items-center space-x-2">
-          <span className="w-2 h-2 rounded-full bg-[#e10600]" />
-          <span className="text-[#f3f4f6] font-bold">
+          <span className="w-2 h-2 rounded-full bg-[#ff003f] shadow-[0_0_6px_rgba(255,0,63,0.8)]" />
+          <span className="text-[#f8fafc] font-bold">
             FASTF1 TELEMETRY ACQUISITION // LAP 44
           </span>
         </div>
-        <div className="flex items-center space-x-3 text-[10px] text-[#8f94a0]">
+        <div className="flex items-center space-x-3 text-[10px] text-[#9496a8]">
           <span>CIRCUIT: SPA-FRANCORCHAMPS</span>
           <span className="text-[#10b981]">SAMPLING: 200HZ</span>
         </div>
@@ -28,33 +28,33 @@ export function F1TelemetryViewer() {
 
       {/* Primary Timing & Dynamic HUD */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[10px]">
-        <div className="p-2 bg-[#121418] border border-[#232730]">
-          <span className="text-[#8f94a0] block uppercase">SECTOR 1 (PURPLE)</span>
-          <span className="text-xs font-bold text-[#8b5cf6] block mt-0.5">
+        <div className="p-2 bg-[#0a0b12] border border-[#1a1c2e]">
+          <span className="text-[#9496a8] block uppercase">SECTOR 1 (INDIGO)</span>
+          <span className="text-xs font-bold text-[#6366f1] block mt-0.5">
             28.412s
           </span>
-          <span className="text-[9px] text-[#8f94a0]">-0.118s DELTA</span>
+          <span className="text-[9px] text-[#9496a8]">-0.118s DELTA</span>
         </div>
 
-        <div className="p-2 bg-[#121418] border border-[#232730]">
-          <span className="text-[#8f94a0] block uppercase">SECTOR 2 (GREEN)</span>
+        <div className="p-2 bg-[#0a0b12] border border-[#1a1c2e]">
+          <span className="text-[#9496a8] block uppercase">SECTOR 2 (GREEN)</span>
           <span className="text-xs font-bold text-[#10b981] block mt-0.5">
             39.814s
           </span>
-          <span className="text-[9px] text-[#8f94a0]">-0.024s DELTA</span>
+          <span className="text-[9px] text-[#9496a8]">-0.024s DELTA</span>
         </div>
 
-        <div className="p-2 bg-[#121418] border border-[#232730]">
-          <span className="text-[#8f94a0] block uppercase">SECTOR 3 (YELLOW)</span>
-          <span className="text-xs font-bold text-[#e5a93c] block mt-0.5">
+        <div className="p-2 bg-[#0a0b12] border border-[#1a1c2e]">
+          <span className="text-[#9496a8] block uppercase">SECTOR 3 (VIOLET)</span>
+          <span className="text-xs font-bold text-[#818cf8] block mt-0.5">
             23.902s
           </span>
-          <span className="text-[9px] text-[#8f94a0]">+0.042s DELTA</span>
+          <span className="text-[9px] text-[#9496a8]">+0.042s DELTA</span>
         </div>
 
-        <div className="p-2 bg-[#121418] border border-[#232730]">
-          <span className="text-[#8f94a0] block uppercase">LAP TIME</span>
-          <span className="text-xs font-bold text-[#f3f4f6] block mt-0.5">
+        <div className="p-2 bg-[#0a0b12] border border-[#1a1c2e]">
+          <span className="text-[#9496a8] block uppercase">LAP TIME</span>
+          <span className="text-xs font-bold text-[#f8fafc] block mt-0.5">
             1:32.128
           </span>
           <span className="text-[9px] text-[#10b981]">PERSONAL BEST</span>
@@ -62,13 +62,13 @@ export function F1TelemetryViewer() {
       </div>
 
       {/* Dynamic Telemetry SVG Graph: Speed, Throttle, Brake */}
-      <div className="p-3 bg-[#0b0c0e] border border-[#232730]">
-        <div className="flex items-center justify-between text-[10px] text-[#8f94a0] mb-2">
+      <div className="p-3 bg-[#050508] border border-[#1a1c2e]">
+        <div className="flex items-center justify-between text-[10px] text-[#9496a8] mb-2">
           <span>CHANNEL OVERLAY: SPEED (KM/H) & THROTTLE (%)</span>
           <div className="flex items-center space-x-3">
-            <span className="text-[#e10600] font-semibold">-- SPEED</span>
+            <span className="text-[#ff003f] font-semibold">-- SPEED</span>
             <span className="text-[#10b981] font-semibold">-- THROTTLE</span>
-            <span className="text-[#e5a93c] font-semibold">-- BRAKE</span>
+            <span className="text-[#818cf8] font-semibold">-- BRAKE</span>
           </div>
         </div>
 
@@ -80,17 +80,17 @@ export function F1TelemetryViewer() {
             aria-hidden="true"
           >
             {/* Grid Reference Lines */}
-            <line x1="0" y1="20" x2="500" y2="20" stroke="#1c1e25" strokeWidth="1" strokeDasharray="2 4" />
-            <line x1="0" y1="60" x2="500" y2="60" stroke="#1c1e25" strokeWidth="1" strokeDasharray="2 4" />
-            <line x1="0" y1="100" x2="500" y2="100" stroke="#1c1e25" strokeWidth="1" strokeDasharray="2 4" />
+            <line x1="0" y1="20" x2="500" y2="20" stroke="#161826" strokeWidth="1" strokeDasharray="2 4" />
+            <line x1="0" y1="60" x2="500" y2="60" stroke="#161826" strokeWidth="1" strokeDasharray="2 4" />
+            <line x1="0" y1="100" x2="500" y2="100" stroke="#161826" strokeWidth="1" strokeDasharray="2 4" />
 
-            {/* Brake Pressure Spikes (Amber) */}
+            {/* Brake Pressure Spikes (Indigo) */}
             <path
               d="M 0 115 L 120 115 L 130 30 L 160 40 L 175 115 L 310 115 L 320 20 L 350 45 L 365 115 L 500 115"
               fill="none"
-              stroke="#e5a93c"
+              stroke="#818cf8"
               strokeWidth="1.5"
-              strokeOpacity="0.6"
+              strokeOpacity="0.7"
             />
 
             {/* Throttle Pedal Trace (Green) */}
@@ -101,11 +101,11 @@ export function F1TelemetryViewer() {
               strokeWidth="2"
             />
 
-            {/* Speed Telemetry Curve (Racing Red) */}
+            {/* Speed Telemetry Curve (Neon Red) */}
             <path
               d="M 0 25 Q 70 20 125 35 Q 145 105 170 100 Q 220 50 315 28 Q 335 110 360 105 Q 410 40 500 30"
               fill="none"
-              stroke="#e10600"
+              stroke="#ff003f"
               strokeWidth="2.5"
               strokeDasharray="600"
               strokeDashoffset={isVisible ? "0" : "600"}
@@ -114,7 +114,7 @@ export function F1TelemetryViewer() {
           </svg>
         </div>
 
-        <div className="flex justify-between text-[9px] text-[#8f94a0] pt-1">
+        <div className="flex justify-between text-[9px] text-[#9496a8] pt-1">
           <span>0M (TURN 1 ENTRY)</span>
           <span>1200M (HAIRPIN APEX)</span>
           <span>2400M (STRAIGHT 2)</span>
@@ -125,28 +125,28 @@ export function F1TelemetryViewer() {
 
       {/* Vehicle Dynamics Status Bar */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[10px]">
-        <div className="p-2 bg-[#121418] border border-[#232730]">
-          <span className="text-[#8f94a0] block uppercase">TYRE COMPOUND</span>
-          <span className="text-[#f3f4f6] font-bold block mt-0.5">MEDIUM (C3)</span>
+        <div className="p-2 bg-[#0a0b12] border border-[#1a1c2e]">
+          <span className="text-[#9496a8] block uppercase">TYRE COMPOUND</span>
+          <span className="text-[#f8fafc] font-bold block mt-0.5">MEDIUM (C3)</span>
           <span className="text-[#10b981]">78% REMAINING LIFE</span>
         </div>
 
-        <div className="p-2 bg-[#121418] border border-[#232730]">
-          <span className="text-[#8f94a0] block uppercase">FUEL LOAD</span>
-          <span className="text-[#f3f4f6] font-bold block mt-0.5">38.4 KG</span>
-          <span className="text-[#8f94a0]">-0.8 LAPS DEFICIT</span>
+        <div className="p-2 bg-[#0a0b12] border border-[#1a1c2e]">
+          <span className="text-[#9496a8] block uppercase">FUEL LOAD</span>
+          <span className="text-[#f8fafc] font-bold block mt-0.5">38.4 KG</span>
+          <span className="text-[#9496a8]">-0.8 LAPS DEFICIT</span>
         </div>
 
-        <div className="p-2 bg-[#121418] border border-[#232730]">
-          <span className="text-[#8f94a0] block uppercase">BRAKE TEMP</span>
-          <span className="text-[#f3f4f6] font-bold block mt-0.5">580 DEG C</span>
+        <div className="p-2 bg-[#0a0b12] border border-[#1a1c2e]">
+          <span className="text-[#9496a8] block uppercase">BRAKE TEMP</span>
+          <span className="text-[#f8fafc] font-bold block mt-0.5">580 DEG C</span>
           <span className="text-[#10b981]">OPTIMAL WINDOW</span>
         </div>
 
-        <div className="p-2 bg-[#121418] border border-[#232730]">
-          <span className="text-[#8f94a0] block uppercase">DRS STATUS</span>
+        <div className="p-2 bg-[#0a0b12] border border-[#1a1c2e]">
+          <span className="text-[#9496a8] block uppercase">DRS STATUS</span>
           <span className="text-[#10b981] font-bold block mt-0.5">ACTIVE</span>
-          <span className="text-[#8f94a0]">ZONE 2 ENGAGED</span>
+          <span className="text-[#9496a8]">ZONE 2 ENGAGED</span>
         </div>
       </div>
     </div>

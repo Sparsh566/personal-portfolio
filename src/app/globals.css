@@ -1,68 +1,71 @@
 @import "tailwindcss";
 
 @theme {
-  --color-carbon-950: #070809;
-  --color-carbon-900: #0b0c0e;
-  --color-carbon-850: #0f1013;
-  --color-carbon-800: #14161b;
-  --color-carbon-700: #1b1e25;
-  --color-border-subtle: #232730;
-  --color-border-active: #373e4d;
-  --color-racing-red: #e10600;
-  --color-racing-amber: #e5a93c;
+  --color-carbon-950: #000000;
+  --color-carbon-900: #050508;
+  --color-carbon-850: #0a0b12;
+  --color-carbon-800: #0f101a;
+  --color-carbon-700: #161826;
+  --color-border-subtle: #1a1c2e;
+  --color-border-active: #2b2e4a;
+  --color-racing-red: #ff003f;
+  --color-neon-red: #ff003f;
+  --color-neon-indigo: #6366f1;
+  --color-racing-amber: #818cf8;
   --color-timing-green: #10b981;
-  --color-sector-purple: #8b5cf6;
-  --color-telemetry-gray: #8f94a0;
-  --color-telemetry-light: #f3f4f6;
+  --color-sector-purple: #6366f1;
+  --color-telemetry-gray: #9496a8;
+  --color-telemetry-light: #f8fafc;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 :root {
-  --bg-primary: #070809;
-  --bg-surface: #0b0c0e;
-  --bg-card: #121418;
-  --border-subtle: #232730;
-  --border-strong: #373e4d;
-  --accent-red: #e10600;
-  --accent-amber: #e5a93c;
+  --bg-primary: #000000;
+  --bg-surface: #050508;
+  --bg-card: #0a0b12;
+  --border-subtle: #1a1c2e;
+  --border-strong: #2b2e4a;
+  --accent-red: #ff003f;
+  --accent-indigo: #6366f1;
+  --accent-amber: #818cf8;
   --status-green: #10b981;
-  --status-purple: #8b5cf6;
-  --text-primary: #f3f4f6;
-  --text-muted: #8f94a0;
+  --status-purple: #6366f1;
+  --text-primary: #f8fafc;
+  --text-muted: #9496a8;
 }
 
 html {
-  background-color: #070809;
-  color: #f3f4f6;
+  background-color: #000000;
+  color: #f8fafc;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   scroll-behavior: auto;
 }
 
 body {
-  background-color: #070809;
-  color: #f3f4f6;
+  background-color: #000000;
+  color: #f8fafc;
   min-height: 100vh;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-/* F1 Engineering Grid Background */
+/* Deep Black + Cyber Indigo Engineering Grid */
 .f1-grid-bg {
   background-image: 
-    linear-gradient(to right, rgba(35, 39, 48, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(35, 39, 48, 0.4) 1px, transparent 1px);
+    linear-gradient(to right, rgba(99, 102, 241, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .f1-grid-fine {
   background-image: 
-    linear-gradient(to right, rgba(35, 39, 48, 0.25) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(35, 39, 48, 0.25) 1px, transparent 1px);
+    linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
   background-size: 16px 16px;
 }
 
-/* Technical Corner Markings */
+/* Dual-Tone Technical Corner Markings: Neon Red top-left, Electric Indigo bottom-right */
 .telemetry-bracket {
   position: relative;
 }
@@ -74,8 +77,8 @@ body {
   left: 0;
   width: 8px;
   height: 8px;
-  border-top: 2px solid #e10600;
-  border-left: 2px solid #e10600;
+  border-top: 2px solid #ff003f;
+  border-left: 2px solid #ff003f;
   pointer-events: none;
 }
 
@@ -86,15 +89,15 @@ body {
   right: 0;
   width: 8px;
   height: 8px;
-  border-bottom: 2px solid #373e4d;
-  border-right: 2px solid #373e4d;
+  border-bottom: 2px solid #6366f1;
+  border-right: 2px solid #6366f1;
   pointer-events: none;
 }
 
-/* Subtle Horizontal Sector Line */
+/* Sector Line: Neon Red morphing into Electric Indigo */
 .sector-divider {
   height: 1px;
-  background: linear-gradient(90deg, #e10600 0%, #232730 40%, rgba(35, 39, 48, 0) 100%);
+  background: linear-gradient(90deg, #ff003f 0%, #6366f1 40%, rgba(99, 102, 241, 0) 100%);
 }
 
 /* Custom Scrollbar */
@@ -104,16 +107,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #070809;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #232730;
+  background: #1a1c2e;
   border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e10600;
+  background: #ff003f;
 }
 
 /* Pulsing Status Dot */

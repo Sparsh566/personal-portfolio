@@ -331,7 +331,7 @@ export async function POST(request: Request) {
 
     let subjectBadge = "[TELEMETRY]";
     let subject = `New Portfolio Visitor from ${locationString}`;
-    let themeColor = "#e10600";
+    let themeColor = "#ff003f";
     let actionHeading = "New Portfolio Visit Detected";
 
     if (isResume) {
@@ -342,7 +342,7 @@ export async function POST(request: Request) {
     } else if (isCert) {
       subjectBadge = "[CREDENTIAL AUDIT]";
       subject = `Visitor from ${locationString} checked: ${detail || "Certificate"}`;
-      themeColor = "#3b82f6";
+      themeColor = "#6366f1";
       actionHeading = `Certificate Inspected: ${detail || "Credential"}`;
     } else {
       subject = `Visitor from ${locationString} (${org || isp || sourceCategory})`;
@@ -378,7 +378,7 @@ export async function POST(request: Request) {
           to: gmailUser,
           subject: fullSubject,
           html: `
-            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 620px; margin: 0 auto; padding: 24px; border: 1px solid #232730; border-radius: 8px; background-color: #0b0c0e; color: #f3f4f6;">
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 620px; margin: 0 auto; padding: 24px; border: 1px solid #1a1c2e; border-radius: 8px; background-color: #050508; color: #f8fafc;">
               <div style="border-bottom: 2px solid ${themeColor}; padding-bottom: 12px; margin-bottom: 20px;">
                 <span style="background-color: ${themeColor}22; color: ${themeColor}; font-size: 11px; font-weight: bold; font-family: monospace; padding: 4px 8px; text-transform: uppercase; border-radius: 2px; border: 1px solid ${themeColor}55;">
                   ${eventType.toUpperCase()} EVENT

@@ -11,7 +11,7 @@ export function VisitorMailCard({ entry, isCurrentUser = false }: VisitorMailCar
   const isResume = entry.event === "resume_view";
   const isCert = entry.event === "cert_view";
 
-  const themeColor = isResume ? "#10b981" : isCert ? "#3b82f6" : "#e10600";
+  const themeColor = isResume ? "#10b981" : isCert ? "#6366f1" : "#ff003f";
   const badgeText = isCurrentUser
     ? "CURRENT ACTIVE SESSION"
     : isResume
@@ -35,7 +35,7 @@ export function VisitorMailCard({ entry, isCurrentUser = false }: VisitorMailCar
     )}`;
 
   return (
-    <div className="w-full bg-[#0b0c0e] border border-[#232730] hover:border-[#373e4d] p-5 sm:p-6 transition-all shadow-xl font-mono text-xs telemetry-bracket">
+    <div className="w-full bg-[#050508] border border-[#1a1c2e] hover:border-[#2b2e4a] p-5 sm:p-6 transition-all shadow-xl font-mono text-xs telemetry-bracket">
       {/* Top Header matching email */}
       <div
         className="pb-3 mb-4"
@@ -137,39 +137,39 @@ export function VisitorMailCard({ entry, isCurrentUser = false }: VisitorMailCar
 
         {/* Page Path Row */}
         <div className="flex flex-col sm:flex-row sm:items-center py-2 border-b border-[#1a1d24]">
-          <span className="w-36 text-[#8f94a0] uppercase shrink-0 font-medium">
+          <span className="w-36 text-[#9496a8] uppercase shrink-0 font-medium">
             PAGE PATH:
           </span>
-          <span className="text-[#3b82f6] break-all mt-0.5 sm:mt-0">
+          <span className="text-[#6366f1] break-all mt-0.5 sm:mt-0">
             {entry.pageUrl || "https://sparsh-portfolio-coral.vercel.app/"}
           </span>
         </div>
 
         {/* Referrer URL Row */}
-        <div className="flex flex-col sm:flex-row sm:items-center py-2 border-b border-[#1a1d24]">
-          <span className="w-36 text-[#8f94a0] uppercase shrink-0 font-medium">
+        <div className="flex flex-col sm:flex-row sm:items-center py-2 border-b border-[#141624]">
+          <span className="w-36 text-[#9496a8] uppercase shrink-0 font-medium">
             REFERRER URL:
           </span>
-          <span className="text-[#3b82f6] break-all mt-0.5 sm:mt-0">
+          <span className="text-[#6366f1] break-all mt-0.5 sm:mt-0">
             {entry.referrerUrl || "Direct / Direct Portfolio Link"}
           </span>
         </div>
 
         {/* Client IP Row */}
         <div className="flex flex-col sm:flex-row sm:items-center py-2">
-          <span className="w-36 text-[#8f94a0] uppercase shrink-0 font-medium">
+          <span className="w-36 text-[#9496a8] uppercase shrink-0 font-medium">
             CLIENT IP:
           </span>
-          <span className="text-[#8f94a0] mt-0.5 sm:mt-0">
+          <span className="text-[#9496a8] mt-0.5 sm:mt-0">
             {entry.maskedIp}
           </span>
         </div>
       </div>
 
       {/* Footer matching email */}
-      <div className="pt-3 mt-3 border-t border-[#1a1d24] text-[10px] text-[#8f94a0] text-center flex flex-col sm:flex-row items-center justify-between gap-1">
+      <div className="pt-3 mt-3 border-t border-[#141624] text-[10px] text-[#9496a8] text-center flex flex-col sm:flex-row items-center justify-between gap-1">
         <span>Automated Pit-Wall Telemetry System // sparshgoswami.dev</span>
-        <span className="text-[#e10600]">STATUS: VERIFIED RECORD</span>
+        <span className="text-[#ff003f] font-bold">STATUS: VERIFIED RECORD</span>
       </div>
     </div>
   );

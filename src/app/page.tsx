@@ -57,7 +57,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#070809] text-[#f3f4f6]">
+    <div className="min-h-screen bg-[#000000] text-[#f8fafc]">
       {/* Pit Wall Top Navigation */}
       <Navigation
         activeSection={activeSection}

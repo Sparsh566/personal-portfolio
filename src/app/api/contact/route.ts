@@ -37,32 +37,32 @@ export async function POST(request: Request) {
           subject: subject ? `[Portfolio] ${subject}` : `[Portfolio] Message from ${name}`,
           text: `New portfolio contact message\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject || "General Inquiry"}\n\nMessage:\n${message}`,
           html: `
-            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #232730; border-radius: 8px; background-color: #0b0c0e; color: #f3f4f6;">
-              <div style="border-bottom: 2px solid #e10600; padding-bottom: 12px; margin-bottom: 20px;">
-                <h2 style="color: #f3f4f6; margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.025em;">PORTFOLIO DIRECT INBOX DISPATCH</h2>
-                <p style="color: #8f94a0; margin: 4px 0 0 0; font-size: 12px; font-family: monospace;">RECEIVED VIA SPARSHGOSWAMI.DEV</p>
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #1a1c2e; border-radius: 8px; background-color: #050508; color: #f8fafc;">
+              <div style="border-bottom: 2px solid #ff003f; padding-bottom: 12px; margin-bottom: 20px;">
+                <h2 style="color: #f8fafc; margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.025em;">PORTFOLIO DIRECT INBOX DISPATCH</h2>
+                <p style="color: #9496a8; margin: 4px 0 0 0; font-size: 12px; font-family: monospace;">RECEIVED VIA SPARSHGOSWAMI.DEV</p>
               </div>
               
               <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 20px; font-family: monospace;">
                 <tr>
-                  <td style="padding: 6px 0; color: #8f94a0; width: 90px; text-transform: uppercase;">Sender:</td>
-                  <td style="padding: 6px 0; font-weight: bold; color: #f3f4f6;">${name}</td>
+                  <td style="padding: 6px 0; color: #9496a8; width: 90px; text-transform: uppercase;">Sender:</td>
+                  <td style="padding: 6px 0; font-weight: bold; color: #f8fafc;">${name}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 6px 0; color: #8f94a0; text-transform: uppercase;">Email:</td>
-                  <td style="padding: 6px 0;"><a href="mailto:${email}" style="color: #e10600; text-decoration: none; font-weight: bold;">${email}</a></td>
+                  <td style="padding: 6px 0; color: #9496a8; text-transform: uppercase;">Email:</td>
+                  <td style="padding: 6px 0;"><a href="mailto:${email}" style="color: #ff003f; text-decoration: none; font-weight: bold;">${email}</a></td>
                 </tr>
                 <tr>
-                  <td style="padding: 6px 0; color: #8f94a0; text-transform: uppercase;">Topic:</td>
-                  <td style="padding: 6px 0; color: #f3f4f6;">${subject || "General Inquiry"}</td>
+                  <td style="padding: 6px 0; color: #9496a8; text-transform: uppercase;">Topic:</td>
+                  <td style="padding: 6px 0; color: #f8fafc;">${subject || "General Inquiry"}</td>
                 </tr>
               </table>
 
-              <div style="background-color: #121418; border-left: 4px solid #e10600; padding: 16px; border-radius: 4px; margin-bottom: 20px;">
-                <p style="margin: 0; color: #f3f4f6; white-space: pre-wrap; font-size: 14px; line-height: 1.6;">${message}</p>
+              <div style="background-color: #0f101a; border-left: 4px solid #ff003f; padding: 16px; border-radius: 4px; margin-bottom: 20px;">
+                <p style="margin: 0; color: #f8fafc; white-space: pre-wrap; font-size: 14px; line-height: 1.6;">${message}</p>
               </div>
 
-              <div style="padding-top: 16px; border-top: 1px solid #232730; font-size: 12px; color: #8f94a0; text-align: center; font-family: monospace;">
+              <div style="padding-top: 16px; border-top: 1px solid #1a1c2e; font-size: 12px; color: #9496a8; text-align: center; font-family: monospace;">
                 Hit Reply in your email client to directly email ${name} (${email}).
               </div>
             </div>

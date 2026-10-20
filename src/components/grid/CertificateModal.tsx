@@ -37,15 +37,15 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl bg-[#0b0c0e] border-2 border-[#232730] p-4 sm:p-6 md:p-8 telemetry-bracket shadow-2xl max-h-[92vh] flex flex-col"
+        className="relative w-full max-w-4xl bg-[#050508] border-2 border-[#1a1c2e] p-4 sm:p-6 md:p-8 telemetry-bracket shadow-2xl max-h-[92vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Control Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#232730] pb-4 mb-4 gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#1a1c2e] pb-4 mb-4 gap-3">
           <div>
             <div className="flex items-center space-x-2">
-              <span className="w-2 h-4 bg-[#e10600]" />
-              <span className="font-mono text-[10px] sm:text-xs text-[#e10600] font-bold uppercase tracking-widest">
+              <span className="w-2 h-4 bg-[#ff003f]" />
+              <span className="font-mono text-[10px] sm:text-xs text-[#ff003f] font-bold uppercase tracking-widest">
                 VERIFIED CREDENTIAL // {certificate.issuer.toUpperCase()}
               </span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
@@ -53,7 +53,7 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
                 AUTHENTICATED
               </span>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-[#f3f4f6] mt-1 font-sans">
+            <h3 className="text-lg sm:text-xl font-bold text-[#f8fafc] mt-1 font-sans">
               {certificate.title}
             </h3>
           </div>
@@ -65,7 +65,7 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
                 href={certificate.verifyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-1.5 bg-[#e10600] hover:bg-[#b80500] text-white font-bold transition-colors inline-flex items-center space-x-1 border border-[#e10600]"
+                className="px-3.5 py-1.5 bg-[#ff003f] hover:bg-[#ff2a5b] text-white font-bold transition-colors inline-flex items-center space-x-1 border border-[#ff003f] shadow-md shadow-[#ff003f]/20"
               >
                 <span>VERIFY ONLINE</span>
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,7 +77,7 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
             <button
               type="button"
               onClick={onClose}
-              className="px-3 py-1.5 border border-[#232730] hover:border-[#e10600] text-[#8f94a0] hover:text-white transition-colors bg-[#14161b]"
+              className="px-3 py-1.5 border border-[#1a1c2e] hover:border-[#ff003f] text-[#9496a8] hover:text-white transition-colors bg-[#0a0b12]"
               aria-label="Close modal"
             >
               ESC &times;
@@ -86,14 +86,14 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
         </div>
 
         {/* View Switcher */}
-        <div className="flex border-b border-[#232730] mb-4 font-mono text-xs">
+        <div className="flex border-b border-[#1a1c2e] mb-4 font-mono text-xs">
           <button
             type="button"
             onClick={() => setActiveTab("certificate")}
             className={`px-4 py-2 font-bold transition-colors border-b-2 -mb-[1px] ${
               activeTab === "certificate"
-                ? "border-[#e10600] text-white bg-[#14161b]"
-                : "border-transparent text-[#8f94a0] hover:text-[#f3f4f6]"
+                ? "border-[#ff003f] text-white bg-[#0a0b12]"
+                : "border-transparent text-[#9496a8] hover:text-[#f8fafc]"
             }`}
           >
             OFFICIAL CERTIFICATE
@@ -103,8 +103,8 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
             onClick={() => setActiveTab("syllabus")}
             className={`px-4 py-2 font-bold transition-colors border-b-2 -mb-[1px] ${
               activeTab === "syllabus"
-                ? "border-[#e10600] text-white bg-[#14161b]"
-                : "border-transparent text-[#8f94a0] hover:text-[#f3f4f6]"
+                ? "border-[#ff003f] text-white bg-[#0a0b12]"
+                : "border-transparent text-[#9496a8] hover:text-[#f8fafc]"
             }`}
           >
             VERIFIED DOMAINS & SYLLABUS
@@ -112,7 +112,7 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="flex-1 overflow-y-auto min-h-0 bg-[#070809] border border-[#232730] p-3 sm:p-5">
+        <div className="flex-1 overflow-y-auto min-h-0 bg-[#000000] border border-[#1a1c2e] p-3 sm:p-5">
           {activeTab === "certificate" ? (
             <div className="w-full flex justify-center">
               {/* 1. UDEMY CERTIFICATE LAYOUT */}
@@ -343,49 +343,49 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
             </div>
           ) : (
             /* Syllabus / Topics Tab */
-            <div className="p-6 space-y-6 text-xs sm:text-sm font-mono text-[#8f94a0]">
-              <div className="p-4 bg-[#14161b] border border-[#232730] space-y-2">
-                <span className="text-[#e10600] font-bold uppercase block">
+            <div className="p-6 space-y-6 text-xs sm:text-sm font-mono text-[#9496a8]">
+              <div className="p-4 bg-[#0a0b12] border border-[#1a1c2e] space-y-2">
+                <span className="text-[#ff003f] font-bold uppercase block">
                   CURRICULUM SPECIFICATION
                 </span>
-                <h4 className="text-base font-bold text-[#f3f4f6]">
+                <h4 className="text-base font-bold text-[#f8fafc]">
                   {certificate.title}
                 </h4>
-                <div className="text-xs text-[#8f94a0]">
-                  Issued by: <span className="text-[#f3f4f6]">{certificate.issuer}</span> {"//"} Date: <span className="text-[#10b981]">{certificate.issueDate}</span>
+                <div className="text-xs text-[#9496a8]">
+                  Issued by: <span className="text-[#f8fafc]">{certificate.issuer}</span> {"//"} Date: <span className="text-[#10b981]">{certificate.issueDate}</span>
                 </div>
                 {certificate.hours && (
-                  <div className="text-xs text-[#e10600]">
+                  <div className="text-xs text-[#818cf8]">
                     Verified Hours: {certificate.hours}
                   </div>
                 )}
               </div>
 
               <div>
-                <span className="text-[#f3f4f6] font-bold uppercase block mb-3">
+                <span className="text-[#f8fafc] font-bold uppercase block mb-3">
                   VERIFIED TOPICS & DEMONSTRATED COMPETENCIES:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {certificate.topics.map((topic, i) => (
                     <div
                       key={topic}
-                      className="p-3 bg-[#121418] border border-[#232730] flex items-center space-x-2"
+                      className="p-3 bg-[#0f101a] border border-[#1a1c2e] flex items-center space-x-2"
                     >
-                      <span className="text-[#10b981] font-bold">0{i + 1}.</span>
-                      <span className="text-[#f3f4f6] font-sans">{topic}</span>
+                      <span className="text-[#818cf8] font-bold">0{i + 1}.</span>
+                      <span className="text-[#f8fafc] font-sans">{topic}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {certificate.verifyUrl && (
-                <div className="pt-4 border-t border-[#232730] flex items-center justify-between">
+                <div className="pt-4 border-t border-[#1a1c2e] flex items-center justify-between">
                   <span>Third-party institutional verification available.</span>
                   <a
                     href={certificate.verifyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-[#e10600] text-white font-bold uppercase transition-colors"
+                    className="px-4 py-2 bg-[#ff003f] hover:bg-[#ff2a5b] text-white font-bold uppercase transition-colors shadow-md shadow-[#ff003f]/20"
                   >
                     OPEN VERIFICATION URL &rarr;
                   </a>
@@ -396,14 +396,14 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
         </div>
 
         {/* Modal Bottom Bar */}
-        <div className="flex items-center justify-between pt-3 font-mono text-[10px] sm:text-xs text-[#8f94a0]">
+        <div className="flex items-center justify-between pt-3 font-mono text-[10px] sm:text-xs text-[#9496a8]">
           <span>
             SPARSH GOSWAMI // {certificate.credentialId || "VERIFIED"}
           </span>
           <button
             type="button"
             onClick={onClose}
-            className="text-[#e10600] hover:underline uppercase font-bold"
+            className="text-[#ff003f] hover:underline uppercase font-bold"
           >
             CLOSE PREVIEW
           </button>

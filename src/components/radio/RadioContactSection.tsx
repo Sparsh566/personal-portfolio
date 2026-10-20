@@ -87,48 +87,48 @@ export function RadioContactSection() {
   return (
     <section
       id="radio"
-      className="py-24 bg-[#070809] border-b border-[#232730] relative overflow-hidden"
+      className="py-24 bg-[#000000] border-b border-[#1a1c2e] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center space-x-3 mb-8">
-          <span className="w-2 h-6 bg-[#e10600]" />
-          <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase font-bold">
+          <span className="w-2 h-6 bg-[#ff003f]" />
+          <span className="font-mono text-xs tracking-widest text-[#ff003f] uppercase font-bold">
             CONTACT
           </span>
-          <span className="font-mono text-xs text-[#8f94a0] uppercase">
+          <span className="font-mono text-xs text-[#9496a8] uppercase">
             DIRECT INBOX DISPATCH // SPARSH GOSWAMI
           </span>
         </div>
 
-        <div className="border border-[#232730] bg-[#0b0c0e] p-6 sm:p-10 telemetry-bracket">
+        <div className="border border-[#1a1c2e] bg-[#050508] p-6 sm:p-10 telemetry-bracket">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Left Column: Direct Message Web Form */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#f3f4f6] tracking-tight">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#f8fafc] tracking-tight">
                   Get in Touch
                 </h2>
-                <p className="text-sm sm:text-base text-[#8f94a0] leading-relaxed mt-2">
-                  Send a message directly to my email inbox (<span className="text-[#f3f4f6] font-mono">{siteConfig.email}</span>). Whether it is an internship
+                <p className="text-sm sm:text-base text-[#9496a8] leading-relaxed mt-2">
+                  Send a message directly to my email inbox (<span className="text-[#818cf8] font-mono">{siteConfig.email}</span>). Whether it is an internship
                   opportunity, technical collaboration, or project inquiry, I will get back to you promptly.
                 </p>
               </div>
 
               {/* Success Notification Banner */}
               {status === "success" && (
-                <div className="p-5 bg-[#14161b] border border-[#10b981] space-y-3 animate-in fade-in duration-200">
+                <div className="p-5 bg-[#0a0b12] border border-[#10b981] space-y-3 animate-in fade-in duration-200">
                   <div className="flex items-center space-x-2 text-[#10b981] font-mono text-xs font-bold">
                     <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
                     <span>STATUS: MESSAGE DELIVERED TO INBOX</span>
                   </div>
-                  <p className="text-sm text-[#f3f4f6] leading-relaxed">
+                  <p className="text-sm text-[#f8fafc] leading-relaxed">
                     {responseMessage}
                   </p>
                   <button
                     type="button"
                     onClick={() => setStatus("idle")}
-                    className="px-4 py-2 border border-[#373e4d] hover:border-[#10b981] text-xs font-mono text-[#f3f4f6] uppercase tracking-wider bg-[#0b0c0e] transition-colors cursor-pointer"
+                    className="px-4 py-2 border border-[#2b2e4a] hover:border-[#10b981] text-xs font-mono text-[#f8fafc] uppercase tracking-wider bg-[#050508] transition-colors cursor-pointer"
                   >
                     SEND ANOTHER MESSAGE
                   </button>
@@ -137,12 +137,12 @@ export function RadioContactSection() {
 
               {/* Smart Fallback & Error Banner */}
               {status === "error" && (
-                <div className="p-5 bg-[#1e1012] border-2 border-[#e10600] space-y-4 animate-in fade-in duration-200">
-                  <div className="flex items-center space-x-2 text-[#e10600] font-mono text-xs font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#e10600]" />
+                <div className="p-5 bg-[#19080c] border-2 border-[#ff003f] space-y-4 animate-in fade-in duration-200">
+                  <div className="flex items-center space-x-2 text-[#ff003f] font-mono text-xs font-bold">
+                    <span className="w-2 h-2 rounded-full bg-[#ff003f]" />
                     <span>DIRECT RELAY BACKUP TRIGGERED</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#f3f4f6] leading-relaxed font-sans">
+                  <p className="text-xs sm:text-sm text-[#f8fafc] leading-relaxed font-sans">
                     {responseMessage}
                   </p>
 
@@ -151,7 +151,7 @@ export function RadioContactSection() {
                       href={gmailComposeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 bg-[#e10600] hover:bg-[#b80500] text-white font-bold uppercase transition-colors inline-flex items-center space-x-1.5"
+                      className="px-4 py-2 bg-[#ff003f] hover:bg-[#ff2a5b] text-white font-bold uppercase transition-colors inline-flex items-center space-x-1.5 shadow-md shadow-[#ff003f]/25"
                     >
                       <span>OPEN IN GMAIL [1-CLICK]</span>
                       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -161,7 +161,7 @@ export function RadioContactSection() {
 
                     <a
                       href={mailtoUrl}
-                      className="px-4 py-2 border border-[#373e4d] hover:border-white text-[#f3f4f6] font-bold uppercase transition-colors bg-[#0b0c0e]"
+                      className="px-4 py-2 border border-[#2b2e4a] hover:border-white text-[#f8fafc] font-bold uppercase transition-colors bg-[#050508]"
                     >
                       OPEN MAIL APP (MAILTO)
                     </a>
@@ -169,7 +169,7 @@ export function RadioContactSection() {
                     <button
                       type="button"
                       onClick={handleCopyFormattedMessage}
-                      className="px-3.5 py-2 border border-[#373e4d] hover:border-[#8f94a0] text-[#8f94a0] hover:text-white uppercase transition-colors bg-[#0b0c0e]"
+                      className="px-3.5 py-2 border border-[#2b2e4a] hover:border-[#9496a8] text-[#9496a8] hover:text-white uppercase transition-colors bg-[#050508]"
                     >
                       {copiedMessage ? "MESSAGE COPIED!" : "COPY MESSAGE"}
                     </button>
@@ -183,8 +183,8 @@ export function RadioContactSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name Input */}
                     <div>
-                      <label htmlFor="contact-name" className="text-[#8f94a0] uppercase block mb-1.5 font-bold">
-                        YOUR NAME <span className="text-[#e10600]">*</span>
+                      <label htmlFor="contact-name" className="text-[#9496a8] uppercase block mb-1.5 font-bold">
+                        YOUR NAME <span className="text-[#ff003f]">*</span>
                       </label>
                       <input
                         id="contact-name"
@@ -193,14 +193,14 @@ export function RadioContactSection() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        className="w-full px-3.5 py-2.5 bg-[#121418] border border-[#232730] text-[#f3f4f6] placeholder-[#4a5568] focus:border-[#e10600] focus:outline-none transition-colors font-sans text-sm"
+                        className="w-full px-3.5 py-2.5 bg-[#0a0b12] border border-[#1a1c2e] text-[#f8fafc] placeholder-[#4a5568] focus:border-[#ff003f] focus:outline-none transition-colors font-sans text-sm"
                       />
                     </div>
 
                     {/* Email Input */}
                     <div>
-                      <label htmlFor="contact-email" className="text-[#8f94a0] uppercase block mb-1.5 font-bold">
-                        YOUR EMAIL <span className="text-[#e10600]">*</span>
+                      <label htmlFor="contact-email" className="text-[#9496a8] uppercase block mb-1.5 font-bold">
+                        YOUR EMAIL <span className="text-[#ff003f]">*</span>
                       </label>
                       <input
                         id="contact-email"
@@ -209,14 +209,14 @@ export function RadioContactSection() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@example.com"
-                        className="w-full px-3.5 py-2.5 bg-[#121418] border border-[#232730] text-[#f3f4f6] placeholder-[#4a5568] focus:border-[#e10600] focus:outline-none transition-colors font-sans text-sm"
+                        className="w-full px-3.5 py-2.5 bg-[#0a0b12] border border-[#1a1c2e] text-[#f8fafc] placeholder-[#4a5568] focus:border-[#ff003f] focus:outline-none transition-colors font-sans text-sm"
                       />
                     </div>
                   </div>
 
                   {/* Subject Input */}
                   <div>
-                    <label htmlFor="contact-subject" className="text-[#8f94a0] uppercase block mb-1.5 font-bold">
+                    <label htmlFor="contact-subject" className="text-[#9496a8] uppercase block mb-1.5 font-bold">
                       SUBJECT / TOPIC
                     </label>
                     <input
@@ -225,14 +225,14 @@ export function RadioContactSection() {
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       placeholder="Internship Opportunity / Project Collaboration / Inquiry"
-                      className="w-full px-3.5 py-2.5 bg-[#121418] border border-[#232730] text-[#f3f4f6] placeholder-[#4a5568] focus:border-[#e10600] focus:outline-none transition-colors font-sans text-sm"
+                      className="w-full px-3.5 py-2.5 bg-[#0a0b12] border border-[#1a1c2e] text-[#f8fafc] placeholder-[#4a5568] focus:border-[#ff003f] focus:outline-none transition-colors font-sans text-sm"
                     />
                   </div>
 
                   {/* Message Textarea */}
                   <div>
-                    <label htmlFor="contact-message" className="text-[#8f94a0] uppercase block mb-1.5 font-bold">
-                      MESSAGE <span className="text-[#e10600]">*</span>
+                    <label htmlFor="contact-message" className="text-[#9496a8] uppercase block mb-1.5 font-bold">
+                      MESSAGE <span className="text-[#ff003f]">*</span>
                     </label>
                     <textarea
                       id="contact-message"
@@ -241,7 +241,7 @@ export function RadioContactSection() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Hi Sparsh, I came across your portfolio and would love to connect regarding..."
-                      className="w-full px-3.5 py-2.5 bg-[#121418] border border-[#232730] text-[#f3f4f6] placeholder-[#4a5568] focus:border-[#e10600] focus:outline-none transition-colors font-sans text-sm resize-none"
+                      className="w-full px-3.5 py-2.5 bg-[#0a0b12] border border-[#1a1c2e] text-[#f8fafc] placeholder-[#4a5568] focus:border-[#ff003f] focus:outline-none transition-colors font-sans text-sm resize-none"
                     />
                   </div>
 
@@ -250,7 +250,7 @@ export function RadioContactSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-8 py-3.5 bg-[#e10600] hover:bg-[#b80500] disabled:bg-[#551010] text-white font-mono text-xs uppercase tracking-wider font-bold transition-all inline-flex items-center space-x-2 border border-[#e10600] shadow-lg shadow-[#e10600]/20 cursor-pointer"
+                      className="px-8 py-3.5 bg-[#ff003f] hover:bg-[#ff2a5b] disabled:bg-[#4a0815] text-white font-mono text-xs uppercase tracking-wider font-bold transition-all inline-flex items-center space-x-2 border border-[#ff003f] shadow-lg shadow-[#ff003f]/25 cursor-pointer"
                     >
                       {isSubmitting ? (
                         <>
@@ -282,11 +282,11 @@ export function RadioContactSection() {
                       href={gmailComposeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-3.5 border border-[#373e4d] hover:border-white text-[#f3f4f6] font-mono text-xs uppercase tracking-wider font-bold transition-colors inline-flex items-center space-x-2 bg-[#121418]"
+                      className="px-5 py-3.5 border border-[#2b2e4a] hover:border-[#6366f1] text-[#f8fafc] font-mono text-xs uppercase tracking-wider font-bold transition-colors inline-flex items-center space-x-2 bg-[#0a0b12]"
                       title="Open message in Gmail compose window directly"
                     >
                       <span>SEND VIA GMAIL</span>
-                      <svg className="w-3.5 h-3.5 text-[#8f94a0]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-3.5 h-3.5 text-[#9496a8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
@@ -298,11 +298,11 @@ export function RadioContactSection() {
             {/* Right Column: Direct Contact Info & Verification Badge */}
             <div className="lg:col-span-5 space-y-6">
               {/* Direct Email Quick Box */}
-              <div className="p-5 bg-[#14161b] border border-[#232730] space-y-3 font-mono">
-                <span className="text-[10px] text-[#8f94a0] uppercase block tracking-wider font-bold">
+              <div className="p-5 bg-[#0a0b12] border border-[#1a1c2e] space-y-3 font-mono">
+                <span className="text-[10px] text-[#9496a8] uppercase block tracking-wider font-bold">
                   DIRECT EMAIL INBOX
                 </span>
-                <div className="text-base font-bold text-[#f3f4f6] break-all">
+                <div className="text-base font-bold text-[#818cf8] break-all">
                   {siteConfig.email}
                 </div>
 
@@ -310,7 +310,7 @@ export function RadioContactSection() {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="w-full py-2.5 border border-[#373e4d] hover:border-[#e10600] text-xs text-[#f3f4f6] uppercase tracking-wider transition-colors bg-[#0b0c0e] font-bold cursor-pointer"
+                    className="w-full py-2.5 border border-[#2b2e4a] hover:border-[#6366f1] text-xs text-[#f8fafc] uppercase tracking-wider transition-colors bg-[#050508] font-bold cursor-pointer"
                   >
                     {copiedEmail ? "COPIED TO CLIPBOARD" : "COPY EMAIL"}
                   </button>
@@ -319,7 +319,7 @@ export function RadioContactSection() {
                     href={gmailComposeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 border border-[#e10600]/80 bg-[#e10600]/10 hover:bg-[#e10600] text-xs text-center text-white uppercase tracking-wider transition-colors font-bold inline-flex items-center justify-center space-x-1"
+                    className="w-full py-2.5 border border-[#ff003f]/80 bg-[#ff003f]/10 hover:bg-[#ff003f] text-xs text-center text-white uppercase tracking-wider transition-colors font-bold inline-flex items-center justify-center space-x-1 shadow-sm shadow-[#ff003f]/20"
                   >
                     <span>OPEN GMAIL</span>
                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -330,23 +330,23 @@ export function RadioContactSection() {
               </div>
 
               {/* Status / Communication Specs */}
-              <div className="p-5 bg-[#121418] border border-[#232730] font-mono text-xs space-y-3">
-                <div className="flex items-center justify-between border-b border-[#232730] pb-2 text-[#8f94a0]">
+              <div className="p-5 bg-[#0f101a] border border-[#1a1c2e] font-mono text-xs space-y-3">
+                <div className="flex items-center justify-between border-b border-[#1a1c2e] pb-2 text-[#9496a8]">
                   <div className="flex items-center space-x-2">
                     <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
-                    <span className="text-[#f3f4f6] font-semibold">INBOX STATUS</span>
+                    <span className="text-[#f8fafc] font-semibold">INBOX STATUS</span>
                   </div>
                   <span className="text-[#10b981]">ACCEPTING INQUIRIES</span>
                 </div>
 
-                <div className="space-y-2 text-[#8f94a0]">
+                <div className="space-y-2 text-[#9496a8]">
                   <div className="flex justify-between">
                     <span>RECIPIENT:</span>
-                    <span className="text-[#f3f4f6] font-bold">SPARSH GOSWAMI</span>
+                    <span className="text-[#f8fafc] font-bold">SPARSH GOSWAMI</span>
                   </div>
                   <div className="flex justify-between">
                     <span>LOCATION:</span>
-                    <span className="text-[#f3f4f6]">NAGPUR, INDIA</span>
+                    <span className="text-[#f8fafc]">NAGPUR, INDIA</span>
                   </div>
                   <div className="flex justify-between">
                     <span>RESPONSE TIME:</span>
@@ -354,16 +354,16 @@ export function RadioContactSection() {
                   </div>
                   <div className="flex justify-between">
                     <span>AVAILABILITY:</span>
-                    <span className="text-[#f3f4f6]">OPEN TO OPPORTUNITIES</span>
+                    <span className="text-[#818cf8]">OPEN TO OPPORTUNITIES</span>
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-[#232730] flex flex-wrap gap-2">
+                <div className="pt-3 border-t border-[#1a1c2e] flex flex-wrap gap-2">
                   <a
                     href={siteConfig.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center py-2 border border-[#232730] hover:border-[#8f94a0] text-[#8f94a0] hover:text-white transition-colors bg-[#0b0c0e]"
+                    className="flex-1 text-center py-2 border border-[#1a1c2e] hover:border-[#6366f1] text-[#9496a8] hover:text-white transition-colors bg-[#050508]"
                   >
                     GITHUB
                   </a>
@@ -371,7 +371,7 @@ export function RadioContactSection() {
                     href={siteConfig.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center py-2 border border-[#232730] hover:border-[#8f94a0] text-[#8f94a0] hover:text-white transition-colors bg-[#0b0c0e]"
+                    className="flex-1 text-center py-2 border border-[#1a1c2e] hover:border-[#6366f1] text-[#9496a8] hover:text-white transition-colors bg-[#050508]"
                   >
                     LINKEDIN
                   </a>

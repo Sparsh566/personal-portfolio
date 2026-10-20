@@ -37,14 +37,14 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl bg-[#0b0c0e] border border-[#232730] p-6 max-h-[90vh] overflow-y-auto telemetry-bracket"
+        className="relative w-full max-w-3xl bg-[#050508] border border-[#1a1c2e] p-6 max-h-[90vh] overflow-y-auto telemetry-bracket shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-start justify-between border-b border-[#232730] pb-4">
+        <div className="flex items-start justify-between border-b border-[#1a1c2e] pb-4">
           <div>
             <div className="flex items-center space-x-2 font-mono text-xs">
-              <span className="text-[#e10600] font-bold uppercase">
+              <span className="text-[#ff003f] font-bold uppercase">
                 {project.category}
               </span>
               {project.patentId && (
@@ -55,11 +55,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
             <h3
               id="modal-title"
-              className="text-2xl sm:text-3xl font-extrabold text-[#f3f4f6] mt-1"
+              className="text-2xl sm:text-3xl font-extrabold text-[#f8fafc] mt-1"
             >
               {project.title}
             </h3>
-            <p className="text-xs font-mono text-[#8f94a0] mt-1">
+            <p className="text-xs font-mono text-[#9496a8] mt-1">
               {project.tagline}
             </p>
           </div>
@@ -67,7 +67,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="p-1 text-[#8f94a0] hover:text-[#f3f4f6] border border-[#232730] hover:border-[#e10600] transition-colors"
+            className="p-1 text-[#9496a8] hover:text-[#f8fafc] border border-[#1a1c2e] hover:border-[#6366f1] transition-colors"
             aria-label="Close project modal"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -80,10 +80,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         <div className="py-6 space-y-6">
           {/* Summary Narrative */}
           <div>
-            <span className="font-mono text-xs tracking-wider text-[#8f94a0] uppercase block mb-2">
+            <span className="font-mono text-xs tracking-wider text-[#9496a8] uppercase block mb-2 font-bold">
               SYSTEM OVERVIEW
             </span>
-            <p className="text-sm text-[#f3f4f6] leading-relaxed">
+            <p className="text-sm text-[#f8fafc] leading-relaxed">
               {project.summary}
             </p>
           </div>
@@ -91,7 +91,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Interactive F1 Telemetry Component */}
           {project.specialType === "f1-telemetry" && (
             <div>
-              <span className="font-mono text-xs tracking-wider text-[#e10600] uppercase block mb-2">
+              <span className="font-mono text-xs tracking-wider text-[#ff003f] uppercase block mb-2 font-bold">
                 LIVE TELEMETRY TRACES
               </span>
               <F1TelemetryViewer />
@@ -101,16 +101,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Engineering Features */}
           {project.features && project.features.length > 0 && (
             <div>
-              <span className="font-mono text-xs tracking-wider text-[#8f94a0] uppercase block mb-2">
+              <span className="font-mono text-xs tracking-wider text-[#818cf8] uppercase block mb-2 font-bold">
                 KEY ARCHITECTURAL HIGHLIGHTS
               </span>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {project.features.map((feature) => (
                   <li
                     key={feature}
-                    className="p-2.5 bg-[#14161b] border border-[#232730] text-xs text-[#8f94a0] flex items-start space-x-2"
+                    className="p-2.5 bg-[#0f101a] border border-[#1a1c2e] text-xs text-[#9496a8] flex items-start space-x-2"
                   >
-                    <span className="text-[#e10600] font-mono mt-0.5">/</span>
+                    <span className="text-[#ff003f] font-mono mt-0.5">/</span>
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -120,14 +120,14 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* Tech Stack Chips */}
           <div>
-            <span className="font-mono text-xs tracking-wider text-[#8f94a0] uppercase block mb-2">
+            <span className="font-mono text-xs tracking-wider text-[#9496a8] uppercase block mb-2 font-bold">
               ENGINEERING STACK
             </span>
             <div className="flex flex-wrap gap-1.5">
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 bg-[#14161b] border border-[#232730] text-[11px] font-mono text-[#8f94a0]"
+                  className="px-2.5 py-1 bg-[#0f101a] border border-[#1a1c2e] text-[11px] font-mono text-[#9496a8] hover:border-[#6366f1]/50 hover:text-[#818cf8] transition-colors"
                 >
                   {tech}
                 </span>
@@ -137,8 +137,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Modal Footer Links */}
-        <div className="flex items-center justify-between pt-4 border-t border-[#232730]">
-          <span className="font-mono text-[11px] text-[#8f94a0]">
+        <div className="flex items-center justify-between pt-4 border-t border-[#1a1c2e]">
+          <span className="font-mono text-[11px] text-[#9496a8]">
             STATUS: PRODUCTION ARCHIVE
           </span>
 
@@ -148,7 +148,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 href={project.links.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-[#e10600] hover:bg-[#b80500] text-white font-mono text-xs uppercase tracking-wider font-bold transition-colors"
+                className="px-4 py-2 bg-[#ff003f] hover:bg-[#ff2a5b] text-white font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-md shadow-[#ff003f]/25 border border-[#ff003f]"
               >
                 LIVE DEMO
               </a>
@@ -158,7 +158,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 border border-[#373e4d] hover:border-[#e10600] text-[#f3f4f6] font-mono text-xs uppercase tracking-wider transition-colors bg-[#121418]"
+                className="px-4 py-2 border border-[#2b2e4a] hover:border-[#6366f1] text-[#f8fafc] hover:text-[#818cf8] font-mono text-xs uppercase tracking-wider transition-colors bg-[#0a0b12]"
               >
                 VIEW CODE
               </a>

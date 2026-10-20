@@ -72,22 +72,22 @@ export function TelemetrySection() {
   return (
     <section
       id="telemetry"
-      className="py-24 bg-[#070809] border-b border-[#232730] relative overflow-hidden"
+      className="py-24 bg-[#000000] border-b border-[#1a1c2e] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <div className="flex items-center space-x-3 mb-2">
-              <span className="w-2 h-6 bg-[#e10600]" />
-              <span className="font-mono text-xs tracking-widest text-[#e10600] uppercase font-bold">
+              <span className="w-2 h-6 bg-[#ff003f] shadow-[0_0_8px_rgba(255,0,63,0.5)]" />
+              <span className="font-mono text-xs tracking-widest text-[#ff003f] uppercase font-bold">
                 TELEMETRY & CAPABILITIES
               </span>
-              <span className="font-mono text-xs text-[#8f94a0] uppercase">
+              <span className="font-mono text-xs text-[#9496a8] uppercase">
                 PIT-WALL DATA HUB
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#f3f4f6]">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#f8fafc]">
               {activeView === "skills"
                 ? "Core Competencies & Tooling"
                 : "Live Profile Viewers & Telemetry"}
@@ -101,8 +101,8 @@ export function TelemetrySection() {
               onClick={() => setActiveView("skills")}
               className={`px-4 py-2 border transition-colors ${
                 activeView === "skills"
-                  ? "border-[#e10600] bg-[#e10600] text-white font-bold"
-                  : "border-[#232730] bg-[#0b0c0e] text-[#8f94a0] hover:text-[#f3f4f6]"
+                  ? "border-[#ff003f] bg-[#ff003f] text-white font-bold shadow-md shadow-[#ff003f]/25"
+                  : "border-[#1a1c2e] bg-[#050508] text-[#9496a8] hover:text-[#f8fafc]"
               }`}
             >
               TECHNICAL SKILLS
@@ -116,7 +116,7 @@ export function TelemetrySection() {
               className={`px-4 py-2 border transition-colors flex items-center space-x-2 ${
                 activeView === "radar"
                   ? "border-[#10b981] bg-[#10b981] text-black font-bold"
-                  : "border-[#232730] bg-[#0b0c0e] text-[#10b981] hover:border-[#10b981]"
+                  : "border-[#1a1c2e] bg-[#050508] text-[#10b981] hover:border-[#10b981]"
               }`}
             >
               <span className="relative flex h-2 w-2">
@@ -138,8 +138,8 @@ export function TelemetrySection() {
                 onClick={() => setSelectedCluster("ALL")}
                 className={`px-3 py-1.5 border transition-colors ${
                   selectedCluster === "ALL"
-                    ? "border-[#e10600] bg-[#e10600] text-white font-bold"
-                    : "border-[#232730] text-[#8f94a0] hover:text-[#f3f4f6] hover:border-[#373e4d] bg-[#0b0c0e]"
+                    ? "border-[#ff003f] bg-[#ff003f] text-white font-bold shadow-sm shadow-[#ff003f]/25"
+                    : "border-[#1a1c2e] text-[#9496a8] hover:text-[#f8fafc] hover:border-[#6366f1]/60 bg-[#050508]"
                 }`}
               >
                 ALL SKILLS
@@ -153,8 +153,8 @@ export function TelemetrySection() {
                     onClick={() => setSelectedCluster(cat.cluster)}
                     className={`px-3 py-1.5 border transition-colors ${
                       isSelected
-                        ? "border-[#e10600] bg-[#e10600] text-white font-bold"
-                        : "border-[#232730] text-[#8f94a0] hover:text-[#f3f4f6] hover:border-[#373e4d] bg-[#0b0c0e]"
+                        ? "border-[#ff003f] bg-[#ff003f] text-white font-bold shadow-sm shadow-[#ff003f]/25"
+                        : "border-[#1a1c2e] text-[#9496a8] hover:text-[#f8fafc] hover:border-[#6366f1]/60 bg-[#050508]"
                     }`}
                   >
                     {cat.cluster}
@@ -168,19 +168,19 @@ export function TelemetrySection() {
               {filteredClusters.map((category) => (
                 <div
                   key={category.cluster}
-                  className="bg-[#0b0c0e] border border-[#232730] p-5 telemetry-bracket flex flex-col justify-between"
+                  className="bg-[#050508] border border-[#1a1c2e] p-5 telemetry-bracket flex flex-col justify-between hover:border-[#6366f1]/50 transition-colors"
                 >
                   <div>
                     {/* Cluster Subsystem Tag */}
-                    <div className="flex items-center justify-between border-b border-[#232730] pb-2.5 mb-4 font-mono text-[11px]">
-                      <span className="text-[#8f94a0] uppercase">
+                    <div className="flex items-center justify-between border-b border-[#1a1c2e] pb-2.5 mb-4 font-mono text-[11px]">
+                      <span className="text-[#9496a8] uppercase">
                         {category.subsystem}
                       </span>
                       <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
                     </div>
 
                     {/* Cluster Name */}
-                    <h3 className="font-mono text-sm font-bold text-[#f3f4f6] tracking-wide mb-4">
+                    <h3 className="font-mono text-sm font-bold text-[#f8fafc] tracking-wide mb-4">
                       {category.cluster}
                     </h3>
 
@@ -189,7 +189,7 @@ export function TelemetrySection() {
                       {category.items.map((skill) => (
                         <span
                           key={skill}
-                          className="px-2.5 py-1 bg-[#14161b] border border-[#232730] text-xs font-mono text-[#f3f4f6] hover:border-[#e10600] hover:text-white transition-colors"
+                          className="px-2.5 py-1 bg-[#0f101a] border border-[#1a1c2e] text-xs font-mono text-[#f8fafc] hover:border-[#6366f1] hover:text-[#818cf8] transition-colors"
                         >
                           {skill}
                         </span>
@@ -198,7 +198,7 @@ export function TelemetrySection() {
                   </div>
 
                   {/* Cluster Signal Readiness */}
-                  <div className="pt-4 mt-6 border-t border-[#232730] flex items-center justify-between font-mono text-[10px] text-[#8f94a0]">
+                  <div className="pt-4 mt-6 border-t border-[#1a1c2e] flex items-center justify-between font-mono text-[10px] text-[#9496a8]">
                     <span>SIGNAL: 100% OK</span>
                     <span className="text-[#10b981]">ONLINE</span>
                   </div>
@@ -207,14 +207,14 @@ export function TelemetrySection() {
             </div>
 
             {/* Radar Teaser Banner */}
-            <div className="mt-8 bg-[#0b0c0e] border border-[#232730] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs">
+            <div className="mt-8 bg-[#050508] border border-[#1a1c2e] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs">
               <div className="flex items-center space-x-3">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]" />
                 </span>
-                <span className="text-[#8f94a0]">
-                  <strong className="text-[#f3f4f6]">{totalCount} Viewers</strong> tracked on
+                <span className="text-[#9496a8]">
+                  <strong className="text-[#f8fafc]">{totalCount} Viewers</strong> tracked on
                   Pit-Wall Radar. Latest from{" "}
                   <span className="text-[#10b981]">
                     {latestVisitor ? `${latestVisitor.location}` : "Active Stream"}
@@ -228,7 +228,7 @@ export function TelemetrySection() {
                   setActiveView("radar");
                   fetchTelemetry();
                 }}
-                className="text-[#e10600] hover:text-white underline uppercase text-[11px] font-bold"
+                className="text-[#ff003f] hover:text-[#818cf8] underline uppercase text-[11px] font-bold transition-colors"
               >
                 Inspect Live Viewers Feed ↗
               </button>
@@ -238,9 +238,9 @@ export function TelemetrySection() {
 
         {/* View Mode: LIVE PIT-WALL RADAR */}
         {activeView === "radar" && (
-          <div className="bg-[#0b0c0e] border-2 border-[#232730] p-4 sm:p-6 md:p-8 telemetry-bracket">
+          <div className="bg-[#050508] border-2 border-[#1a1c2e] p-4 sm:p-6 md:p-8 telemetry-bracket">
             {/* Radar Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#232730] pb-4 mb-6 gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#1a1c2e] pb-4 mb-6 gap-3">
               <div>
                 <div className="flex items-center space-x-2">
                   <span className="w-2 h-4 bg-[#10b981]" />
@@ -248,7 +248,7 @@ export function TelemetrySection() {
                     LIVE STREAM // RECENT PROFILE VIEWERS
                   </span>
                 </div>
-                <p className="text-xs text-[#8f94a0] font-mono mt-1">
+                <p className="text-xs text-[#9496a8] font-mono mt-1">
                   Real-time telemetry of visitors, company networks, traffic sources, and resume downloads.
                 </p>
               </div>
@@ -258,7 +258,7 @@ export function TelemetrySection() {
                   type="button"
                   onClick={fetchTelemetry}
                   disabled={isLoading}
-                  className="px-3 py-1.5 border border-[#232730] text-[#8f94a0] hover:text-white hover:border-[#10b981] transition-colors flex items-center space-x-1"
+                  className="px-3 py-1.5 border border-[#1a1c2e] text-[#9496a8] hover:text-white hover:border-[#10b981] transition-colors flex items-center space-x-1"
                 >
                   <span className={isLoading ? "animate-spin inline-block" : ""}>↻</span>
                   <span>REFRESH FEED</span>
@@ -269,7 +269,7 @@ export function TelemetrySection() {
             {/* Current Viewer Live Node (matches email layout) */}
             {currentVisitor && (
               <div className="mb-6">
-                <div className="text-[11px] font-mono text-[#8f94a0] uppercase mb-2 flex items-center space-x-2">
+                <div className="text-[11px] font-mono text-[#9496a8] uppercase mb-2 flex items-center space-x-2">
                   <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
                   <span className="text-[#10b981] font-bold">YOUR LIVE CONNECTION NODE</span>
                   <span>(HOW YOU APPEAR ON PIT-WALL RADAR)</span>
@@ -297,24 +297,24 @@ export function TelemetrySection() {
 
             {/* Radar Metric Strips */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 font-mono text-xs">
-              <div className="bg-[#0e1014] border border-[#232730] p-3">
-                <div className="text-[#8f94a0] text-[10px] uppercase">Total Tracked</div>
-                <div className="text-xl font-bold text-[#f3f4f6]">{totalCount}</div>
+              <div className="bg-[#0a0b12] border border-[#1a1c2e] p-3">
+                <div className="text-[#9496a8] text-[10px] uppercase">Total Tracked</div>
+                <div className="text-xl font-bold text-[#f8fafc]">{totalCount}</div>
               </div>
-              <div className="bg-[#0e1014] border border-[#232730] p-3">
-                <div className="text-[#8f94a0] text-[10px] uppercase">Resume Views</div>
+              <div className="bg-[#0a0b12] border border-[#1a1c2e] p-3">
+                <div className="text-[#9496a8] text-[10px] uppercase">Resume Views</div>
                 <div className="text-xl font-bold text-[#10b981]">
                   {visitors.filter((v) => v.event === "resume_view").length + 24}
                 </div>
               </div>
-              <div className="bg-[#0e1014] border border-[#232730] p-3">
-                <div className="text-[#8f94a0] text-[10px] uppercase">Corporate Clouds</div>
-                <div className="text-xl font-bold text-[#3b82f6]">
+              <div className="bg-[#0a0b12] border border-[#1a1c2e] p-3">
+                <div className="text-[#9496a8] text-[10px] uppercase">Corporate Clouds</div>
+                <div className="text-xl font-bold text-[#6366f1]">
                   {visitors.filter((v) => v.org).length + 38}
                 </div>
               </div>
-              <div className="bg-[#0e1014] border border-[#232730] p-3">
-                <div className="text-[#8f94a0] text-[10px] uppercase">Radar Status</div>
+              <div className="bg-[#0a0b12] border border-[#1a1c2e] p-3">
+                <div className="text-[#9496a8] text-[10px] uppercase">Radar Status</div>
                 <div className="text-xl font-bold text-[#10b981] flex items-center space-x-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#10b981]" />
                   <span>STREAMING</span>
@@ -323,14 +323,14 @@ export function TelemetrySection() {
             </div>
 
             {/* Filter Tabs */}
-            <div className="flex flex-wrap gap-2 mb-6 font-mono text-xs border-b border-[#232730] pb-3">
+            <div className="flex flex-wrap gap-2 mb-6 font-mono text-xs border-b border-[#1a1c2e] pb-3">
               <button
                 type="button"
                 onClick={() => setRadarFilter("ALL")}
                 className={`px-3.5 py-1.5 transition-colors border ${
                   radarFilter === "ALL"
-                    ? "bg-[#e10600] border-[#e10600] text-white font-bold"
-                    : "border-[#232730] bg-[#0b0c0e] text-[#8f94a0] hover:text-white hover:border-[#373e4d]"
+                    ? "bg-[#ff003f] border-[#ff003f] text-white font-bold shadow-sm shadow-[#ff003f]/25"
+                    : "border-[#1a1c2e] bg-[#050508] text-[#9496a8] hover:text-white hover:border-[#6366f1]"
                 }`}
               >
                 ALL VIEWERS ({visitors.length})
@@ -341,7 +341,7 @@ export function TelemetrySection() {
                 className={`px-3.5 py-1.5 transition-colors border ${
                   radarFilter === "RESUME"
                     ? "bg-[#10b981] border-[#10b981] text-black font-bold"
-                    : "border-[#232730] bg-[#0b0c0e] text-[#8f94a0] hover:text-white hover:border-[#373e4d]"
+                    : "border-[#1a1c2e] bg-[#050508] text-[#9496a8] hover:text-white hover:border-[#10b981]"
                 }`}
               >
                 RESUME RECRUITERS
@@ -351,8 +351,8 @@ export function TelemetrySection() {
                 onClick={() => setRadarFilter("COMPANIES")}
                 className={`px-3.5 py-1.5 transition-colors border ${
                   radarFilter === "COMPANIES"
-                    ? "bg-[#3b82f6] border-[#3b82f6] text-white font-bold"
-                    : "border-[#232730] bg-[#0b0c0e] text-[#8f94a0] hover:text-white hover:border-[#373e4d]"
+                    ? "bg-[#6366f1] border-[#6366f1] text-white font-bold shadow-sm shadow-[#6366f1]/25"
+                    : "border-[#1a1c2e] bg-[#050508] text-[#9496a8] hover:text-white hover:border-[#6366f1]"
                 }`}
               >
                 COMPANIES & CLOUDS
@@ -362,7 +362,7 @@ export function TelemetrySection() {
             {/* Viewers Stream (Identical to Email Notifications) */}
             <div className="space-y-4 max-h-[750px] overflow-y-auto pr-1 custom-scrollbar">
               {filteredVisitors.length === 0 ? (
-                <div className="text-center py-12 text-[#8f94a0] font-mono text-xs border border-[#232730] bg-[#0b0c0e]">
+                <div className="text-center py-12 text-[#9496a8] font-mono text-xs border border-[#1a1c2e] bg-[#050508]">
                   No events found in this category.
                 </div>
               ) : (
