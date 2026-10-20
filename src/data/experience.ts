@@ -78,18 +78,32 @@ export const leadershipData: ExperienceItem[] = [
     tags: ["Discipline", "Leadership", "Team Operations"],
   },
   {
-    id: "hack4brahma-volunteer",
-    role: "PR Volunteer",
-    organization: "Hack4Brahma Hackathon",
+    id: "hackathon-pr-team",
+    role: "PR Team",
+    organization: "Hack4Brahma & Hack4Maha Hackathons",
     period: "Completed",
     type: "VOLUNTEER & OUTREACH",
     location: "SIT Nagpur",
-    summary: "Managed public relations, outreach, and participant support for hackathon teams.",
+    summary: "Managed public relations, community outreach, and participant engagement across hackathons.",
     bullets: [
       "Coordinated with student developers and technical mentors during hackathon sprints.",
-      "Facilitated communication channels, event outreach, and team onboarding.",
+      "Facilitated communication channels, event outreach, and team onboarding for Hack4Brahma and Hack4Maha.",
     ],
     tags: ["Public Relations", "Hackathons", "Event Operations"],
+  },
+  {
+    id: "enthusia-sponsorship",
+    role: "Sponsorship Team",
+    organization: "Enthusia 5.0 (College Cultural & Technical Fest)",
+    period: "Completed",
+    type: "OUTREACH & SPONSORSHIP",
+    location: "Symbiosis Institute of Technology",
+    summary: "Secured corporate partnerships and funding for the annual college cultural and technical fest.",
+    bullets: [
+      "Pitched fest sponsorship packages to industry partners and local businesses.",
+      "Coordinated sponsor deliverables, branding visibility, and event agreements.",
+    ],
+    tags: ["Sponsorship", "Outreach", "Negotiation", "Event Management"],
   },
 ];
 

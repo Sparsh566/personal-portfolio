@@ -191,7 +191,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   CANDIDATE SUMMARY
                 </span>
                 <p className="text-base text-[#f8fafc]">
-                  {siteConfig.degree} student at {siteConfig.educationInstitute} with demonstrated expertise in AI/ML engineering, high-performance software systems, IoT security architectures, and 2 published Indian patents.
+                  AI and software engineering student with hands-on experience building RAG pipelines, agentic AI backends, computer vision systems, and full-stack web applications using Python, FastAPI, PostgreSQL, and React. Co-inventor on two published Indian patents and Top 30 national finalist at the Union Bank of India IDEA 2.0 Hackathon.
                 </p>
               </div>
 
@@ -209,7 +209,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                     B.Tech CSE (Artificial Intelligence & Machine Learning)
                   </div>
                   <div className="text-[11px] text-[#9496a8]">
-                    Current Standing: 3rd Year (Class of 2026) // Nagpur, India
+                    Current Standing: 2024 – Present (Class of 2028) // Nagpur, India
                   </div>
                 </div>
 
@@ -219,13 +219,13 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                     OFFICIAL PATENTS
                   </span>
                   <div className="text-sm font-bold text-[#f8fafc]">
-                    02 Published Indian Patents
+                    02 Published Indian Patents (Co-Inventor)
                   </div>
                   <div className="text-[#9496a8]">
-                    • Smart Gas Detecting Exploration Rover
+                    • Smart Gas Detecting Rover (App. No. 202521125538 A)
                   </div>
                   <div className="text-[#9496a8]">
-                    • ESP32-Based Hardware Firewall & Network Defense
+                    • Blockchain-Based Tender Management System (App. No. 202621072831 A)
                   </div>
                 </div>
               </div>
@@ -235,23 +235,29 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 <span className="text-[#ff003f] font-bold uppercase tracking-wider block">
                   TECHNICAL SKILL MATRIX
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   <div className="p-3 bg-[#0f101a] border border-[#1a1c2e]">
                     <span className="text-[#f8fafc] font-bold block mb-1">LANGUAGES</span>
                     <span className="text-[#9496a8] text-[11px] leading-relaxed">
-                      Python, TypeScript, JavaScript, C++, SQL, Go
+                      Python, C, JavaScript, TypeScript, SQL, HTML/CSS
                     </span>
                   </div>
                   <div className="p-3 bg-[#0f101a] border border-[#1a1c2e]">
-                    <span className="text-[#f8fafc] font-bold block mb-1">AI / ML & SYSTEMS</span>
+                    <span className="text-[#f8fafc] font-bold block mb-1">AI / ML & VISION</span>
                     <span className="text-[#9496a8] text-[11px] leading-relaxed">
-                      PyTorch, TensorFlow, Scikit-learn, LangChain, OpenCV
+                      RAG, Generative AI, AI Agents, FAISS, pgvector, OpenCV, YOLOv8, Scikit-learn
                     </span>
                   </div>
                   <div className="p-3 bg-[#0f101a] border border-[#1a1c2e]">
-                    <span className="text-[#f8fafc] font-bold block mb-1">WEB & CLOUD</span>
+                    <span className="text-[#f8fafc] font-bold block mb-1">WEB & BACKEND</span>
                     <span className="text-[#9496a8] text-[11px] leading-relaxed">
-                      Next.js, React, Node.js, Fastify, Docker, PostgreSQL, Redis
+                      FastAPI, React, Next.js, Node.js, REST APIs, Streamlit
+                    </span>
+                  </div>
+                  <div className="p-3 bg-[#0f101a] border border-[#1a1c2e]">
+                    <span className="text-[#f8fafc] font-bold block mb-1">CLOUD, WEB3 & IOT</span>
+                    <span className="text-[#9496a8] text-[11px] leading-relaxed">
+                      Bedrock, S3, Athena, PostgreSQL, MySQL, Flow Blockchain, IPFS, ESP32
                     </span>
                   </div>
                 </div>

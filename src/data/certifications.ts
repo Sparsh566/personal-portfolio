@@ -107,4 +107,24 @@ export const certificationCatalog: CertificationItem[] = [
       "Machine Learning Foundations",
     ],
   },
+  {
+    id: "redhat-system-admin",
+    type: "redhat",
+    title: "Red Hat System Administration I (RH124 - RHA) - Ver. 10",
+    issuer: "Red Hat Training and Certification",
+    institution: "Symbiosis Institute of Technology, Nagpur",
+    issueDate: "2025",
+    credentialId: "RH124-RHA-V10",
+    signatory: {
+      name: "Karl Reynolds",
+      title: "Senior Director, Red Hat Training & Certification: Global Sales And Delivery",
+      organization: "Red Hat Academy",
+    },
+    topics: [
+      "Linux System Administration Essentials",
+      "Command Line Management & Shell Tools",
+      "Storage, File Systems & Permissions",
+      "Service Management & Enterprise Automation",
+    ],
+  },
 ];
